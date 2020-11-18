@@ -41,10 +41,11 @@ FetchContent_Declare(
 FetchContent_GetProperties(catch2)
 if(NOT catch2_POPULATED)
     FetchContent_Populate(catch2)
-    add_library(catch2 INTERFACE)
     #add_library(catch2 INTERFACE src/core/histogram.cpp include/core/histogram.h)
 
-    target_include_directories(catch2 INTERFACE ${catch2_SOURCE_DIR}/single_include)
+    add_library(catch2 INTERFACE)
+
+    #target_include_directories(catch2 INTERFACE ${catch2_SOURCE_DIR}/single_include)
 endif()
 
 get_filename_component(CINDER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
@@ -53,7 +54,7 @@ get_filename_component(APP_PATH "${CMAKE_CURRENT_SOURCE_DIR}/" ABSOLUTE)
 
 include("${CINDER_PATH}/proj/cmake/modules/cinderMakeApp.cmake")
 
-list(APPEND CORE_SOURCE_FILES src/core/ball.cpp src/core/particle_physics.cpp)
+list(APPEND CORE_SOURCE_FILES src/core/ball.cpp src/core/particle_physics.cpp src/core/brick.cpp)
 
 
 list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}

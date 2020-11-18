@@ -68,4 +68,8 @@ const std::vector<bool> &Ball::HasCollidedWithWall() {
     return collision_directions;
 }
 
+const std::vector<bool> &Ball::HasCollidedWithBrick() {
+
+}
+
 }  // namespace brickbreaker

@@ -31,16 +31,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Create folders for core and visualizer implementation">
-      <change afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add implementation to determine if the ball collided with the wall">
+      <change afterPath="$PROJECT_DIR$/include/core/brick.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/brick.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/main.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/particle.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/particle_physics.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/particle_physics.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/particle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/particle_physics_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/particle_physics_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604440746396</updated>
       <workItem from="1604440747746" duration="3498000" />
-      <workItem from="1605674600591" duration="6938000" />
+      <workItem from="1605674600591" duration="9090000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -124,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605678470136</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add implementation to determine if the ball collided with the wall">
+      <created>1605683428210</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605683428210</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,36 +148,37 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add Project Proposal for Brick Breaker game" />
     <MESSAGE value="Create folders for core and visualizer implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create folders for core and visualizer implementation" />
+    <MESSAGE value="Add implementation to determine if the ball collided with the wall" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add implementation to determine if the ball collided with the wall" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605675070349">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605675070349" />
-    <state width="1493" height="56" key="GridCell.Tab.0.bottom" timestamp="1605678617916">
+    <state width="1493" height="56" key="GridCell.Tab.0.bottom" timestamp="1605683717979">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="56" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605678617916" />
-    <state width="1493" height="56" key="GridCell.Tab.0.center" timestamp="1605678617916">
+    <state width="1493" height="56" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605683717979" />
+    <state width="1493" height="56" key="GridCell.Tab.0.center" timestamp="1605683717978">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="56" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605678617916" />
-    <state width="1493" height="56" key="GridCell.Tab.0.left" timestamp="1605678617915">
+    <state width="1493" height="56" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605683717978" />
+    <state width="1493" height="56" key="GridCell.Tab.0.left" timestamp="1605683717978">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="56" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605678617915" />
-    <state width="1493" height="56" key="GridCell.Tab.0.right" timestamp="1605678617916">
+    <state width="1493" height="56" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605683717978" />
+    <state width="1493" height="56" key="GridCell.Tab.0.right" timestamp="1605683717978">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="56" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605678617916" />
+    <state width="1493" height="56" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605683717978" />
     <state x="279" y="58" key="SettingsEditor" timestamp="1605681926580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605681926580" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1605678478031">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1605683434096">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605678478031" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605683434096" />
   </component>
 </project>

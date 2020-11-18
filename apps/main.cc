@@ -1,4 +1,4 @@
-#include <core/particle.h>
+#include <core/ball.h>
 #include <core/particle_physics.h>
 #include <visualizer/ideal_gas_simulator.h>
 

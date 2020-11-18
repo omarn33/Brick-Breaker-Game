@@ -1,5 +1,5 @@
 #include <core/particle_physics.h>
-#include <core/particle.h>
+#include <core/ball.h>
 
 #include <cmath>
 #include <catch2/catch.hpp>

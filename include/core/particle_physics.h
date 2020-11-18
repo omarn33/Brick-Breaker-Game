@@ -1,6 +1,6 @@
 #pragma once
 
-#include <core/particle.h>
+#include <core/ball.h>
 #include <cmath>
 #include <map>
 #include <vector>

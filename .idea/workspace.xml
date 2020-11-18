@@ -20,9 +20,9 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="ideal-gas" targetName="ideal-gas-test" />
-      <config projectName="ideal-gas" targetName="ideal-gas-simulation" />
-      <config projectName="ideal-gas" targetName="main" />
+      <config projectName="final-project" targetName="brick-breaker-test" />
+      <config projectName="final-project" targetName="main" />
+      <config projectName="final-project" targetName="brick-breaker-game" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -31,9 +31,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add Project Proposal for Brick Breaker game">
-      <change beforePath="$PROJECT_DIR$/.idea/final-project-omarn33.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/final-project-omarn33.iml" afterDir="false" />
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Create folders for core and visualizer implementation">
+      <change afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/main.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/particle.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/particle_physics.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/particle_physics.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/particle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/particle_physics_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/particle_physics_test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +64,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="CMake Application.ideal-gas-simulation">
-    <configuration name="ideal-gas-test" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ideal-gas" TARGET_NAME="ideal-gas-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ideal-gas" RUN_TARGET_NAME="ideal-gas-test" TEST_MODE="SUITE_TEST">
+  <component name="RunManager" selected="CMake Application.brick-breaker-game">
+    <configuration name="brick-breaker-test" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -70,12 +78,12 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ideal-gas-simulation" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ideal-gas" TARGET_NAME="ideal-gas-simulation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ideal-gas" RUN_TARGET_NAME="ideal-gas-simulation">
+    <configuration name="brick-breaker-game" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-game" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-game">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ideal-gas" TARGET_NAME="main" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ideal-gas" RUN_TARGET_NAME="main">
+    <configuration name="main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="main" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="main">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -86,8 +94,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Catch.ideal-gas-test" />
-      <item itemvalue="CMake Application.ideal-gas-simulation" />
+      <item itemvalue="Catch.brick-breaker-test" />
+      <item itemvalue="CMake Application.brick-breaker-game" />
       <item itemvalue="CMake Application.main" />
     </list>
   </component>
@@ -100,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604440746396</updated>
       <workItem from="1604440747746" duration="3498000" />
-      <workItem from="1605674600591" duration="2424000" />
+      <workItem from="1605674600591" duration="6938000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -109,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604444027086</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create folders for core and visualizer implementation">
+      <created>1605678470136</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605678470136</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,32 +144,37 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add Project Proposal for Brick Breaker game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Project Proposal for Brick Breaker game" />
+    <MESSAGE value="Create folders for core and visualizer implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create folders for core and visualizer implementation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605675070349">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605675070349" />
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom" timestamp="1605675615068">
+    <state width="1493" height="56" key="GridCell.Tab.0.bottom" timestamp="1605678617916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605675615068" />
-    <state width="1493" height="211" key="GridCell.Tab.0.center" timestamp="1605675615068">
+    <state width="1493" height="56" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605678617916" />
+    <state width="1493" height="56" key="GridCell.Tab.0.center" timestamp="1605678617916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605675615068" />
-    <state width="1493" height="211" key="GridCell.Tab.0.left" timestamp="1605675615068">
+    <state width="1493" height="56" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605678617916" />
+    <state width="1493" height="56" key="GridCell.Tab.0.left" timestamp="1605678617915">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605675615068" />
-    <state width="1493" height="211" key="GridCell.Tab.0.right" timestamp="1605675615068">
+    <state width="1493" height="56" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605678617915" />
+    <state width="1493" height="56" key="GridCell.Tab.0.right" timestamp="1605678617916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605675615068" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1604444030281">
+    <state width="1493" height="56" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605678617916" />
+    <state x="279" y="58" key="SettingsEditor" timestamp="1605681926580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604444030281" />
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605681926580" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1605678478031">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605678478031" />
   </component>
 </project>

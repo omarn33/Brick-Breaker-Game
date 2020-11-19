@@ -94,7 +94,11 @@ const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
 const std::vector<bool> &Ball::HasCollidedWithPaddle() {
     // Need to determine paddle shape before implementing
     // if paddle is rounded near edges, ball bounces differently
-    // else if the paddle is a normal rectangle shape, ball will have different bounce effects
+    // else if the paddle is a normal rectangle shape, ball will have a different bounce effect
+    // Therefore function will be implemented after paddle UI design
+
+    std::vector<bool> filler = {false, false};
+    return filler;
 }
 
 }  // namespace brickbreaker

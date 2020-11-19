@@ -1,5 +1,6 @@
 #pragma once
 
+#include <core/brick.h>
 #include "../../../../include/glm/glm.hpp"
 #include <iostream>
 #include <string>
@@ -68,7 +69,7 @@ public:
      * @return vector<bool> storing bool in the indices representing the direction in which the collision occurred
      * true if the collision occurred in a given direction, false otherwise
      */
-    const std::vector<bool> &HasCollidedWithBrick();
+    const std::vector<bool> &HasCollidedWithBrick(const Brick &brick);
 
     /**
      * Determines if the ball collided with the paddle in any direction (x or y)

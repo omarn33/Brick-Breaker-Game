@@ -31,12 +31,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add implementation to determine if the ball collided with the wall">
-      <change afterPath="$PROJECT_DIR$/include/core/brick.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/brick.cpp" afterDir="false" />
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add Brick class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/brick.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/brick.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/brick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/brick.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/particle_physics_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ball_test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604440746396</updated>
       <workItem from="1604440747746" duration="3498000" />
-      <workItem from="1605674600591" duration="9090000" />
+      <workItem from="1605674600591" duration="12098000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -127,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605683428210</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Brick class">
+      <created>1605685691060</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605685691060</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +158,8 @@
     <MESSAGE value="Add Project Proposal for Brick Breaker game" />
     <MESSAGE value="Create folders for core and visualizer implementation" />
     <MESSAGE value="Add implementation to determine if the ball collided with the wall" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add implementation to determine if the ball collided with the wall" />
+    <MESSAGE value="Add Brick class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Brick class" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605675070349">
@@ -176,9 +186,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605681926580" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1605683434096">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1605685696478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605683434096" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605685696478" />
   </component>
 </project>

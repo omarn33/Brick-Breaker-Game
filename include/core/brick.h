@@ -25,8 +25,8 @@ class Brick {
     BrickType type_;
     BrickCondition condition_;
     glm::vec2 brick_top_left_corner_;
-    double brick_length_;
-    double brick_width_;
+    double length_;
+    double width_;
 
     /**
      * Constructor that initialize brick attributes

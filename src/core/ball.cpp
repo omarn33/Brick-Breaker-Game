@@ -68,8 +68,33 @@ const std::vector<bool> &Ball::HasCollidedWithWall() {
     return collision_directions;
 }
 
-const std::vector<bool> &Ball::HasCollidedWithBrick() {
+const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
+    // Initialize a 2d vector to store bools in the directions in which a collision occurred
+    std::vector<bool> collision_directions = {false, false};
 
+    // Determine if the ball collided with the top/bottom of the brick
+    if ((position_.y - radius_ <= brick.brick_top_left_corner_.y) && (velocity_.y < 0)) {
+        collision_directions.at(1) = true;
+    } else if ((position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
+        (velocity_.x > 0)) {
+        collision_directions.at(0) = true;
+    }
+
+    // Determine if the ball collided with the left/right of the brick
+    if ((position_.x - radius_ <= brick.brick_top_left_corner_.x) && (velocity_.x < 0)) {
+        collision_directions.at(0) = true;
+    } else if ((position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
+               (velocity_.x > 0)) {
+        collision_directions.at(0) = true;
+    }
+
+    return collision_directions;
+}
+
+const std::vector<bool> &Ball::HasCollidedWithPaddle() {
+    // Need to determine paddle shape before implementing
+    // if paddle is rounded near edges, ball bounces differently
+    // else if the paddle is a normal rectangle shape, ball will have different bounce effects
 }
 
 }  // namespace brickbreaker

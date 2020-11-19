@@ -1,4 +1,3 @@
-#include <core/particle_physics.h>
 #include <core/ball.h>
 
 #include <cmath>
@@ -6,7 +5,7 @@
 
 using namespace idealgas;
 
-TEST_CASE("Check Particle Bounces After Particle-Container Collision") {
+TEST_CASE("Check Ball Bounces After Ball-Container Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -111,7 +110,7 @@ TEST_CASE("Check Particle Bounces After Particle-Container Collision") {
     }
 }
 
-TEST_CASE("Check Particle Bounces After Particle-Particle Collision") {
+TEST_CASE("Check Ball Bounces After Ball-Ball Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -210,7 +209,7 @@ TEST_CASE("Check Particle Bounces After Particle-Particle Collision") {
     }
 }
 
-TEST_CASE("Check Conditions Where Particles DO NOT Bounce within Container") {
+TEST_CASE("Check Conditions Where Balls DO NOT Bounce within Container") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -324,7 +323,7 @@ TEST_CASE("Check Conditions Where Particles DO NOT Bounce within Container") {
     }
 }
 
-TEST_CASE("Check Conditions Where Particles DO NOT Bounce with Other Particles") {
+TEST_CASE("Check Conditions Where Balls DO NOT Bounce with Other Balls") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -409,7 +408,7 @@ TEST_CASE("Check Conditions Where Particles DO NOT Bounce with Other Particles")
     }
 }
 
-TEST_CASE("Check Particle Velocity After Particle-Container Collision") {
+TEST_CASE("Check Ball Velocity After Ball-Container Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -530,7 +529,7 @@ TEST_CASE("Check Particle Velocity After Particle-Container Collision") {
     }
 }
 
-TEST_CASE("Check Particle Velocity After Particle-Particle Collision") {
+TEST_CASE("Check Ball Velocity After Ball-Ball Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -688,7 +687,7 @@ TEST_CASE("Check Particle Velocity After Particle-Particle Collision") {
     }
 }
 
-TEST_CASE("Check Particle Position After Collision") {
+TEST_CASE("Check Ball Position After Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);

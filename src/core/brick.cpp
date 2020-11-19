@@ -6,8 +6,8 @@ Brick::Brick(BrickType type, BrickCondition condition, const glm::vec2 &top_left
     type_ = type;
     condition_ = condition;
     brick_top_left_corner_ = top_left_corner;
-    brick_length_ = length;
-    brick_width_ = width;
+    length_ = length;
+    width_ = width;
 }
 
 BrickType Brick::GetBrickType() {
@@ -23,11 +23,11 @@ const glm::vec2 &Brick::GetBrickPosition() {
 }
 
 double Brick::GetBrickLength() {
-    return brick_length_;
+    return length_;
 }
 
 double Brick::GetBrickWidth() {
-    return brick_width_;
+    return width_;
 }
 
 void Brick::SetBrickType(BrickType type) {

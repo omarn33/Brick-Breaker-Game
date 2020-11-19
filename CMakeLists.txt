@@ -61,7 +61,7 @@ list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
         src/visualizer/ideal_gas_app.cc
         src/visualizer/ideal_gas_simulator.cc)
 
-list(APPEND TEST_FILES tests/particle_physics_test.cpp)
+list(APPEND TEST_FILES tests/ball_test.cpp)
 
 add_executable(main apps/main.cc ${CORE_SOURCE_FILES})
 target_include_directories(main PRIVATE include)

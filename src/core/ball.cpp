@@ -5,7 +5,7 @@
 namespace brickbreaker {
 
 Ball::Ball(float radius, const ci::Color &color, const glm::vec2 &position, const glm::vec2 &velocity,
-           glm::vec2 top_left_corner, glm::vec2 bottom_right_corner) {
+           const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner) {
     radius_ = radius;
     color_ = color;
     position_ = position;

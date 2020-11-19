@@ -1,4 +1,4 @@
-#include <visualizer/ideal_gas_app.h>
+#include <visualizer/brick_breaker_app.h>
 #include <iostream>
 
 namespace idealgas {

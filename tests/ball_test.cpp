@@ -3,12 +3,13 @@
 #include <cmath>
 #include <catch2/catch.hpp>
 
-using namespace idealgas;
+using namespace brickbreaker;
 
 TEST_CASE("Check Ball Bounces After Ball-Container Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
+    ci::Color color = ci::Color("gray");
 
     // Set initial position and velocity vectors
     glm::vec2 position1(50.0, 10.0);
@@ -40,31 +41,31 @@ TEST_CASE("Check Ball Bounces After Ball-Container Collision") {
 
 
     // Particle created to bounce off upper boundary
-    Particle upper_particle(10.0f, 10.0, "white", position1, velocity1);
+    Ball upper_particle(10.0f, color, position1, velocity1, top_left, bottom_right);
 
     // Particle created to bounce off lower boundary
-    Particle lower_particle(10.0f, 10.0, "white", position2, velocity2);
+    Ball lower_particle(10.0f, color, position2, velocity2, top_left, bottom_right);
 
     // Particle created to bounce off left boundary
-    Particle left_particle(10.0f, 10.0, "white", position3, velocity3);
+    Ball left_particle(10.0f, color, position3, velocity3, top_left, bottom_right);
 
     // Particle created to bounce off right boundary
-    Particle right_particle(10.0f, 10.0, "white", position4, velocity4);
+    Ball right_particle(10.0f, color, position4, velocity4, top_left, bottom_right);
 
     // Particle created to bounce off upper left corner (+x and +y velocities)
-    Particle top_left_particle(10.0f, 10.0, "white", position5, velocity5);
+    Ball top_left_particle(10.0f, color, position5, velocity5, top_left, bottom_right);
 
     // Particle created to bounce off upper right corner (+x velocity and -y velocity)
-    Particle top_right_particle(10.0f, 10.0, "white", position6, velocity6);
+    Ball top_right_particle(10.0f, color, position6, velocity6, top_left, bottom_right);
 
     // Particle created to bounce off bottom left corner (-x velocity and +y velocity)
-    Particle bottom_left_particle(10.0f, 10.0, "white", position7, velocity7);
+    Ball bottom_left_particle(10.0f, color, position6, velocity6, top_left, bottom_right);
 
     // Particle created to bounce off bottom right corner (+x velocity and +y velocity)
-    Particle bottom_right_particle(10.0f, 10.0, "white", position8, velocity8);
+    Ball bottom_right_particle(10.0f, color, position7, velocity7, top_left, bottom_right);
 
     // Particle created to bounce off corner while being emerged in container
-    Particle emerged_particle(10.0f, 10.0, "white", position8, velocity9);
+    Ball emerged_particle(10.0f, color, position8, velocity8, top_left, bottom_right);
 
     ParticlePhysics physics(top_left, bottom_right);
 

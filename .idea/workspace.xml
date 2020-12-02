@@ -21,7 +21,6 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="final-project" targetName="brick-breaker-test" />
-      <config projectName="final-project" targetName="main" />
       <config projectName="final-project" targetName="brick-breaker-game" />
     </generated>
   </component>
@@ -31,15 +30,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add implementation to determine if the ball collided with the paddle">
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add tests for ball physics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/cinder_app_main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cinder_app_main.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/core/ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/visualizer/ideal_gas_app.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/brick.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/brick.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/particle_physics.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/particle_physics.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/visualizer/ideal_gas_simulator.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/ideal_gas_simulator.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualizer/ideal_gas_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ball_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ball_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/particle_physics.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/particle_physics.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visualizer/ideal_gas_simulator.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/ideal_gas_simulator.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +53,9 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OCResolveContextSettings">
+    <option name="configuration" value="0-Debug-main" />
   </component>
   <component name="ProjectId" id="1jnXI0ruSvL7QGWpXN0USY4EE9O" />
   <component name="ProjectViewState">
@@ -66,23 +70,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="CMake Application.brick-breaker-game">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="brick-breaker-test" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="brick-breaker-game" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-game" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-game">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="main" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="main">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -95,7 +94,6 @@
     <list>
       <item itemvalue="Catch.brick-breaker-test" />
       <item itemvalue="CMake Application.brick-breaker-game" />
-      <item itemvalue="CMake Application.main" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -107,7 +105,9 @@
       <option name="presentableId" value="Default" />
       <updated>1604440746396</updated>
       <workItem from="1604440747746" duration="3498000" />
-      <workItem from="1605674600591" duration="13410000" />
+      <workItem from="1605674600591" duration="15619000" />
+      <workItem from="1605839730757" duration="774000" />
+      <workItem from="1606714620378" duration="5196000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -151,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605794913614</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add tests for ball physics">
+      <created>1605814813507</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605814813507</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,13 +183,18 @@
     <MESSAGE value="Add Brick class" />
     <MESSAGE value="Add implementation to determine if the ball collided with a brick" />
     <MESSAGE value="Add implementation to determine if the ball collided with the paddle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add implementation to determine if the ball collided with the paddle" />
+    <MESSAGE value="Add tests for ball physics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add tests for ball physics" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605675070349">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605675070349" />
+    <state x="550" y="168" key="FileChooserDialogImpl" timestamp="1605839903937">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
     <state width="1493" height="56" key="GridCell.Tab.0.bottom" timestamp="1605683717979">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -203,9 +215,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605681926580" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1605794920365">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1605814820690">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605794920365" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605814820690" />
   </component>
 </project>

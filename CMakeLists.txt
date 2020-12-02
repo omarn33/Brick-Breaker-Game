@@ -46,6 +46,7 @@ if(NOT catch2_POPULATED)
     add_library(catch2 INTERFACE)
 
     target_include_directories(catch2 INTERFACE ${catch2_SOURCE_DIR}/single_include)
+    target_include_directories(catch2 INTERFACE ${catch2_SOURCE_DIR}/single_include)
 endif()
 
 get_filename_component(CINDER_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../" ABSOLUTE)
@@ -63,8 +64,8 @@ list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
 
 list(APPEND TEST_FILES tests/ball_test.cpp)
 
-add_executable(main apps/main.cc ${CORE_SOURCE_FILES})
-target_include_directories(main PRIVATE include)
+#add_executable(main apps/main.cc ${CORE_SOURCE_FILES})
+#target_include_directories(main PRIVATE include)
 
 ci_make_app(
         APP_NAME        brick-breaker-game

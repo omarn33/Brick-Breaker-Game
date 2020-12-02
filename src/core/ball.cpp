@@ -73,18 +73,18 @@ const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
     std::vector<bool> collision_directions = {false, false};
 
     // Determine if the ball collided with the top/bottom of the brick
-    if ((position_.y - radius_ <= brick.brick_top_left_corner_.y) && (velocity_.y < 0)) {
+    if ((position_.y + radius_ <= brick.brick_top_left_corner_.y) && (velocity_.y > 0)) {
         collision_directions.at(1) = true;
-    } else if ((position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
-        (velocity_.x > 0)) {
+    } else if ((position_.y - radius_ >= brick.brick_top_left_corner_.y) &&
+        (velocity_.x < 0)) {
         collision_directions.at(0) = true;
     }
 
     // Determine if the ball collided with the left/right of the brick
-    if ((position_.x - radius_ <= brick.brick_top_left_corner_.x) && (velocity_.x < 0)) {
+    if ((position_.x + radius_ <= brick.brick_top_left_corner_.x) && (velocity_.x > 0)) {
         collision_directions.at(0) = true;
-    } else if ((position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
-               (velocity_.x > 0)) {
+    } else if ((position_.x - radius_ >= brick.brick_top_left_corner_.x) &&
+               (velocity_.x < 0)) {
         collision_directions.at(0) = true;
     }
 
@@ -99,6 +99,38 @@ const std::vector<bool> &Ball::HasCollidedWithPaddle() {
 
     std::vector<bool> filler = {false, false};
     return filler;
+}
+
+void Ball::CalculateVelocityAfterWallCollision(std::vector<bool> collision_directions) {
+    // Reflect particle velocity in the x-direction
+    if (collision_directions.at(0)) {
+        velocity_.x *= -1;
+    }
+
+    // Reflect particle velocity in the y-direction
+    if (collision_directions.at(1)) {
+        velocity_.y *= -1;
+    }
+}
+
+void Ball::CalculateVelocityAfterBrickCollision(std::vector<bool> collision_directions) {
+    // Reflect particle velocity in the x-direction
+    if (collision_directions.at(0)) {
+        velocity_.x *= -1;
+    }
+
+    // Reflect particle velocity in the y-direction
+    if (collision_directions.at(1)) {
+        velocity_.y *= -1;
+    }
+}
+
+void Ball::CalculateVelocityAfterPaddleCollision(std::vector<bool> collision_directions) {
+    // Implement after paddle has been created
+}
+
+void Ball::CalculatePositionAfterCollision() {
+    position_ += velocity_;
 }
 
 }  // namespace brickbreaker

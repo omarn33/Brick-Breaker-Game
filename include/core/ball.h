@@ -2,9 +2,10 @@
 
 #include <core/brick.h>
 #include "../../../../include/glm/glm.hpp"
+#include <cinder/Color.h>
 #include <iostream>
 #include <string>
-#include <cinder/Color.h>
+
 #include <vector>
 
 namespace brickbreaker {
@@ -47,7 +48,7 @@ public:
     /** Setter Methods */
     void SetRadius(float radius);
 
-    void SetColor(const ci::Color &color);
+    void SetColor(const cinder::Color &color);
 
     void SetPosition(const glm::vec2 &position);
 
@@ -79,9 +80,19 @@ public:
     const std::vector<bool> &HasCollidedWithPaddle();
 
     /**
-     * Calculates the velocity of the ball after any collision (with paddle, brick, or wall)
+     * Calculates the velocity of the ball after a wall collision
      */
-    void CalculateVelocityAfterWallCollision();
+    void CalculateVelocityAfterWallCollision(std::vector<bool> collision_directions);
+
+    /**
+     * Calculates the velocity of the ball after a brick collision
+     */
+    void CalculateVelocityAfterBrickCollision(std::vector<bool> collision_directions);
+
+    /**
+     * Calculates the velocity of the ball after a paddle collision
+     */
+    void CalculateVelocityAfterPaddleCollision(std::vector<bool> collision_directions);
 
     /**
      * Calculates the position of the ball after any collision (with paddle, brick, or wall)

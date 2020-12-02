@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "cinder/app/App.h"
@@ -5,20 +6,21 @@
 #include "cinder/gl/gl.h"
 #include "ideal_gas_simulator.h"
 
-namespace idealgas {
+namespace brickbreaker {
 
 namespace visualizer {
 
     /** Allows a user to add ideal gas particles to a container and view collisions  */
-    class IdealGasApp : public ci::app::App {
+    //class IdealGasApp : public ci::app::App {
 
+    /*
     private:
         /** Window Screen Margins */
-        const float kWindowWidth = 3000.0f;
-        const float kWindowHeight = 2000.0f;
-        const float kMargin = 300.0f;
-        const float kHistogramMargin = 175.0f;
-        const float kHistogramSideLength = 433.0f;
+        //const float kWindowWidth = 3000.0f;
+        //const float kWindowHeight = 2000.0f;
+        //const float kMargin = 300.0f;
+        //const float kHistogramMargin = 175.0f;
+        /const float kHistogramSideLength = 433.0f;
 
         IdealGasSimulator simulator_;
 
@@ -39,4 +41,4 @@ namespace visualizer {
 
 }  // namespace visualizer
 
-}  // namespace idealgas
+}  // namespace brickbreaker

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../../../include/glm/glm.hpp"
-#include <cinder/Color.h>
+#include "../../../../include/cinder/Color.h"
 #include <vector>
 
 namespace brickbreaker {
@@ -20,7 +20,6 @@ enum BrickCondition {
     kWeak
 };
 
-/** >>>>>>> I think Brick should be a STRUCT but then should that be implemented in Brick.cpp? <<<<<<<< */
 class Brick {
     BrickType type_;
     BrickCondition condition_;
@@ -28,24 +27,24 @@ class Brick {
     double length_;
     double width_;
 
+    friend class Ball;
+
     /**
-     * Constructor that initialize brick attributes
+     * Constructor that initializes brick attribute
+     * @param type
+     * @param condition
      * @param top_left_corner vec2 representing the coordinate of the top left corner of the brick
-     * @param length double representing the length of the brick
-     * @param width double representing the width of the brick
+     * @param bottom_right_corner vec2 representing the coordinate of the bottom right corner of the brick
      */
-    Brick(BrickType type, BrickCondition condition, const glm::vec2& top_left_corner, double length, double width);
+    Brick(BrickType type, BrickCondition condition, const glm::vec2 &top_left_corner,
+          const glm::vec2 &bottom_right_corner);
 
     /** Getter Methods */
     BrickType GetBrickType();
 
     BrickCondition GetBrickCondition();
 
-    const glm::vec2& GetBrickPosition();
-
-    double GetBrickLength();
-
-    double GetBrickWidth();
+    const glm::vec2 &GetBrickPosition();
 
     /** Setter Methods */
     void SetBrickType(BrickType type);

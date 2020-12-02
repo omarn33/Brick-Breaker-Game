@@ -30,17 +30,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add tests for ball physics">
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add implementation to update ball position after collision">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/cinder_app_main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cinder_app_main.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/core/brick.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/brick.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/particle_physics.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/particle_physics.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/visualizer/ideal_gas_simulator.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/ideal_gas_simulator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/particle_physics.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/particle_physics.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualizer/ideal_gas_simulator.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/ideal_gas_simulator.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/brick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/brick.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +104,7 @@
       <workItem from="1604440747746" duration="3498000" />
       <workItem from="1605674600591" duration="15619000" />
       <workItem from="1605839730757" duration="774000" />
-      <workItem from="1606714620378" duration="5196000" />
+      <workItem from="1606714620378" duration="11153000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -158,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605814813507</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add implementation to update ball position after collision">
+      <created>1606890175013</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606890175013</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +188,8 @@
     <MESSAGE value="Add implementation to determine if the ball collided with a brick" />
     <MESSAGE value="Add implementation to determine if the ball collided with the paddle" />
     <MESSAGE value="Add tests for ball physics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add tests for ball physics" />
+    <MESSAGE value="Add implementation to update ball position after collision" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add implementation to update ball position after collision" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605675070349">
@@ -195,29 +200,29 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
-    <state width="1493" height="56" key="GridCell.Tab.0.bottom" timestamp="1605683717979">
+    <state width="1480" height="56" key="GridCell.Tab.0.bottom" timestamp="1606895923428">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="56" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605683717979" />
-    <state width="1493" height="56" key="GridCell.Tab.0.center" timestamp="1605683717978">
+    <state width="1480" height="56" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606895923428" />
+    <state width="1480" height="56" key="GridCell.Tab.0.center" timestamp="1606895923427">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="56" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605683717978" />
-    <state width="1493" height="56" key="GridCell.Tab.0.left" timestamp="1605683717978">
+    <state width="1480" height="56" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606895923427" />
+    <state width="1480" height="56" key="GridCell.Tab.0.left" timestamp="1606895923427">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="56" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605683717978" />
-    <state width="1493" height="56" key="GridCell.Tab.0.right" timestamp="1605683717978">
+    <state width="1480" height="56" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606895923427" />
+    <state width="1480" height="56" key="GridCell.Tab.0.right" timestamp="1606895923428">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="56" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605683717978" />
+    <state width="1480" height="56" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606895923428" />
     <state x="279" y="58" key="SettingsEditor" timestamp="1605681926580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605681926580" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1605814820690">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1606890181871">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605814820690" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606890181871" />
   </component>
 </project>

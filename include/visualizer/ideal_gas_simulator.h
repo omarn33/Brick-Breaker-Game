@@ -92,4 +92,3 @@ namespace idealgas {
 //  } // namespace visualizer
 
 //} // namespace idealgas
-*/

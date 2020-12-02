@@ -24,8 +24,7 @@ class Brick {
     BrickType type_;
     BrickCondition condition_;
     glm::vec2 brick_top_left_corner_;
-    double length_;
-    double width_;
+    glm::vec2 brick_bottom_right_corner_;
 
     friend class Ball;
 

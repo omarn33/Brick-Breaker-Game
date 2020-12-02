@@ -2,12 +2,11 @@
 
 namespace brickbreaker {
 
-Brick::Brick(BrickType type, BrickCondition condition, const glm::vec2 &top_left_corner, double length, double width) {
+Brick::Brick(BrickType type, BrickCondition condition, const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner) {
     type_ = type;
     condition_ = condition;
     brick_top_left_corner_ = top_left_corner;
-    length_ = length;
-    width_ = width;
+    brick_bottom_right_corner_ = bottom_right_corner;
 }
 
 BrickType Brick::GetBrickType() {
@@ -20,14 +19,6 @@ BrickCondition Brick::GetBrickCondition() {
 
 const glm::vec2 &Brick::GetBrickPosition() {
     return brick_top_left_corner_;
-}
-
-double Brick::GetBrickLength() {
-    return length_;
-}
-
-double Brick::GetBrickWidth() {
-    return width_;
 }
 
 void Brick::SetBrickType(BrickType type) {

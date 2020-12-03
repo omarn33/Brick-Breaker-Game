@@ -50,6 +50,8 @@ class Brick {
 
     void SetBrickCondition(BrickCondition condition);
 
+    void Draw();
+
 };
 
 } // namespace brickbreaker

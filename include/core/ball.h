@@ -2,6 +2,7 @@
 
 #include <core/brick.h>
 #include "../../../../include/glm/glm.hpp"
+#include "cinder/gl/gl.h"
 #include <cinder/Color.h>
 #include <iostream>
 #include <string>
@@ -14,9 +15,10 @@ class Ball {
 private:
     /** Ball Attributes */
     float radius_;
-    ci::Color color_;
+    ci::Color8u color_;
     glm::vec2 position_;
     glm::vec2 velocity_;
+    std::vector<bool> collision_directions_;
 
     /** Ball Container Attributes */
     glm::vec2 container_top_left_corner_;
@@ -33,7 +35,7 @@ public:
      * @param top_left_corner vec2 representing the coordinate of the top left corner of the container
      * @param bottom_right_corner vec2 representing the coordinate of the bottom right corner of the container
      */
-    Ball(float radius, const ci::Color &color, const glm::vec2 &position, const glm::vec2 &velocity,
+    Ball(float radius, const ci::Color8u &color, const glm::vec2 &position, const glm::vec2 &velocity,
          const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner);
 
     /** Getter Methods */
@@ -63,7 +65,7 @@ public:
      *       <true, true> signifies a collision in both the x and y-direction
      *       <false, false> signifies no collision
      */
-    const std::vector<bool> &HasCollidedWithWall();
+     const std::vector<bool> &HasCollidedWithWall();
 
     /**
      * Determines if the ball collided with a brick in any direction (x or y)
@@ -99,6 +101,7 @@ public:
      */
     void CalculatePositionAfterCollision();
 
+    void Draw();
 };
 
 } // namespace brickbreaker

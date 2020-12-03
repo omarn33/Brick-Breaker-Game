@@ -4,7 +4,8 @@
 namespace brickbreaker {
 
 namespace visualizer {
-    BrickBreakerApp::BrickBreakerApp() {
+    BrickBreakerApp::BrickBreakerApp() : ball_(kBallRadius, kBallColor, ball_initial_position_, ball_initial_velocity_,
+                                               container_top_left_corner_, container_bottom_right_corner_) {
         ci::app::setWindowSize((int) kWindowWidth, (int) kWindowHeight);
     }
 
@@ -16,13 +17,9 @@ namespace visualizer {
         ci::gl::clear(background_color);
 
         // Draw Container
-        glm::vec2 container_top_left_corner = {700.0f, 100.0f};
-        glm::vec2 container_bottom_right_corner = {3000.0f, 2055.55f};
-        float container_stroke = 50.0f;
-
-        ci::gl::color(ci::Color("yellow"));
-        ci::gl::drawStrokedRect(ci::Rectf(container_top_left_corner,
-                                          container_bottom_right_corner), container_stroke);
+        ci::gl::color(container_color_);
+        ci::gl::drawStrokedRect(ci::Rectf(container_top_left_corner_,
+                                          container_bottom_right_corner_), kContainerWallStroke);
 
         // Draw Inside Container
         ci::gl::color(ci::Color8u(150, 150, 150));
@@ -38,7 +35,7 @@ namespace visualizer {
 
         // Display Score Text
         ci::gl::drawStringCentered(
-                "Score",
+                "SCORE",
                 glm::vec2(3450.0f, 550.0f), ci::Color("yellow"), ci::Font("Arial", 150.0f));
 
         // Draw texture rectangles
@@ -51,13 +48,31 @@ namespace visualizer {
         ci::gl::color(ci::Color8u(160, 160, 160));
         ci::gl::drawSolidRect(ci::Rectf(glm::vec2 {330.0, 650.0}, glm::vec2 {450.0f, 1050.0f}));
 
-        // Display Ideal Gas Simulator
-        //simulator_.Draw();
+        // Draw Brick
+        // width: 200.0f
+        // height: 100.0f
+        ci::gl::color(ci::Color8u(128, 0, 0));
+        ci::gl::drawSolidRect(ci::Rectf(glm::vec2 {0.0f, 0.0f}, glm::vec2 {200.0f, 100.00f}));
+
+        // Draw Ball
+        ball_.Draw();
     }
 
     void BrickBreakerApp::update() {
-        // Update Ideal Gas Simulator
-        //simulator_.Update();
+        // Update ball velocity if the ball collided with the wall
+        std::vector<bool> collision_directions = ball_.HasCollidedWithWall();
+        std::cout << "Collision Direction: " << collision_directions.at(0) << ", " << collision_directions.at(1) << std::endl;
+        ball_.CalculateVelocityAfterWallCollision(collision_directions);
+
+        std::cout << "Velocity: " << ball_.GetVelocity().x << ", " << ball_.GetVelocity().y << std::endl;
+
+
+        std::cout << "Initial Position: " << ball_.GetPosition().x << ", " << ball_.GetPosition().y << std::endl;
+        // Update ball position
+        ball_.CalculatePositionAfterCollision();
+
+        std::cout << "Final Position: " << ball_.GetPosition().x << ", " << ball_.GetPosition().y << std::endl;
+
     }
 
     void BrickBreakerApp::keyDown(ci::app::KeyEvent event) {

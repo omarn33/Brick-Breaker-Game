@@ -28,6 +28,7 @@ class Brick {
     glm::vec2 brick_bottom_right_corner_;
 
     friend class Ball;
+    friend class Level;
 
     /**
      * Constructor that initializes brick attribute

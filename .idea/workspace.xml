@@ -30,11 +30,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add UI features for drawing ball">
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add UI features for drawing brick">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/apps/main.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/core/brick.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/brick.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/brick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/brick.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/particle_physics.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/level.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/particle_physics.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/level.cpp" afterDir="false" />
     </list>
+    <list id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,6 +97,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="" />
+      <changelist id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
       <created>1604440746396</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -100,7 +105,7 @@
       <workItem from="1604440747746" duration="3498000" />
       <workItem from="1605674600591" duration="15619000" />
       <workItem from="1605839730757" duration="774000" />
-      <workItem from="1606714620378" duration="20224000" />
+      <workItem from="1606714620378" duration="22390000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -172,7 +177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606971613621</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add UI features for drawing brick">
+      <created>1606972702430</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1606972702430</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add UI features for drawing brick">
+      <created>1606972731063</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1606972731063</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +202,34 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/week2" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/week2" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -201,7 +247,8 @@
     <MESSAGE value="Add implementation to update ball position after collision" />
     <MESSAGE value="Add UI features for drawing container and scoreboard" />
     <MESSAGE value="Add UI features for drawing ball" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add UI features for drawing ball" />
+    <MESSAGE value="Add UI features for drawing brick" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UI features for drawing brick" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605675070349">
@@ -212,22 +259,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
-    <state width="1480" height="2" key="GridCell.Tab.0.bottom" timestamp="1606972457979">
+    <state width="1480" height="2" key="GridCell.Tab.0.bottom" timestamp="1606972709296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1480" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606972457979" />
-    <state width="1480" height="2" key="GridCell.Tab.0.center" timestamp="1606972457979">
+    <state width="1480" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606972709296" />
+    <state width="1480" height="2" key="GridCell.Tab.0.center" timestamp="1606972709296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1480" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606972457979" />
-    <state width="1480" height="2" key="GridCell.Tab.0.left" timestamp="1606972457979">
+    <state width="1480" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606972709296" />
+    <state width="1480" height="2" key="GridCell.Tab.0.left" timestamp="1606972709296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1480" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606972457979" />
-    <state width="1480" height="2" key="GridCell.Tab.0.right" timestamp="1606972457979">
+    <state width="1480" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606972709296" />
+    <state width="1480" height="2" key="GridCell.Tab.0.right" timestamp="1606972709296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1480" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606972457979" />
+    <state width="1480" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606972709296" />
     <state width="1480" height="2" key="GridCell.Tab.1.bottom" timestamp="1606968382113">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -248,9 +295,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605681926580" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1606971618930">
+    <state x="618" y="326" key="VCS.ChangelistChooser" timestamp="1606972723013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606971618930" />
+    <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606972723013" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1606972736681">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606972736681" />
   </component>
 </project>

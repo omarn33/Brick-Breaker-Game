@@ -6,6 +6,7 @@
 #include "cinder/gl/gl.h"
 #include "ideal_gas_simulator.h"
 #include <core/ball.h>
+#include <core/level.h>
 
 namespace brickbreaker {
 
@@ -22,7 +23,7 @@ private:
 
     /** Wall Margins */
     glm::vec2 container_top_left_corner_ = {700.0f, 100.0f};
-    glm::vec2 container_bottom_right_corner_ = {3000.0f, 2055.55f};
+    glm::vec2 container_bottom_right_corner_ = {3000.0f, 2050.0f};
     const float kContainerWallStroke = 50.0f;
     const ci::Color container_color_ =  ci::Color("yellow");
 
@@ -32,6 +33,14 @@ private:
     glm::vec2 ball_initial_position_ = {1000.0f, 1000.0f};
     glm::vec2 ball_initial_velocity_ = {-20.0f, -20.0f};
     Ball ball_;
+
+    /** Brick Attributes */
+    float const kBrickLength = 100.0f;
+    float const kBrickWidth = 200.0f;
+
+    /** Game Attributes */
+    Level current_level_;
+    const size_t kNumberOfLevels = 1;
 
 public:
     BrickBreakerApp();
@@ -45,6 +54,8 @@ public:
     //void mouseDown(ci::app::MouseEvent event) override;
 
     //void mouseDrag(ci::app::MouseEvent event) override;
+
+    Level GetLevel(int level);
 
 };
 

@@ -22,6 +22,7 @@ enum BrickCondition {
 };
 
 class Brick {
+private:
     BrickType type_;
     BrickCondition condition_;
     glm::vec2 brick_top_left_corner_;
@@ -29,7 +30,7 @@ class Brick {
 
     friend class Ball;
     friend class Level;
-
+public:
     /**
      * Constructor that initializes brick attribute
      * @param type

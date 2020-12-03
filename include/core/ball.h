@@ -18,7 +18,8 @@ private:
     ci::Color8u color_;
     glm::vec2 position_;
     glm::vec2 velocity_;
-    std::vector<bool> collision_directions_;
+    std::vector<bool> wall_collision_directions_;
+    std::vector<bool> brick_collision_directions_;
 
     /** Ball Container Attributes */
     glm::vec2 container_top_left_corner_;

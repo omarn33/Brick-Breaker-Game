@@ -30,7 +30,7 @@ private:
     float const kBallRadius = 35.0f;
     const ci::Color8u kBallColor = ci::Color8u(105, 105, 105);
     glm::vec2 ball_initial_position_ = {1000.0f, 1000.0f};
-    glm::vec2 ball_initial_velocity_ = {-5.0f, -5.0f};
+    glm::vec2 ball_initial_velocity_ = {-20.0f, -20.0f};
     Ball ball_;
 
 public:

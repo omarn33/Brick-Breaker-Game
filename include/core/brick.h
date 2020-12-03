@@ -1,5 +1,6 @@
 #pragma once
 
+#include "cinder/gl/gl.h"
 #include "../../../../include/glm/glm.hpp"
 #include "../../../../include/cinder/Color.h"
 #include <vector>
@@ -50,6 +51,9 @@ class Brick {
 
     void SetBrickCondition(BrickCondition condition);
 
+    /**
+     * Draws brick in the cinder application
+     */
     void Draw();
 
 };

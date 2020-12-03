@@ -36,7 +36,7 @@ namespace visualizer {
         // Display Score Text
         ci::gl::drawStringCentered(
                 "SCORE",
-                glm::vec2(3450.0f, 550.0f), ci::Color("yellow"), ci::Font("Arial", 150.0f));
+                glm::vec2(3450.0f, 550.0f), ci::Color("yellow"), ci::Font("Impact", 150.0f));
 
         // Draw texture rectangles
         ci::gl::color(ci::Color8u(150, 150, 150));
@@ -51,11 +51,11 @@ namespace visualizer {
         // Draw Brick
         // width: 200.0f
         // height: 100.0f
-        ci::gl::color(ci::Color8u(128, 0, 0));
-        ci::gl::drawSolidRect(ci::Rectf(glm::vec2 {0.0f, 0.0f}, glm::vec2 {200.0f, 100.00f}));
 
         // Draw Ball
         ball_.Draw();
+
+        // Draw Brick
     }
 
     void BrickBreakerApp::update() {

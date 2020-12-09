@@ -3,6 +3,7 @@
 #include <core/brick.h>
 #include "../../../../include/glm/glm.hpp"
 #include "cinder/gl/gl.h"
+#include "paddle.h"
 #include <cinder/Color.h>
 #include <iostream>
 #include <string>
@@ -76,11 +77,11 @@ public:
     const std::vector<bool> &HasCollidedWithBrick(const Brick &brick);
 
     /**
-     * Determines if the ball collided with the paddle in any direction (x or y)
-     * @return vector<bool> storing bool in the indices representing the direction in which the collision occurred
-     * true if the collision occurred in a given direction, false otherwise
+     * Determines if the ball collided with the paddle
+     * @param paddle The paddle object
+     * @return true if the collision occurred with the paddle, false otherwise
      */
-    const std::vector<bool> &HasCollidedWithPaddle();
+    bool HasCollidedWithPaddle(const Paddle &paddle);
 
     /**
      * Calculates the velocity of the ball after a wall collision
@@ -95,7 +96,7 @@ public:
     /**
      * Calculates the velocity of the ball after a paddle collision
      */
-    void CalculateVelocityAfterPaddleCollision(std::vector<bool> collision_directions);
+    void CalculateVelocityAfterPaddleCollision();
 
     /**
      * Calculates the position of the ball after any collision (with paddle, brick, or wall)

@@ -53,7 +53,6 @@ void Ball::SetVelocity(const glm::vec2 &velocity) {
 const std::vector<bool> &Ball::HasCollidedWithWall() {
     // Initialize a 2d vector to store bools in the directions in which a collision occurred
 
-
     // Determine if the ball collided with the top wall of the container
     if ((position_.y - radius_ <= container_top_left_corner_.y) && (velocity_.y < 0)) {
         wall_collision_directions_.at(1) = true;
@@ -115,23 +114,25 @@ const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
     return brick_collision_directions_;
 }
 
-const std::vector<bool> &Ball::HasCollidedWithPaddle() {
-    // Need to determine paddle shape before implementing
-    // if paddle is rounded near edges, ball bounces differently
-    // else if the paddle is a normal rectangle shape, ball will have a different bounce effect
-    // Therefore function will be implemented after paddle UI design
+bool Ball::HasCollidedWithPaddle(const Paddle &paddle) {
 
-    std::vector<bool> filler = {false, false};
-    return filler;
+    if ((velocity_.y > 0) &&
+            (position_.x >= paddle.paddle_top_left_corner_.x) &&
+            (position_.x <= paddle.paddle_bottom_right_corner_.x) &&
+            (position_.y + radius_ >= paddle.paddle_top_left_corner_.y)) {
+        return true;
+    }
+
+    return false;
 }
 
 void Ball::CalculateVelocityAfterWallCollision(std::vector<bool> collision_directions) {
-    // Reflect particle velocity in the x-direction
+    // Reflect ball velocity in the x-direction
     if (collision_directions.at(0)) {
         velocity_.x *= -1;
     }
 
-    // Reflect particle velocity in the y-direction
+    // Reflect ball velocity in the y-direction
     if (collision_directions.at(1)) {
         velocity_.y *= -1;
     }
@@ -141,12 +142,12 @@ void Ball::CalculateVelocityAfterWallCollision(std::vector<bool> collision_direc
 }
 
 void Ball::CalculateVelocityAfterBrickCollision(std::vector<bool> collision_directions) {
-    // Reflect particle velocity in the x-direction
+    // Reflect ball velocity in the x-direction
     if (collision_directions.at(0)) {
         velocity_.x *= -1;
     }
 
-    // Reflect particle velocity in the y-direction
+    // Reflect ball velocity in the y-direction
     if (collision_directions.at(1)) {
         velocity_.y *= -1;
     }
@@ -155,8 +156,9 @@ void Ball::CalculateVelocityAfterBrickCollision(std::vector<bool> collision_dire
     brick_collision_directions_ = {false, false};
 }
 
-void Ball::CalculateVelocityAfterPaddleCollision(std::vector<bool> collision_directions) {
-    // Implement after paddle has been created
+void Ball::CalculateVelocityAfterPaddleCollision() {
+    // Reflect ball velocity in the y-direction
+    velocity_.y *= -1.05;
 }
 
 void Ball::CalculatePositionAfterCollision() {

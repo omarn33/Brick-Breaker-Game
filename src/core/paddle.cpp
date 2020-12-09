@@ -29,7 +29,7 @@ namespace brickbreaker {
     }
 
     void Paddle::MovePaddleLeft() {
-        if(paddle_top_left_corner_.x - (container_stroke_width_ / 2) - paddle_sensitivity_ <= container_top_left_corner_.x) {
+        if(paddle_top_left_corner_.x - (container_stroke_width_ / 2) - paddle_sensitivity_ >= container_top_left_corner_.x) {
             paddle_top_left_corner_.x -= paddle_sensitivity_;
             paddle_bottom_right_corner_.x -= paddle_sensitivity_;
         }

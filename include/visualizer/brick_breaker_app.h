@@ -7,6 +7,7 @@
 #include "ideal_gas_simulator.h"
 #include <core/ball.h>
 #include <core/level.h>
+#include <core/paddle.h>
 
 namespace brickbreaker {
 
@@ -31,13 +32,15 @@ private:
     /** Paddle Attributes */
     float const kPaddleHeight = 80.0f;
     float const kPaddleWidth = 310.0f;
+    float const kPaddleSensitivity = 100.0f;
     glm::vec2 paddle_initial_position = {857.5, kWindowHeight - kPaddleHeight};
+    Paddle paddle_;
 
     /** Ball Attributes */
     float const kBallRadius = 35.0f;
     const ci::Color8u kBallColor = ci::Color8u(105, 105, 105);
     glm::vec2 ball_initial_position_ = {1000.0f, 1000.0f};
-    glm::vec2 ball_initial_velocity_ = {-20.0f, -20.0f};
+    glm::vec2 ball_initial_velocity_ = {-30.0f, -30.0f};
     Ball ball_;
 
     /** Brick Attributes */

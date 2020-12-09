@@ -21,7 +21,7 @@ private:
     std::vector<bool> wall_collision_directions_;
     std::vector<bool> brick_collision_directions_;
 
-    /** Ball Container Attributes */
+    /** Container Attributes */
     glm::vec2 container_top_left_corner_;
     glm::vec2 container_bottom_right_corner_;
 

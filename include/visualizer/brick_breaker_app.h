@@ -28,6 +28,11 @@ private:
     glm::vec2 container_bottom_right_corner_ = {1775.0f, kWindowHeight + (kContainerWallStroke/2)};
     const ci::Color container_color_ =  ci::Color("yellow");
 
+    /** Paddle Attributes */
+    float const kPaddleHeight = 80.0f;
+    float const kPaddleWidth = 310.0f;
+    glm::vec2 paddle_initial_position = {857.5, kWindowHeight - kPaddleHeight};
+
     /** Ball Attributes */
     float const kBallRadius = 35.0f;
     const ci::Color8u kBallColor = ci::Color8u(105, 105, 105);

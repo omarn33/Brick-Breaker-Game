@@ -45,7 +45,9 @@ namespace visualizer {
         ci::gl::draw(normal_brick, ci::Rectf(glm::vec2 {900.0f, 900.0f}, glm::vec2 {1100.0f, 1000.0f}));
          */
 
-
+        ci::gl::color(ci::Color8u(255, 255, 255));
+        ci::gl::Texture2dRef paddle = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Paddle.png"));
+        ci::gl::draw(paddle, ci::Rectf(paddle_initial_position, glm::vec2 {paddle_initial_position.x + kPaddleWidth, paddle_initial_position.y + kPaddleHeight}));
 
         // Draw Ball
         ball_.Draw();

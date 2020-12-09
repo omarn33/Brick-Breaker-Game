@@ -30,13 +30,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Fix detection errors during ball and brick collisions">
-      <change afterPath="$PROJECT_DIR$/include/core/paddle.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/paddle.cpp" afterDir="false" />
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Create Paddle class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/paddle.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/paddle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/paddle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/paddle.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" afterDir="false" />
     </list>
     <list id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
@@ -107,7 +104,7 @@
       <workItem from="1604440747746" duration="3498000" />
       <workItem from="1605674600591" duration="15619000" />
       <workItem from="1605839730757" duration="774000" />
-      <workItem from="1606714620378" duration="55359000" />
+      <workItem from="1606714620378" duration="56554000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -214,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607502246238</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Create Paddle class">
+      <created>1607507122066</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1607507122066</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +278,8 @@
     <MESSAGE value="Implement level class to store bricks for each level" />
     <MESSAGE value="Generate bricks for Level 1" />
     <MESSAGE value="Fix detection errors during ball and brick collisions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix detection errors during ball and brick collisions" />
+    <MESSAGE value="Create Paddle class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Paddle class" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607502470168">
@@ -325,10 +330,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606972723013" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607502251710">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607507129421">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607502251710" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607507129421" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1607489866838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -14,6 +14,11 @@ namespace brickbreaker {
                                                    container_top_left_corner_, container_bottom_right_corner_),
                                              current_level_(1, std::vector<Brick>{}) {
             ci::app::setWindowSize((int) kWindowWidth, (int) kWindowHeight);
+            score_ = 0;
+            ammo_ = 0;
+            lives_ = 3;
+            high_score_ = 0;
+
         }
 
         void BrickBreakerApp::draw() {
@@ -30,12 +35,23 @@ namespace brickbreaker {
                                     kContainerWallStroke);
                                     */
 
-            // Display Score Text
-            /*
+            // Display Scoreboard
             ci::gl::drawStringCentered(
-                    "SCORE",
-                    glm::vec2(3450.0f, 550.0f), ci::Color("yellow"), ci::Font("Impact", 150.0f));
-            */
+                    std::to_string(score_),
+                    glm::vec2(2250.0f, 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+            ci::gl::drawStringCentered(
+                    std::to_string(ammo_),
+                    glm::vec2(2250.0f, 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+            ci::gl::drawStringCentered(
+                    std::to_string(lives_),
+                    glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+            ci::gl::drawStringCentered(
+                    std::to_string(high_score_),
+                    glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
 
             /*
             // Display Brick Types
@@ -80,6 +96,7 @@ namespace brickbreaker {
                 std::cout << "iteration bricks" << std::endl;
 
                 if (brick_collision_directions.at(0) || brick_collision_directions.at(1)) {
+                    score_ += kScorePerBrickHit;
                     ball_.CalculateVelocityAfterBrickCollision(brick_collision_directions);
                 }
             }

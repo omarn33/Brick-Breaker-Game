@@ -50,6 +50,13 @@ private:
     /** Game Attributes */
     Level current_level_;
     const size_t kNumberOfLevels = 1;
+    const size_t kScorePerBrickHit = 10;
+    size_t score_;
+    size_t ammo_;
+    size_t lives_;
+    size_t high_score_;
+
+
 
 public:
     BrickBreakerApp();

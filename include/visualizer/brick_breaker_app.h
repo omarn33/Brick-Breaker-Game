@@ -17,14 +17,15 @@ class BrickBreakerApp : public ci::app::App {
 
 private:
     /** Window Screen Margins */
-    const float kWindowWidth = 4000.0f;
-    const float kWindowHeight = 2000.0f;
+    const float kHeightToWidthRatio = 1.3125;
+    const float kWindowHeight = 1950.0f;
+    const float kWindowWidth = kWindowHeight * kHeightToWidthRatio;
     const float kMargin = 300.0f;
 
     /** Wall Margins */
-    glm::vec2 container_top_left_corner_ = {700.0f, 100.0f};
-    glm::vec2 container_bottom_right_corner_ = {3000.0f, 2050.0f};
-    const float kContainerWallStroke = 50.0f;
+    const float kContainerWallStroke = 70.0f;
+    glm::vec2 container_top_left_corner_ = {100.0f, 185.0f};
+    glm::vec2 container_bottom_right_corner_ = {1775.0f, kWindowHeight + (kContainerWallStroke/2)};
     const ci::Color container_color_ =  ci::Color("yellow");
 
     /** Ball Attributes */

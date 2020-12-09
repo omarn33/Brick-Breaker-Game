@@ -53,6 +53,7 @@ void Ball::SetVelocity(const glm::vec2 &velocity) {
 const std::vector<bool> &Ball::HasCollidedWithWall() {
     // Initialize a 2d vector to store bools in the directions in which a collision occurred
 
+
     // Determine if the ball collided with the top wall of the container
     if ((position_.y - radius_ <= container_top_left_corner_.y) && (velocity_.y < 0)) {
         wall_collision_directions_.at(1) = true;
@@ -74,18 +75,40 @@ const std::vector<bool> &Ball::HasCollidedWithWall() {
 
 const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
     // Determine if the ball collided with the top/bottom of the brick
-    if ((position_.y + radius_ <= brick.brick_top_left_corner_.y) && (velocity_.y > 0)) {
+    double tolerance = 15.0;
+
+    if ((velocity_.y > 0) &&
+    (position_.y + radius_ <= brick.brick_top_left_corner_.y + tolerance) &&
+    (position_.y - radius_ >= brick.brick_top_left_corner_.y - 2 * radius_) &&
+    (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
+    (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)
+    ) {
         brick_collision_directions_.at(1) = true;
-    } else if ((position_.y - radius_ >= brick.brick_top_left_corner_.y) &&
-        (velocity_.x < 0)) {
-        brick_collision_directions_.at(0) = true;
+    }
+    else if((velocity_.y < 0) &&
+    (position_.y - radius_ >= brick.brick_bottom_right_corner_.y - tolerance) &&
+    (position_.y + radius_ <= brick.brick_bottom_right_corner_.y + 2 * radius_) &&
+    (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
+    (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)
+    ) {
+        brick_collision_directions_.at(1) = true;
     }
 
     // Determine if the ball collided with the left/right of the brick
-    if ((position_.x + radius_ >= brick.brick_top_left_corner_.x) && (velocity_.x > 0)) {
+    if ((velocity_.x > 0) &&
+    (position_.x + radius_ <= brick.brick_top_left_corner_.x + tolerance) &&
+    (position_.x - radius_ >= brick.brick_top_left_corner_.x - 2 * radius_) &&
+    (position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
+    (position_.y - radius_ <= brick.brick_bottom_right_corner_.y)
+    ) {
         brick_collision_directions_.at(0) = true;
-    } else if ((position_.x - radius_ >= brick.brick_top_left_corner_.x) &&
-               (velocity_.x < 0)) {
+    }
+    else if ((velocity_.x < 0) &&
+    (position_.x - radius_ >= brick.brick_bottom_right_corner_.x - tolerance) &&
+    (position_.x + radius_ <= brick.brick_bottom_right_corner_.x + 2 * radius_) &&
+    (position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
+    (position_.y - radius_ <= brick.brick_bottom_right_corner_.y)
+    ) {
         brick_collision_directions_.at(0) = true;
     }
 
@@ -103,37 +126,33 @@ const std::vector<bool> &Ball::HasCollidedWithPaddle() {
 }
 
 void Ball::CalculateVelocityAfterWallCollision(std::vector<bool> collision_directions) {
-    std::cout << "Wall Collisions: " << collision_directions.at(0) << "," << collision_directions.at(1) << std::endl;
-    float x_velocity = velocity_.x;
-    float y_velocity = velocity_.y;
-
     // Reflect particle velocity in the x-direction
     if (collision_directions.at(0)) {
-        std::cout << "Initial Velocity: " << velocity_.x << ", " << velocity_.y  << std::endl;
-        x_velocity *= -1;
-        //velocity_.x *= -1;
-        std::cout << "Final Velocity: " << velocity_.x << ", " << velocity_.y  << std::endl;
+        velocity_.x *= -1;
     }
 
     // Reflect particle velocity in the y-direction
     if (collision_directions.at(1)) {
-        //velocity_.y *= -1;
-        y_velocity *= -1;
+        velocity_.y *= -1;
     }
 
-    velocity_ = {x_velocity, y_velocity};
+    // Reset wall collision directions
+    wall_collision_directions_ = {false, false};
 }
 
 void Ball::CalculateVelocityAfterBrickCollision(std::vector<bool> collision_directions) {
     // Reflect particle velocity in the x-direction
     if (collision_directions.at(0)) {
-        //velocity_.x *= -1;
+        velocity_.x *= -1;
     }
 
     // Reflect particle velocity in the y-direction
     if (collision_directions.at(1)) {
-        //velocity_.y *= -1;
+        velocity_.y *= -1;
     }
+
+    // Reset brick collision directions
+    brick_collision_directions_ = {false, false};
 }
 
 void Ball::CalculateVelocityAfterPaddleCollision(std::vector<bool> collision_directions) {
@@ -141,8 +160,6 @@ void Ball::CalculateVelocityAfterPaddleCollision(std::vector<bool> collision_dir
 }
 
 void Ball::CalculatePositionAfterCollision() {
-    wall_collision_directions_ = {false, false};
-    brick_collision_directions_ = {false, false};
     position_ += velocity_;
 }
 

@@ -58,6 +58,69 @@ namespace brickbreaker {
             }
             else if (has_game_ended_){
                 if(lives_ == 0) {
+                    // Set ball position to the paddle position
+                    ball_.SetPosition(glm::vec2 {paddle_.GetPaddlePosition().x + (kPaddleWidth/2), paddle_.GetPaddlePosition().y - kBallRadius});
+
+                    // Set new high score
+                    high_score_ = score_;
+
+                    // Draw background
+                    ci::gl::color(ci::Color8u(255, 255, 255));
+                    ci::gl::Texture2dRef image = ci::gl::Texture::create(
+                            ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
+                    ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
+
+
+                    // Draw Scoreboard
+                    ci::gl::drawStringCentered(
+                            std::to_string(score_),
+                            glm::vec2(2250.0f, 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                    ci::gl::drawStringCentered(
+                            std::to_string(ammo_),
+                            glm::vec2(2250.0f, 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                    ci::gl::drawStringCentered(
+                            std::to_string(lives_),
+                            glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                    ci::gl::drawStringCentered(
+                            std::to_string(high_score_),
+                            glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f + 425.0f), ci::Color("Black"),
+                            ci::Font("Impact", 200.0f));
+
+                    // Draw level
+                    current_level_.Draw();
+
+                    // Draw the paddle
+                    paddle_.Draw();
+
+                    // Draw the ball
+                    ball_.Draw();
+
+                    // Display Win Screen
+
+                    // Draw pop-up message
+                    ci::gl::color(ci::Color8u(160, 160, 160));
+                    float x_1 = 400.0f;
+                    float y_1 = 500.0f;
+                    double length = 700.0f;
+                    double width = 1100.0f;
+
+                    // Draw message
+                    ci::gl::drawStringCentered(
+                            "GAME OVER!",
+                            glm::vec2(x_1 + (width/2), y_1 + (length/10)), ci::Color("red"), ci::Font("Impact", 250.0f));
+
+                    // Draw message
+                    ci::gl::drawStringCentered(
+                            "You Lose",
+                            glm::vec2(x_1 + (width/2), y_1 + (length/2)), ci::Color("yellow"), ci::Font("Impact", 200.0f));
+
+                    // Draw message
+                    ci::gl::drawStringCentered(
+                            "Score: " + std::to_string(score_),
+                            glm::vec2(x_1 + (width/2), y_1 + (length * 4/5)), ci::Color("yellow"), ci::Font("Impact", 150.0f));
 
                 } else {
                     // Set ball position to the paddle position
@@ -200,7 +263,6 @@ namespace brickbreaker {
         void BrickBreakerApp::update() {
 
             if(!has_game_ended_) {
-
                 // Determine if the level ended
                 if (current_level_.GetBricks().size() == 0 && resume_game_) {
                     // Determine if the player won
@@ -224,7 +286,14 @@ namespace brickbreaker {
                 if (ball_.HasCollidedWithFloor()) {
                     // Decrease lives by 1
                     lives_ -= 1;
-                    resume_game_ = false;
+
+                    // Determine if the player lost
+                    if(lives_ == 0) {
+                        has_game_ended_ = true;
+                    }
+                    else {
+                        resume_game_ = false;
+                    }
                 }
 
                 // Determine if the ball collided with any bricks

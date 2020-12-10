@@ -4,10 +4,9 @@
 
 namespace brickbreaker {
 
-Ball::Ball(float radius, const ci::Color8u &color, const glm::vec2 &position, const glm::vec2 &velocity,
+Ball::Ball(float radius, const glm::vec2 &position, const glm::vec2 &velocity,
            const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner, float container_stroke_width) {
     radius_ = radius;
-    color_ = color;
     position_ = position;
     velocity_ = velocity;
     container_top_left_corner_ = top_left_corner;
@@ -18,14 +17,6 @@ Ball::Ball(float radius, const ci::Color8u &color, const glm::vec2 &position, co
 }
 
 /** Getter Methods */
-const float Ball::GetRadius() {
-    return radius_;
-}
-
-const ci::Color &Ball::GetColor() {
-    return color_;
-}
-
 const glm::vec2 &Ball::GetPosition() {
     return position_;
 }
@@ -35,14 +26,6 @@ const glm::vec2 &Ball::GetVelocity() {
 }
 
 /** Setter Methods */
-void Ball::SetRadius(float radius) {
-    radius_ = radius;
-}
-
-void Ball::SetColor(const ci::Color &color) {
-    color_ = color;
-}
-
 void Ball::SetPosition(const glm::vec2 &position) {
     position_ = position;
 }
@@ -52,23 +35,17 @@ void Ball::SetVelocity(const glm::vec2 &velocity) {
 }
 
 const std::vector<bool> &Ball::HasCollidedWithWall() {
-    // Initialize a 2d vector to store bools in the directions in which a collision occurred
-
     // Determine if the ball collided with the top wall of the container
-    if ((position_.y - radius_ <= container_top_left_corner_.y + (container_stroke_width_/2)) && (velocity_.y < 0)) {
+    if ((position_.y - radius_ <= container_top_left_corner_.y + (container_stroke_width_ / 2)) &&
+        (velocity_.y < 0)) {
         wall_collision_directions_.at(1) = true;
     }
-    /*
-    else if ((position_.y + radius_ >= container_bottom_right_corner_.y - (container_stroke_width_/2)) &&
-    (velocity_.y > 0)) {
-        wall_collision_directions_.at(1) = true;
-    }
-     */
 
     // Determine if the particle collided with the left/right walls of the container
-    if ((position_.x - radius_ <= container_top_left_corner_.x + (container_stroke_width_/2)) && (velocity_.x < 0)) {
+    if ((position_.x - radius_ <= container_top_left_corner_.x + (container_stroke_width_ / 2)) &&
+        (velocity_.x < 0)) {
         wall_collision_directions_.at(0) = true;
-    } else if ((position_.x + radius_ >= container_bottom_right_corner_.x - (container_stroke_width_/2)) &&
+    } else if ((position_.x + radius_ >= container_bottom_right_corner_.x - (container_stroke_width_ / 2)) &&
                (velocity_.x > 0)) {
         wall_collision_directions_.at(0) = true;
     }
@@ -78,8 +55,8 @@ const std::vector<bool> &Ball::HasCollidedWithWall() {
 
 bool Ball::HasCollidedWithFloor() {
     // Determine if the ball collided with the floor
-    if((position_.y + radius_ >= container_bottom_right_corner_.y - (container_stroke_width_/2)) &&
-             (velocity_.y > 0)) {
+    if ((position_.y + radius_ >= container_bottom_right_corner_.y - (container_stroke_width_ / 2)) &&
+        (velocity_.y > 0)) {
         velocity_ = {0.0f, 0.0f};
         return true;
     }
@@ -88,68 +65,39 @@ bool Ball::HasCollidedWithFloor() {
 }
 
 const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
-    // Determine if the ball collided with the top/bottom of the brick
+    // Tolerance variable to aid in the collision detection with a brick
+    // Without this, the ball may phase through the brick without colliding
     double tolerance = 3.5;
 
-    /*
-    std::cout << "Top Collision:" << std::endl;
-    std::cout << "Velocity:" << (velocity_.y > 0) << std::endl;
-    std::cout <<  (position_.y + radius_ <= brick.brick_top_left_corner_.y + tolerance) << std::endl;
-    std::cout << (position_.y - radius_ >= brick.brick_top_left_corner_.y - 2 * radius_)  << std::endl;
-    std::cout << (position_.x + radius_ >= brick.brick_top_left_corner_.x) << std::endl;
-    std::cout << () << std::endl;
-
-
-    std::cout << () << std::endl;
-    std::cout << () << std::endl;
-    std::cout << () << std::endl;
-    std::cout << () << std::endl;
-    */
-
-
+    // Determine if the ball collided with the top/bottom of the brick
     if ((velocity_.y > 0) &&
-    (position_.y + radius_ <= brick.brick_top_left_corner_.y) &&
-    (position_.y - radius_ >= brick.brick_top_left_corner_.y - tolerance * radius_) &&
-    (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
-    (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)
-    ) {
+        (position_.y + radius_ <= brick.brick_top_left_corner_.y) &&
+        (position_.y - radius_ >= brick.brick_top_left_corner_.y - tolerance * radius_) &&
+        (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
+        (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)) {
         brick_collision_directions_.at(1) = true;
-    } else if((velocity_.y < 0) &&
-      (position_.y + radius_ <= brick.brick_bottom_right_corner_.y + tolerance * radius_) &&
-      (position_.y - radius_ >= brick.brick_bottom_right_corner_.y) &&
-      (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
-      (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)) {
-        std::cout << "---COLLISION---" << std::endl;
+    } else if ((velocity_.y < 0) &&
+               (position_.y + radius_ <= brick.brick_bottom_right_corner_.y + tolerance * radius_) &&
+               (position_.y - radius_ >= brick.brick_bottom_right_corner_.y) &&
+               (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
+               (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)) {
         brick_collision_directions_.at(1) = true;
     }
-
-
-    std::cout << "Bottom Collision:" << std::endl;
-    std::cout << "Velocity:" << (velocity_.y < 0) << std::endl;
-    std::cout <<  ((position_.y - radius_ >= brick.brick_bottom_right_corner_.y)) << std::endl;
-    std::cout <<  ((position_.y + radius_ <= brick.brick_bottom_right_corner_.y + tolerance * radius_)) << std::endl;
-    std::cout <<  ((position_.x + radius_ >= brick.brick_top_left_corner_.x)) << std::endl;
-    std::cout <<  ((position_.x - radius_ <= brick.brick_bottom_right_corner_.x)) << std::endl;
-
 
     // Determine if the ball collided with the left/right of the brick
     if ((velocity_.x > 0) &&
-    (position_.x + radius_ <= brick.brick_top_left_corner_.x) &&
-    (position_.x - radius_ >= brick.brick_top_left_corner_.x - tolerance * radius_) &&
-    (position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
-    (position_.y - radius_ <= brick.brick_bottom_right_corner_.y)
-    ) {
+        (position_.x + radius_ <= brick.brick_top_left_corner_.x) &&
+        (position_.x - radius_ >= brick.brick_top_left_corner_.x - tolerance * radius_) &&
+        (position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
+        (position_.y - radius_ <= brick.brick_bottom_right_corner_.y)) {
+        brick_collision_directions_.at(0) = true;
+    } else if ((velocity_.x < 0) &&
+               (position_.x - radius_ >= brick.brick_bottom_right_corner_.x) &&
+               (position_.x + radius_ <= brick.brick_bottom_right_corner_.x + tolerance * radius_) &&
+               (position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
+               (position_.y - radius_ <= brick.brick_bottom_right_corner_.y)) {
         brick_collision_directions_.at(0) = true;
     }
-    else if ((velocity_.x < 0) &&
-    (position_.x - radius_ >= brick.brick_bottom_right_corner_.x) &&
-    (position_.x + radius_ <= brick.brick_bottom_right_corner_.x + tolerance * radius_) &&
-    (position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
-    (position_.y - radius_ <= brick.brick_bottom_right_corner_.y)
-    ) {
-        brick_collision_directions_.at(0) = true;
-    }
-
 
     return brick_collision_directions_;
 }
@@ -157,9 +105,9 @@ const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
 bool Ball::HasCollidedWithPaddle(const Paddle &paddle) {
 
     if ((velocity_.y > 0) &&
-            (position_.x >= paddle.paddle_top_left_corner_.x) &&
-            (position_.x <= paddle.paddle_bottom_right_corner_.x) &&
-            (position_.y + radius_ >= paddle.paddle_top_left_corner_.y)) {
+        (position_.x >= paddle.paddle_top_left_corner_.x) &&
+        (position_.x <= paddle.paddle_bottom_right_corner_.x) &&
+        (position_.y + radius_ >= paddle.paddle_top_left_corner_.y)) {
         return true;
     }
 
@@ -198,8 +146,8 @@ void Ball::CalculateVelocityAfterBrickCollision(std::vector<bool> collision_dire
 
 void Ball::CalculateVelocityAfterPaddleCollision() {
     // Reflect ball velocity in the x,y-direction
-    velocity_.y *= -1.03;
-    velocity_.x *= 1.01;
+    velocity_.y *= -kBallPaddleCollisionY;
+    velocity_.x *= kBallPaddleCollisionX;
 }
 
 void Ball::CalculatePositionAfterCollision() {
@@ -208,12 +156,10 @@ void Ball::CalculatePositionAfterCollision() {
 
 void Ball::Draw() {
     // Draw Ball
-    //ci::gl::color(color_);
-    //ci::gl::drawSolidCircle(position_, radius_);
-
     ci::gl::color(ci::Color8u(255, 255, 255));
-    ci::gl::Texture2dRef ball = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Ball.png"));
-    ci::gl::draw(ball, ci::Rectf(glm::vec2 {position_.x - radius_, position_.y - radius_}, glm::vec2 {position_.x + radius_, position_.y + radius_}));
+    ci::gl::Texture2dRef ball = ci::gl::Texture::create(ci::loadImage(
+            "C:\\Users\\Omar\\Desktop\\Ball.png"));
+    ci::gl::draw(ball, ci::Rectf(glm::vec2{position_.x - radius_, position_.y - radius_},
+                                 glm::vec2{position_.x + radius_, position_.y + radius_}));
 }
-
 }  // namespace brickbreaker

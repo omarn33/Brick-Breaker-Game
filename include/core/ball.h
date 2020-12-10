@@ -21,6 +21,8 @@ private:
     glm::vec2 velocity_;
     std::vector<bool> wall_collision_directions_;
     std::vector<bool> brick_collision_directions_;
+    float const kBallPaddleCollisionY = 1.03f;
+    float const kBallPaddleCollisionX = 1.01f;
 
     /** Container Attributes */
     glm::vec2 container_top_left_corner_;
@@ -37,24 +39,17 @@ public:
      * @param velocity vec2 representing the ball's velocity
      * @param top_left_corner vec2 representing the coordinate of the top left corner of the container
      * @param bottom_right_corner vec2 representing the coordinate of the bottom right corner of the container
+     * @param container_stroke_width float representing the width of the container
      */
-    Ball(float radius, const ci::Color8u &color, const glm::vec2 &position, const glm::vec2 &velocity,
+    Ball(float radius, const glm::vec2 &position, const glm::vec2 &velocity,
          const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner, float container_stroke_width);
 
     /** Getter Methods */
-    const float GetRadius();
-
-    const ci::Color &GetColor();
-
     const glm::vec2 &GetPosition();
 
     const glm::vec2 &GetVelocity();
 
     /** Setter Methods */
-    void SetRadius(float radius);
-
-    void SetColor(const cinder::Color &color);
-
     void SetPosition(const glm::vec2 &position);
 
     void SetVelocity(const glm::vec2 &velocity);
@@ -68,9 +63,13 @@ public:
      *       <true, true> signifies a collision in both the x and y-direction
      *       <false, false> signifies no collision
      */
-     const std::vector<bool> &HasCollidedWithWall();
+    const std::vector<bool> &HasCollidedWithWall();
 
-     bool HasCollidedWithFloor();
+    /**
+     * Determines if the ball collided with the container floor
+     * @return true, if the ball collided with the floor, false otherwise
+     */
+    bool HasCollidedWithFloor();
 
     /**
      * Determines if the ball collided with a brick in any direction (x or y)
@@ -88,13 +87,13 @@ public:
 
     /**
      * Calculates the velocity of the ball after a wall collision
+     * @param collision_directions vector<bool> storing bools in the direction in which a collision occurred
      */
     void CalculateVelocityAfterWallCollision(std::vector<bool> collision_directions);
 
-    void CalculateVelocityAfterFloorCollision();
-
     /**
      * Calculates the velocity of the ball after a brick collision
+     * @param collision_directions vector<bool> storing bools in the direction in which a collision occurred
      */
     void CalculateVelocityAfterBrickCollision(std::vector<bool> collision_directions);
 
@@ -104,10 +103,13 @@ public:
     void CalculateVelocityAfterPaddleCollision();
 
     /**
-     * Calculates the position of the ball after any collision (with paddle, brick, or wall)
+     * Calculates the position of the ball after any collision (with paddle, brick, floor, or wall)
      */
     void CalculatePositionAfterCollision();
 
+    /**
+     * Displays the ball on the cinder application
+     */
     void Draw();
 };
 

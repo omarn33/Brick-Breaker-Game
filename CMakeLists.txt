@@ -57,8 +57,7 @@ list(APPEND CORE_SOURCE_FILES src/core/ball.cpp src/core/level.cpp src/core/bric
 
 
 list(APPEND SOURCE_FILES    ${CORE_SOURCE_FILES}
-        src/visualizer/brick_breaker_app.cc
-        src/visualizer/ideal_gas_simulator.cc)
+        src/visualizer/brick_breaker_app.cc)
 
 list(APPEND TEST_FILES tests/ball_test.cpp)
 

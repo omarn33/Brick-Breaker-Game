@@ -1,10 +1,8 @@
-
 #pragma once
 
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
-#include "ideal_gas_simulator.h"
 #include <core/ball.h>
 #include <core/level.h>
 #include <core/paddle.h>
@@ -21,7 +19,6 @@ private:
     const float kHeightToWidthRatio = 1.3125;
     const float kWindowHeight = 1950.0f;
     const float kWindowWidth = kWindowHeight * kHeightToWidthRatio;
-    const float kMargin = 300.0f;
 
     /** Wall Margins */
     const float kContainerWallStroke = 70.0f;
@@ -73,8 +70,6 @@ public:
     void keyDown(ci::app::KeyEvent event) override;
 
     void mouseMove(ci::app::MouseEvent event) override;
-
-    //void mouseDrag(ci::app::MouseEvent event) override;
 
     Level GetLevel(int level);
 

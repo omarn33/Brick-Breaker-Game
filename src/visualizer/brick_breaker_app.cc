@@ -9,10 +9,10 @@ namespace brickbreaker {
                                                                paddle_initial_position.y + kPaddleHeight},
                                                      kPaddleSensitivity, container_top_left_corner_,
                                                      container_bottom_right_corner_, kContainerWallStroke),
-                                             ball_(kBallRadius, kBallColor, ball_initial_position_,
+                                             ball_(kBallRadius, ball_initial_position_,
                                                    ball_initial_velocity_,
                                                    container_top_left_corner_, container_bottom_right_corner_, kContainerWallStroke),
-                                             current_level_(1, std::vector<Brick>{}, 0) {
+                                             current_level_(4, std::vector<Brick>{}, 0) {
             ci::app::setWindowSize((int) kWindowWidth, (int) kWindowHeight);
             score_ = 0;
             ammo_ = 0;
@@ -338,8 +338,8 @@ namespace brickbreaker {
                 // Add bricks for Level 1
 
                 // Section 1
-                float x_1 = 800.0f;
-                float y_1 = 975.0f;
+                float x_1 = 750.0f;
+                float y_1 = 800.0f;
                 Brick brick_1 = Brick(kSolidClay, kWeak, glm::vec2{x_1, y_1},
                                       glm::vec2{x_1 + kBrickWidth, y_1 + kBrickLength});
                 bricks.push_back(brick_1);

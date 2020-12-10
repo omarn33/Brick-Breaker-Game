@@ -15,10 +15,10 @@ enum BrickType {
 };
 
 enum BrickCondition {
-    kUnbreakable,
-    kStrong,
-    kMedium,
-    kWeak
+    kUnbreakable,   // Steel Brick
+    kStrong,        // Solid CLay Brick
+    kMedium,        // Normal Clay Brick
+    kWeak           // Cracked Clay Brick
 };
 
 class Brick {
@@ -30,6 +30,7 @@ private:
 
     friend class Ball;
     friend class Level;
+
 public:
     /**
      * Constructor that initializes brick attribute
@@ -40,13 +41,6 @@ public:
      */
     Brick(BrickType type, BrickCondition condition, const glm::vec2 &top_left_corner,
           const glm::vec2 &bottom_right_corner);
-
-    /** Getter Methods */
-    BrickType GetBrickType();
-
-    BrickCondition GetBrickCondition();
-
-    const glm::vec2 &GetBrickPosition();
 
     /** Setter Methods */
     void SetBrickType(BrickType type);

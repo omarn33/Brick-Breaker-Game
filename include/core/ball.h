@@ -25,6 +25,7 @@ private:
     /** Container Attributes */
     glm::vec2 container_top_left_corner_;
     glm::vec2 container_bottom_right_corner_;
+    float container_stroke_width_;
 
 public:
     /**
@@ -38,7 +39,7 @@ public:
      * @param bottom_right_corner vec2 representing the coordinate of the bottom right corner of the container
      */
     Ball(float radius, const ci::Color8u &color, const glm::vec2 &position, const glm::vec2 &velocity,
-         const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner);
+         const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner, float container_stroke_width);
 
     /** Getter Methods */
     const float GetRadius();

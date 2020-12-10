@@ -5,7 +5,7 @@
 namespace brickbreaker {
 
 Ball::Ball(float radius, const ci::Color8u &color, const glm::vec2 &position, const glm::vec2 &velocity,
-           const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner) {
+           const glm::vec2 &top_left_corner, const glm::vec2 &bottom_right_corner, float container_stroke_width) {
     radius_ = radius;
     color_ = color;
     position_ = position;
@@ -14,6 +14,7 @@ Ball::Ball(float radius, const ci::Color8u &color, const glm::vec2 &position, co
     container_bottom_right_corner_ = bottom_right_corner;
     wall_collision_directions_ = {false, false};
     brick_collision_directions_ = {false, false};
+    container_stroke_width_ = container_stroke_width;
 }
 
 /** Getter Methods */
@@ -54,17 +55,17 @@ const std::vector<bool> &Ball::HasCollidedWithWall() {
     // Initialize a 2d vector to store bools in the directions in which a collision occurred
 
     // Determine if the ball collided with the top wall of the container
-    if ((position_.y - radius_ <= container_top_left_corner_.y) && (velocity_.y < 0)) {
+    if ((position_.y - radius_ <= container_top_left_corner_.y + (container_stroke_width_/2)) && (velocity_.y < 0)) {
         wall_collision_directions_.at(1) = true;
-    } else if ((position_.y + radius_ >= container_bottom_right_corner_.y) &&
+    } else if ((position_.y + radius_ >= container_bottom_right_corner_.y - (container_stroke_width_/2)) &&
     (velocity_.y > 0)) {
         wall_collision_directions_.at(1) = true;
     }
 
     // Determine if the particle collided with the left/right walls of the container
-    if ((position_.x - radius_ <= container_top_left_corner_.x) && (velocity_.x < 0)) {
+    if ((position_.x - radius_ <= container_top_left_corner_.x + (container_stroke_width_/2)) && (velocity_.x < 0)) {
         wall_collision_directions_.at(0) = true;
-    } else if ((position_.x + radius_ >= container_bottom_right_corner_.x) &&
+    } else if ((position_.x + radius_ >= container_bottom_right_corner_.x - (container_stroke_width_/2)) &&
                (velocity_.x > 0)) {
         wall_collision_directions_.at(0) = true;
     }
@@ -74,7 +75,7 @@ const std::vector<bool> &Ball::HasCollidedWithWall() {
 
 const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
     // Determine if the ball collided with the top/bottom of the brick
-    double tolerance = 15.0;
+    double tolerance = 20.0;
 
     if ((velocity_.y > 0) &&
     (position_.y + radius_ <= brick.brick_top_left_corner_.y + tolerance) &&
@@ -158,7 +159,7 @@ void Ball::CalculateVelocityAfterBrickCollision(std::vector<bool> collision_dire
 
 void Ball::CalculateVelocityAfterPaddleCollision() {
     // Reflect ball velocity in the y-direction
-    velocity_.y *= -1.05;
+    velocity_.y *= -1.03;
 }
 
 void Ball::CalculatePositionAfterCollision() {
@@ -167,8 +168,12 @@ void Ball::CalculatePositionAfterCollision() {
 
 void Ball::Draw() {
     // Draw Ball
-    ci::gl::color(color_);
-    ci::gl::drawSolidCircle(position_, radius_);
+    //ci::gl::color(color_);
+    //ci::gl::drawSolidCircle(position_, radius_);
+
+    ci::gl::color(ci::Color8u(255, 255, 255));
+    ci::gl::Texture2dRef ball = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Ball.png"));
+    ci::gl::draw(ball, ci::Rectf(glm::vec2 {position_.x - radius_, position_.y - radius_}, glm::vec2 {position_.x + radius_, position_.y + radius_}));
 }
 
 }  // namespace brickbreaker

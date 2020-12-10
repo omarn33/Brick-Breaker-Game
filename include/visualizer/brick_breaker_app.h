@@ -37,7 +37,7 @@ private:
     Paddle paddle_;
 
     /** Ball Attributes */
-    float const kBallRadius = 35.0f;
+    float const kBallRadius = 25.0f;
     const ci::Color8u kBallColor = ci::Color8u(105, 105, 105);
     glm::vec2 ball_initial_position_ = {1000.0f, 1000.0f};
     glm::vec2 ball_initial_velocity_ = {-30.0f, -30.0f};
@@ -49,6 +49,7 @@ private:
 
     /** Game Attributes */
     Level current_level_;
+    bool generate_new_level_;
     const size_t kNumberOfLevels = 1;
     const size_t kScorePerBrickHit = 10;
     size_t score_;

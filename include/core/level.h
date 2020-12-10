@@ -13,10 +13,12 @@ private:
 public:
     Level(size_t level_number, const std::vector<Brick> &bricks);
 
-    /** Getter Methos */
+    /** Getter Methods */
     size_t GetLevelNumber();
 
     const std::vector<Brick> &Level::GetBricks();
+
+    void ErodeBrick(size_t index);
 
     void Draw();
 };

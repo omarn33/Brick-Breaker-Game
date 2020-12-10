@@ -70,6 +70,8 @@ public:
      */
      const std::vector<bool> &HasCollidedWithWall();
 
+     bool HasCollidedWithFloor();
+
     /**
      * Determines if the ball collided with a brick in any direction (x or y)
      * @return vector<bool> storing bool in the indices representing the direction in which the collision occurred
@@ -88,6 +90,8 @@ public:
      * Calculates the velocity of the ball after a wall collision
      */
     void CalculateVelocityAfterWallCollision(std::vector<bool> collision_directions);
+
+    void CalculateVelocityAfterFloorCollision();
 
     /**
      * Calculates the velocity of the ball after a brick collision

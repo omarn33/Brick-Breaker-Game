@@ -90,6 +90,12 @@ namespace brickbreaker {
                 ball_.CalculateVelocityAfterWallCollision(wall_collision_directions);
             }
 
+            // Determine if the ball collided with the floor
+            if(ball_.HasCollidedWithFloor()) {
+                // Decrease lives by 1
+                lives_ -= 1;
+            }
+
             // Determine if the ball collided with any bricks
             for (int brick = 0; brick < current_level_.GetBricks().size(); ++brick) {
                 std::vector<bool> brick_collision_directions = ball_.HasCollidedWithBrick(
@@ -121,12 +127,12 @@ namespace brickbreaker {
             switch (event.getCode()) {
                 case ci::app::KeyEvent::KEY_LEFT:
                     // Move the paddle to the left
-                    paddle_.MovePaddleLeft();
+                    //paddle_.MovePaddleLeft();
                     break;
 
                 case ci::app::KeyEvent::KEY_RIGHT:
                     // Move the paddle to the right
-                    paddle_.MovePaddleRight();
+                    //paddle_.MovePaddleRight();
                     break;
 
                 case ci::app::KeyEvent::KEY_b:

@@ -57,10 +57,13 @@ const std::vector<bool> &Ball::HasCollidedWithWall() {
     // Determine if the ball collided with the top wall of the container
     if ((position_.y - radius_ <= container_top_left_corner_.y + (container_stroke_width_/2)) && (velocity_.y < 0)) {
         wall_collision_directions_.at(1) = true;
-    } else if ((position_.y + radius_ >= container_bottom_right_corner_.y - (container_stroke_width_/2)) &&
+    }
+    /*
+    else if ((position_.y + radius_ >= container_bottom_right_corner_.y - (container_stroke_width_/2)) &&
     (velocity_.y > 0)) {
         wall_collision_directions_.at(1) = true;
     }
+     */
 
     // Determine if the particle collided with the left/right walls of the container
     if ((position_.x - radius_ <= container_top_left_corner_.x + (container_stroke_width_/2)) && (velocity_.x < 0)) {
@@ -71,6 +74,17 @@ const std::vector<bool> &Ball::HasCollidedWithWall() {
     }
 
     return wall_collision_directions_;
+}
+
+bool Ball::HasCollidedWithFloor() {
+    // Determine if the ball collided with the floor
+    if((position_.y + radius_ >= container_bottom_right_corner_.y - (container_stroke_width_/2)) &&
+             (velocity_.y > 0)) {
+        velocity_ = {0.0f, 0.0f};
+        return true;
+    }
+
+    return false;
 }
 
 const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {

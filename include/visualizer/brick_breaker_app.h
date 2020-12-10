@@ -54,7 +54,7 @@ private:
     const size_t kScorePerBrickHit = 10;
     size_t score_;
     size_t ammo_;
-    size_t lives_;
+    int lives_;
     size_t high_score_;
 
 

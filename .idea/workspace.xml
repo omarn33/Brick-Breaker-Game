@@ -30,13 +30,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add image files for paddle, bricks, and ball">
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add background image to asset folder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/core/ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/brick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/brick.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/paddle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/paddle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <list id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +102,7 @@
       <workItem from="1604440747746" duration="3498000" />
       <workItem from="1605674600591" duration="15619000" />
       <workItem from="1605839730757" duration="774000" />
-      <workItem from="1606714620378" duration="98580000" />
+      <workItem from="1606714620378" duration="100642000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -360,7 +356,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607604038577</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Add asset folder to contain all images">
+      <created>1607606304565</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1607606304565</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Add background image to asset folder">
+      <created>1607606464651</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1607606464651</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,8 +416,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add UI features for drawing ball" />
-    <MESSAGE value="Add UI features for drawing brick" />
     <MESSAGE value="Implement level class to store bricks for each level" />
     <MESSAGE value="Generate bricks for Level 1" />
     <MESSAGE value="Fix detection errors during ball and brick collisions" />
@@ -431,7 +439,9 @@
     <MESSAGE value="Add documentation for Paddle class" />
     <MESSAGE value="Add documentation for BrickBreakerApp class" />
     <MESSAGE value="Add image files for paddle, bricks, and ball" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add image files for paddle, bricks, and ball" />
+    <MESSAGE value="Add asset folder to contain all images" />
+    <MESSAGE value="Add background image to asset folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add background image to asset folder" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607598103906">
@@ -442,22 +452,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
-    <state width="1493" height="88" key="GridCell.Tab.0.bottom" timestamp="1607606049390">
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom" timestamp="1607606253549">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607606049390" />
-    <state width="1493" height="88" key="GridCell.Tab.0.center" timestamp="1607606049390">
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607606253549" />
+    <state width="1493" height="88" key="GridCell.Tab.0.center" timestamp="1607606253549">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607606049390" />
-    <state width="1493" height="88" key="GridCell.Tab.0.left" timestamp="1607606049390">
+    <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607606253549" />
+    <state width="1493" height="88" key="GridCell.Tab.0.left" timestamp="1607606253548">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607606049390" />
-    <state width="1493" height="88" key="GridCell.Tab.0.right" timestamp="1607606049390">
+    <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607606253548" />
+    <state width="1493" height="88" key="GridCell.Tab.0.right" timestamp="1607606253549">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607606049390" />
+    <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607606253549" />
     <state width="1493" height="280" key="GridCell.Tab.1.bottom" timestamp="1607604511269">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -482,10 +492,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606972723013" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607604045974">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607606473714">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607604045974" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607606473714" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1607489866838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

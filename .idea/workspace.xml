@@ -30,10 +30,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Implement introduction screen">
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Implement game message between levels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/core/level.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/level.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/level.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/level.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" afterDir="false" />
     </list>
     <list id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
@@ -104,7 +106,7 @@
       <workItem from="1604440747746" duration="3498000" />
       <workItem from="1605674600591" duration="15619000" />
       <workItem from="1605839730757" duration="774000" />
-      <workItem from="1606714620378" duration="77668000" />
+      <workItem from="1606714620378" duration="83266000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -267,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607576307514</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Implement game message between levels">
+      <created>1607582446856</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1607582446856</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +344,8 @@
     <MESSAGE value="Fix paddle maneuvering using mouseMove method" />
     <MESSAGE value="Determine if the ball collided with the floor" />
     <MESSAGE value="Implement introduction screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement introduction screen" />
+    <MESSAGE value="Implement game message between levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement game message between levels" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607502470168">
@@ -346,38 +356,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
-    <state width="1493" height="60" key="GridCell.Tab.0.bottom" timestamp="1607581972512">
+    <state width="1493" height="68" key="GridCell.Tab.0.bottom" timestamp="1607589549729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="60" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607581972512" />
-    <state width="1493" height="60" key="GridCell.Tab.0.center" timestamp="1607581972512">
+    <state width="1493" height="68" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607589549729" />
+    <state width="1493" height="68" key="GridCell.Tab.0.center" timestamp="1607589549729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="60" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607581972512" />
-    <state width="1493" height="60" key="GridCell.Tab.0.left" timestamp="1607581972512">
+    <state width="1493" height="68" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607589549729" />
+    <state width="1493" height="68" key="GridCell.Tab.0.left" timestamp="1607589549729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="60" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607581972512" />
-    <state width="1493" height="60" key="GridCell.Tab.0.right" timestamp="1607581972512">
+    <state width="1493" height="68" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607589549729" />
+    <state width="1493" height="68" key="GridCell.Tab.0.right" timestamp="1607589549729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="60" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607581972512" />
-    <state width="1493" height="91" key="GridCell.Tab.1.bottom" timestamp="1607566911294">
+    <state width="1493" height="68" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607589549729" />
+    <state width="1493" height="49" key="GridCell.Tab.1.bottom" timestamp="1607584917170">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="91" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607566911294" />
-    <state width="1493" height="91" key="GridCell.Tab.1.center" timestamp="1607566911294">
+    <state width="1493" height="49" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607584917170" />
+    <state width="1493" height="49" key="GridCell.Tab.1.center" timestamp="1607584917170">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="91" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607566911294" />
-    <state width="1493" height="91" key="GridCell.Tab.1.left" timestamp="1607566911294">
+    <state width="1493" height="49" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607584917170" />
+    <state width="1493" height="49" key="GridCell.Tab.1.left" timestamp="1607584917170">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="91" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607566911294" />
-    <state width="1493" height="91" key="GridCell.Tab.1.right" timestamp="1607566911294">
+    <state width="1493" height="49" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607584917170" />
+    <state width="1493" height="49" key="GridCell.Tab.1.right" timestamp="1607584917170">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="91" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607566911294" />
+    <state width="1493" height="49" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607584917170" />
     <state x="279" y="58" key="SettingsEditor" timestamp="1605681926580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -386,10 +396,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606972723013" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607576312910">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607582451287">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607576312910" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607582451287" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1607489866838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

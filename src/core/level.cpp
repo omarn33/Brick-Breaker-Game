@@ -11,12 +11,20 @@ size_t Level::GetLevelNumber() {
     return level_number_;
 }
 
-const std::vector<Brick> &Level::GetBricks() {
+size_t Level::GetNumberOfBricks() {
+    return bricks_.size();
+}
+
+void Level::SetLevelNumber(size_t level) {
+    level_number_ = level;
+}
+
+std::vector<Brick> &Level::GetBricks() {
     return bricks_;
 }
 
 void Level::ErodeBrick(size_t index) {
-    // Determine type of brick
+    // Degrade to respective brick
     if(bricks_.at(index).type_ == kSolidClay) {
         bricks_.at(index).SetBrickType(kNormalClay);
         bricks_.at(index).SetBrickCondition(kMedium);

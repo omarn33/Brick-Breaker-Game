@@ -12,7 +12,7 @@ namespace brickbreaker {
                                              ball_(kBallRadius, kBallColor, ball_initial_position_,
                                                    ball_initial_velocity_,
                                                    container_top_left_corner_, container_bottom_right_corner_, kContainerWallStroke),
-                                             current_level_(1, std::vector<Brick>{}) {
+                                             current_level_(2, std::vector<Brick>{}) {
             ci::app::setWindowSize((int) kWindowWidth, (int) kWindowHeight);
             score_ = 0;
             ammo_ = 0;
@@ -55,6 +55,75 @@ namespace brickbreaker {
                 }
 
                 DrawDefaultStage();
+            }
+            else if (has_game_ended_){
+                if(lives_ == 0) {
+
+                } else {
+                    // Set ball position to the paddle position
+                    ball_.SetPosition(glm::vec2 {paddle_.GetPaddlePosition().x + (kPaddleWidth/2), paddle_.GetPaddlePosition().y - kBallRadius});
+
+                    // Set new high score
+                    high_score_ = score_;
+
+                    // Draw background
+                    ci::gl::color(ci::Color8u(255, 255, 255));
+                    ci::gl::Texture2dRef image = ci::gl::Texture::create(
+                            ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
+                    ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
+
+
+                    // Draw Scoreboard
+                    ci::gl::drawStringCentered(
+                            std::to_string(score_),
+                            glm::vec2(2250.0f, 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                    ci::gl::drawStringCentered(
+                            std::to_string(ammo_),
+                            glm::vec2(2250.0f, 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                    ci::gl::drawStringCentered(
+                            std::to_string(lives_),
+                            glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                    ci::gl::drawStringCentered(
+                            std::to_string(high_score_),
+                            glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f + 425.0f), ci::Color("Black"),
+                            ci::Font("Impact", 200.0f));
+
+                    // Draw level
+                    current_level_.Draw();
+
+                    // Draw the paddle
+                    paddle_.Draw();
+
+                    // Draw the ball
+                    ball_.Draw();
+
+                    // Display Win Screen
+
+                    // Draw pop-up message
+                    ci::gl::color(ci::Color8u(160, 160, 160));
+                    float x_1 = 400.0f;
+                    float y_1 = 500.0f;
+                    double length = 700.0f;
+                    double width = 1100.0f;
+
+                    // Draw message
+                    ci::gl::drawStringCentered(
+                            "Congratulations!",
+                            glm::vec2(x_1 + (width/2), y_1 + (length/10)), ci::Color("yellow"), ci::Font("Impact", 250.0f));
+
+                    // Draw message
+                    ci::gl::drawStringCentered(
+                            "You Win",
+                            glm::vec2(x_1 + (width/2), y_1 + (length/2)), ci::Color("yellow"), ci::Font("Impact", 200.0f));
+
+                    // Draw message
+                    ci::gl::drawStringCentered(
+                            "Score: " + std::to_string(score_),
+                            glm::vec2(x_1 + (width/2), y_1 + (length * 4/5)), ci::Color("yellow"), ci::Font("Impact", 150.0f));
+                }
             }
             else {
 
@@ -129,58 +198,61 @@ namespace brickbreaker {
         }
 
         void BrickBreakerApp::update() {
-            // Determine if the level ended
-            if(current_level_.GetBricks().size() == 0) {
 
-                if(current_level_.GetLevelNumber() == 3) {
-                    has_game_ended_ = true;
-                } else
-                {
+            if(!has_game_ended_) {
 
-                    generate_new_level_ = true;
+                // Determine if the level ended
+                if (current_level_.GetBricks().size() == 0 && resume_game_) {
+                    // Determine if the player won
+                    if (current_level_.GetLevelNumber() == kNumberOfLevels) {
+                        has_game_ended_ = true;
+                    } else {
+                        resume_game_ = false;
+                        generate_new_level_ = true;
+                        current_level_.SetLevelNumber(current_level_.GetLevelNumber() + 1);
+                    }
                 }
-            }
 
 
-
-            // Update ball velocity if the ball collided with the wall
-            std::vector<bool> wall_collision_directions = ball_.HasCollidedWithWall();
-            if (wall_collision_directions.at(0) || wall_collision_directions.at(1)) {
-                ball_.CalculateVelocityAfterWallCollision(wall_collision_directions);
-            }
-
-            // Determine if the ball collided with the floor
-            if(ball_.HasCollidedWithFloor()) {
-                // Decrease lives by 1
-                lives_ -= 1;
-                resume_game_ = false;
-            }
-
-            // Determine if the ball collided with any bricks
-            for (int brick = 0; brick < current_level_.GetBricks().size(); ++brick) {
-                std::vector<bool> brick_collision_directions = ball_.HasCollidedWithBrick(
-                        current_level_.GetBricks().at(brick));
-                //std::cout << "iteration bricks" << std::endl;
-
-                if (brick_collision_directions.at(0) || brick_collision_directions.at(1)) {
-                    // Update score
-                    score_ += kScorePerBrickHit;
-
-                    // Calculate ball velocity after collision
-                    ball_.CalculateVelocityAfterBrickCollision(brick_collision_directions);
-
-                    // Erode Brick
-                    current_level_.ErodeBrick(brick);
+                // Update ball velocity if the ball collided with the wall
+                std::vector<bool> wall_collision_directions = ball_.HasCollidedWithWall();
+                if (wall_collision_directions.at(0) || wall_collision_directions.at(1)) {
+                    ball_.CalculateVelocityAfterWallCollision(wall_collision_directions);
                 }
-            }
 
-            // Determine if the ball collided with the paddle
-            if (ball_.HasCollidedWithPaddle(paddle_)) {
-                ball_.CalculateVelocityAfterPaddleCollision();
-            }
+                // Determine if the ball collided with the floor
+                if (ball_.HasCollidedWithFloor()) {
+                    // Decrease lives by 1
+                    lives_ -= 1;
+                    resume_game_ = false;
+                }
 
-            // Update ball position
-            ball_.CalculatePositionAfterCollision();
+                // Determine if the ball collided with any bricks
+                for (int brick = 0; brick < current_level_.GetBricks().size(); ++brick) {
+                    std::vector<bool> brick_collision_directions = ball_.HasCollidedWithBrick(
+                            current_level_.GetBricks().at(brick));
+                    //std::cout << "iteration bricks" << std::endl;
+
+                    if (brick_collision_directions.at(0) || brick_collision_directions.at(1)) {
+                        // Update score
+                        score_ += kScorePerBrickHit;
+
+                        // Calculate ball velocity after collision
+                        ball_.CalculateVelocityAfterBrickCollision(brick_collision_directions);
+
+                        // Erode Brick
+                        current_level_.ErodeBrick(brick);
+                    }
+                }
+
+                // Determine if the ball collided with the paddle
+                if (ball_.HasCollidedWithPaddle(paddle_)) {
+                    ball_.CalculateVelocityAfterPaddleCollision();
+                }
+
+                // Update ball position
+                ball_.CalculatePositionAfterCollision();
+            }
         }
 
         void BrickBreakerApp::keyDown(ci::app::KeyEvent event) {
@@ -254,8 +326,44 @@ namespace brickbreaker {
 
                 return level_1;
             }
+            else if(level == 2) {
+                // Add bricks for Level 1
+                float brick_spacing = 10.0f;
 
-            Level level_default = Level(1, bricks);
+                // Section 1
+                float x_1 = 800.0f;
+                float y_1 = 975.0f;
+                Brick brick_1 = Brick(kCrackedClay, kWeak, glm::vec2{x_1, y_1},
+                                      glm::vec2{x_1 + kBrickWidth, y_1 + kBrickLength});
+                bricks.push_back(brick_1);
+
+                /*
+                float x_2 = x_1 + kBrickWidth + brick_spacing;
+                float y_2 = y_1;
+                Brick brick_2 = Brick(kCrackedClay, kWeak, glm::vec2{x_2, y_2},
+                                      glm::vec2{x_2 + kBrickWidth, y_2 + kBrickLength});
+                bricks.push_back(brick_2);
+
+                float x_3 = x_1;
+                float y_3 = y_1 + kBrickLength + brick_spacing;
+                Brick brick_3 = Brick(kCrackedClay, kWeak, glm::vec2{x_3, y_3},
+                                      glm::vec2{x_3 + kBrickWidth, y_3 + kBrickLength});
+                bricks.push_back(brick_3);
+
+                float x_4 = x_3 + kBrickWidth + brick_spacing;
+                float y_4 = y_3;
+                Brick brick_4 = Brick(kCrackedClay, kWeak, glm::vec2{x_4, y_4},
+                                      glm::vec2{x_4 + kBrickWidth, y_4 + kBrickLength});
+                bricks.push_back(brick_4);
+                */
+
+                // Add bricks to level 2
+                Level level_2 = Level(2, bricks);
+
+                return level_2;
+            }
+
+            Level level_default = Level(0, bricks);
             return level_default;
         }
 

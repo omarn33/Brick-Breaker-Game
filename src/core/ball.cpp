@@ -172,8 +172,9 @@ void Ball::CalculateVelocityAfterBrickCollision(std::vector<bool> collision_dire
 }
 
 void Ball::CalculateVelocityAfterPaddleCollision() {
-    // Reflect ball velocity in the y-direction
+    // Reflect ball velocity in the x,y-direction
     velocity_.y *= -1.03;
+    velocity_.x *= 1.01;
 }
 
 void Ball::CalculatePositionAfterCollision() {

@@ -12,7 +12,7 @@ namespace brickbreaker {
                                              ball_(kBallRadius, kBallColor, ball_initial_position_,
                                                    ball_initial_velocity_,
                                                    container_top_left_corner_, container_bottom_right_corner_, kContainerWallStroke),
-                                             current_level_(2, std::vector<Brick>{}) {
+                                             current_level_(3, std::vector<Brick>{}) {
             ci::app::setWindowSize((int) kWindowWidth, (int) kWindowHeight);
             score_ = 0;
             ammo_ = 0;
@@ -441,7 +441,6 @@ namespace brickbreaker {
                                       glm::vec2{x_7 + kBrickWidth, y_7 + kBrickLength});
                 bricks.push_back(brick_7);
 
-
                 // Section 2
                 float x_8 = 555.0f;
                 float y_8 = 750.0f;
@@ -477,6 +476,119 @@ namespace brickbreaker {
                 Level level_2 = Level(2, bricks);
 
                 return level_2;
+            } else if(level == 3) {
+                // Add bricks for Level 3
+
+                float x_1 = 837.5f;
+                float y_1 = 335.0f;
+                Brick brick_1 = Brick(kSteel, kUnbreakable, glm::vec2{x_1, y_1},
+                                      glm::vec2{x_1 + kBrickWidth, y_1 + kBrickLength});
+                bricks.push_back(brick_1);
+
+                float x_2 = x_1;
+                float y_2 = y_1 + kBrickLength;
+                Brick brick_2 = Brick(kSteel, kUnbreakable, glm::vec2{x_2, y_2},
+                                      glm::vec2{x_2 + kBrickWidth, y_2 + kBrickLength});
+                bricks.push_back(brick_2);
+
+                float x_3 = x_1;
+                float y_3 = y_2 + kBrickLength;
+                Brick brick_3 = Brick(kSteel, kUnbreakable, glm::vec2{x_3, y_3},
+                                      glm::vec2{x_3 + kBrickWidth, y_3 + kBrickLength});
+                bricks.push_back(brick_3);
+
+                float x_4 = x_1;
+                float y_4 = y_3 + kBrickLength;
+                Brick brick_4 = Brick(kSteel, kUnbreakable, glm::vec2{x_4, y_4},
+                                      glm::vec2{x_4 + kBrickWidth, y_4 + kBrickLength});
+                bricks.push_back(brick_4);
+
+                float x_5 = x_1;
+                float y_5 = y_4 + kBrickLength;
+                Brick brick_5 = Brick(kSteel, kUnbreakable, glm::vec2{x_5, y_5},
+                                      glm::vec2{x_5 + kBrickWidth, y_5 + kBrickLength});
+                bricks.push_back(brick_5);
+
+                float x_6 = x_1;
+                float y_6 = y_5 + kBrickLength;
+                Brick brick_6 = Brick(kSteel, kUnbreakable, glm::vec2{x_6, y_6},
+                                      glm::vec2{x_6 + kBrickWidth, y_6 + kBrickLength});
+                bricks.push_back(brick_6);
+
+                float x_7 = x_1;
+                float y_7 = y_6 + kBrickLength;
+                Brick brick_7 = Brick(kSteel, kUnbreakable, glm::vec2{x_7, y_7},
+                                      glm::vec2{x_7 + kBrickWidth, y_7 + kBrickLength});
+                bricks.push_back(brick_7);
+
+                float x_8 = x_1;
+                float y_8 = y_7 + kBrickLength;
+                Brick brick_8 = Brick(kSteel, kUnbreakable, glm::vec2{x_8, y_8},
+                                      glm::vec2{x_8 + kBrickWidth, y_8 + kBrickLength});
+                bricks.push_back(brick_8);
+
+                float x_9 = x_1;
+                float y_9 = y_8 + kBrickLength;
+                Brick brick_9 = Brick(kSteel, kUnbreakable, glm::vec2{x_9, y_9},
+                                      glm::vec2{x_9 + kBrickWidth, y_9 + kBrickLength});
+                bricks.push_back(brick_9);
+
+                // Section 2
+                float x_10 = x_5 - kBrickWidth;
+                float y_10 = y_5;
+                Brick brick_10 = Brick(kSteel, kUnbreakable, glm::vec2{x_10, y_10},
+                                      glm::vec2{x_10 + kBrickWidth, y_10 + kBrickLength});
+                bricks.push_back(brick_10);
+
+                float x_11 = x_10 - kBrickWidth;
+                float y_11 = y_5;
+                Brick brick_11 = Brick(kSteel, kUnbreakable, glm::vec2{x_11, y_11},
+                                       glm::vec2{x_11 + kBrickWidth, y_11 + kBrickLength});
+                bricks.push_back(brick_11);
+
+                float x_12 = x_11 - kBrickWidth;
+                float y_12 = y_5;
+                Brick brick_12 = Brick(kSteel, kUnbreakable, glm::vec2{x_12, y_12},
+                                       glm::vec2{x_12 + kBrickWidth, y_12 + kBrickLength});
+                bricks.push_back(brick_12);
+
+                // Section 3
+                float x_13 = x_5 + kBrickWidth;
+                float y_13 = y_5;
+                Brick brick_13 = Brick(kSteel, kUnbreakable, glm::vec2{x_13, y_13},
+                                       glm::vec2{x_13 + kBrickWidth, y_13 + kBrickLength});
+                bricks.push_back(brick_13);
+
+                float x_14 = x_13 + kBrickWidth;
+                float y_14 = y_5;
+                Brick brick_14 = Brick(kSteel, kUnbreakable, glm::vec2{x_14, y_14},
+                                       glm::vec2{x_14 + kBrickWidth, y_14 + kBrickLength});
+                bricks.push_back(brick_14);
+
+                float x_15 = x_14 + kBrickWidth;
+                float y_15 = y_5;
+                Brick brick_15 = Brick(kSteel, kUnbreakable, glm::vec2{x_15, y_15},
+                                       glm::vec2{x_15 + kBrickWidth, y_15 + kBrickLength});
+                bricks.push_back(brick_15);
+
+                // Section 4
+                float x_16 = x_4 + kBrickWidth;
+                float y_16 = y_4;
+                Brick brick_16 = Brick(kSolidClay, kStrong, glm::vec2{x_16, y_16},
+                                       glm::vec2{x_16 + kBrickWidth, y_16 + kBrickLength});
+                bricks.push_back(brick_16);
+
+                // Section 5
+                float x_17 = x_4 - kBrickWidth;
+                float y_17 = y_4;
+                Brick brick_17 = Brick(kSolidClay, kStrong, glm::vec2{x_17, y_17},
+                                       glm::vec2{x_17 + kBrickWidth, y_17 + kBrickLength});
+                bricks.push_back(brick_17);
+
+                // Add bricks to level 2
+                Level level_3 = Level(3, bricks);
+
+                return level_3;
             }
 
             Level level_default = Level(0, bricks);

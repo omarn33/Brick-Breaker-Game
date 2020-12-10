@@ -76,7 +76,7 @@ void BrickBreakerApp::draw() {
         // Draw background
         ci::gl::color(ci::Color8u(255, 255, 255));
         ci::gl::Texture2dRef image = ci::gl::Texture::create(
-                ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
+                ci::loadImage(ci::app::loadAsset("Background.png")));
         ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
 
         // Draw Scoreboard
@@ -100,6 +100,7 @@ void BrickBreakerApp::draw() {
 
 void BrickBreakerApp::update() {
     if (!has_game_ended_) {
+
         // Determine if the player passed the level
         if (current_level_.GetNumberOfDestroyableBricks() == 0 && resume_game_) {
             // Determine if the player won
@@ -135,6 +136,7 @@ void BrickBreakerApp::update() {
         for (int brick = 0; brick < current_level_.GetBricks().size(); ++brick) {
             std::vector<bool> brick_collision_directions = ball_.HasCollidedWithBrick(
                     current_level_.GetBricks().at(brick));
+
             if (brick_collision_directions.at(0) || brick_collision_directions.at(1)) {
                 // Update score
                 score_ += kScorePerBrickHit;
@@ -462,7 +464,7 @@ void BrickBreakerApp::DrawDefaultStage() {
     // Draw background
     ci::gl::color(ci::Color8u(255, 255, 255));
     ci::gl::Texture2dRef image = ci::gl::Texture::create(
-            ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
+            ci::loadImage(ci::app::loadAsset("Background.png")));
     ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
 
     // Draw Scoreboard
@@ -520,7 +522,7 @@ void BrickBreakerApp::DisplayWinScreen() {
     // Draw background
     ci::gl::color(ci::Color8u(255, 255, 255));
     ci::gl::Texture2dRef image = ci::gl::Texture::create(
-            ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
+            ci::loadImage(ci::app::loadAsset("Background.png")));
     ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
 
     // Draw Scoreboard
@@ -572,7 +574,7 @@ void BrickBreakerApp::DisplayGameOverScreen() {
     // Draw background
     ci::gl::color(ci::Color8u(255, 255, 255));
     ci::gl::Texture2dRef image = ci::gl::Texture::create(
-            ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
+            ci::loadImage(ci::app::loadAsset("Background.png")));
     ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
 
     // Draw Scoreboard

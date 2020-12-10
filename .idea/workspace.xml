@@ -30,9 +30,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add documentation for Paddle class">
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add image files for paddle, bricks, and ball">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/core/ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/brick.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/brick.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/paddle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/paddle.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" afterDir="false" />
     </list>
     <list id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
@@ -103,7 +106,7 @@
       <workItem from="1604440747746" duration="3498000" />
       <workItem from="1605674600591" duration="15619000" />
       <workItem from="1605839730757" duration="774000" />
-      <workItem from="1606714620378" duration="97330000" />
+      <workItem from="1606714620378" duration="98580000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -336,7 +339,28 @@
       <option name="project" value="LOCAL" />
       <updated>1607600760366</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Add documentation for BrickBreakerApp class">
+      <created>1607603831322</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1607603831322</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Add image files for paddle, bricks, and ball">
+      <created>1607604028415</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1607604028415</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Add image files for paddle, bricks, and ball">
+      <created>1607604038577</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1607604038577</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,8 +406,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add implementation to update ball position after collision" />
-    <MESSAGE value="Add UI features for drawing container and scoreboard" />
     <MESSAGE value="Add UI features for drawing ball" />
     <MESSAGE value="Add UI features for drawing brick" />
     <MESSAGE value="Implement level class to store bricks for each level" />
@@ -407,7 +429,9 @@
     <MESSAGE value="Add documentation for Brick class" />
     <MESSAGE value="Add documentation for Level class" />
     <MESSAGE value="Add documentation for Paddle class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add documentation for Paddle class" />
+    <MESSAGE value="Add documentation for BrickBreakerApp class" />
+    <MESSAGE value="Add image files for paddle, bricks, and ball" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add image files for paddle, bricks, and ball" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607598103906">
@@ -418,38 +442,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
-    <state width="1493" height="88" key="GridCell.Tab.0.bottom" timestamp="1607603527625">
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom" timestamp="1607606049390">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607603527625" />
-    <state width="1493" height="88" key="GridCell.Tab.0.center" timestamp="1607603527625">
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607606049390" />
+    <state width="1493" height="88" key="GridCell.Tab.0.center" timestamp="1607606049390">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607603527625" />
-    <state width="1493" height="88" key="GridCell.Tab.0.left" timestamp="1607603527625">
+    <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607606049390" />
+    <state width="1493" height="88" key="GridCell.Tab.0.left" timestamp="1607606049390">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607603527625" />
-    <state width="1493" height="88" key="GridCell.Tab.0.right" timestamp="1607603527625">
+    <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607606049390" />
+    <state width="1493" height="88" key="GridCell.Tab.0.right" timestamp="1607606049390">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607603527625" />
-    <state width="929" height="280" key="GridCell.Tab.1.bottom" timestamp="1607593494743">
+    <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607606049390" />
+    <state width="1493" height="280" key="GridCell.Tab.1.bottom" timestamp="1607604511269">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="929" height="280" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607593494743" />
-    <state width="929" height="280" key="GridCell.Tab.1.center" timestamp="1607593494743">
+    <state width="1493" height="280" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607604511269" />
+    <state width="1493" height="280" key="GridCell.Tab.1.center" timestamp="1607604511269">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="929" height="280" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607593494743" />
-    <state width="929" height="280" key="GridCell.Tab.1.left" timestamp="1607593494743">
+    <state width="1493" height="280" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607604511269" />
+    <state width="1493" height="280" key="GridCell.Tab.1.left" timestamp="1607604511269">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="929" height="280" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607593494743" />
-    <state width="929" height="280" key="GridCell.Tab.1.right" timestamp="1607593494743">
+    <state width="1493" height="280" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607604511269" />
+    <state width="1493" height="280" key="GridCell.Tab.1.right" timestamp="1607604511269">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="929" height="280" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607593494743" />
+    <state width="1493" height="280" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607604511269" />
     <state x="279" y="58" key="SettingsEditor" timestamp="1605681926580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -458,10 +482,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606972723013" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607600766593">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607604045974">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607600766593" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607604045974" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1607489866838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

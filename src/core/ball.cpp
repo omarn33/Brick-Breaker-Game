@@ -158,7 +158,7 @@ void Ball::Draw() {
     // Draw Ball
     ci::gl::color(ci::Color8u(255, 255, 255));
     ci::gl::Texture2dRef ball = ci::gl::Texture::create(ci::loadImage(
-            "C:\\Users\\Omar\\Desktop\\Ball.png"));
+            ci::app::loadAsset("Ball.png")));
     ci::gl::draw(ball, ci::Rectf(glm::vec2{position_.x - radius_, position_.y - radius_},
                                  glm::vec2{position_.x + radius_, position_.y + radius_}));
 }

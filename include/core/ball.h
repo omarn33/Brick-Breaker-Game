@@ -1,6 +1,7 @@
 #pragma once
 
 #include <core/brick.h>
+#include "cinder/app/App.h"
 #include "../../../../include/glm/glm.hpp"
 #include "cinder/gl/gl.h"
 #include "paddle.h"

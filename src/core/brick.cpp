@@ -1,4 +1,5 @@
 #include <core/brick.h>
+#include <cinder/app/AppBase.h>
 
 namespace brickbreaker {
 
@@ -23,22 +24,22 @@ void Brick::Draw() {
     ci::gl::color(ci::Color8u(255, 255, 255));
     if (type_ == kSteel) {
         ci::gl::Texture2dRef brick = ci::gl::Texture::create(
-                ci::loadImage("C:\\Users\\Omar\\Desktop\\Steel_Brick.png"));
+                ci::loadImage(ci::app::loadAsset("Steel_Brick.png")));
         ci::gl::draw(brick, ci::Rectf(brick_top_left_corner_, brick_bottom_right_corner_));
     }
     else if(type_ == kSolidClay) {
         ci::gl::Texture2dRef brick = ci::gl::Texture::create(
-                ci::loadImage("C:\\Users\\Omar\\Desktop\\Solid_Brick.png"));
+                ci::loadImage(ci::app::loadAsset("Solid_Brick.png")));
         ci::gl::draw(brick, ci::Rectf(brick_top_left_corner_, brick_bottom_right_corner_));
     }
     else if(type_ == kNormalClay){
         ci::gl::Texture2dRef brick = ci::gl::Texture::create(
-                ci::loadImage("C:\\Users\\Omar\\Desktop\\Normal_Brick.png"));
+                ci::loadImage(ci::app::loadAsset("Normal_Brick.png")));
         ci::gl::draw(brick, ci::Rectf(brick_top_left_corner_, brick_bottom_right_corner_));
     }
     else if(type_ = kCrackedClay) {
         ci::gl::Texture2dRef brick = ci::gl::Texture::create(
-                ci::loadImage("C:\\Users\\Omar\\Desktop\\Cracked_Brick.png"));
+                ci::loadImage(ci::app::loadAsset("Cracked_Brick.png")));
         ci::gl::draw(brick, ci::Rectf(brick_top_left_corner_, brick_bottom_right_corner_));
     }
 }

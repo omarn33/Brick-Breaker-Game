@@ -1,4 +1,5 @@
 #include <core/paddle.h>
+#include <cinder/app/AppBase.h>
 
 namespace brickbreaker {
 
@@ -29,7 +30,7 @@ void Paddle::Draw() {
     // Draw Paddle
     ci::gl::color(ci::Color8u(255, 255, 255));
     ci::gl::Texture2dRef paddle = ci::gl::Texture::create(ci::loadImage(
-            "C:\\Users\\Omar\\Desktop\\Paddle.png"));
+            ci::app::loadAsset("Paddle.png")));
     ci::gl::draw(paddle, ci::Rectf(paddle_top_left_corner_, paddle_bottom_right_corner_));
 }
 

@@ -23,19 +23,22 @@ private:
     /** Wall Margins */
     const float kContainerWallStroke = 70.0f;
     glm::vec2 container_top_left_corner_ = {100.0f, 185.0f};
-    glm::vec2 container_bottom_right_corner_ = {1775.0f, kWindowHeight + (kContainerWallStroke/2)};
-    const ci::Color container_color_ =  ci::Color("yellow");
+    glm::vec2 container_bottom_right_corner_ = {1775.0f, kWindowHeight + (kContainerWallStroke / 2)};
+    const ci::Color container_color_ = ci::Color("yellow");
 
     /** Paddle Attributes */
     float const kPaddleHeight = 80.0f;
     float const kPaddleWidth = 310.0f;
-    glm::vec2 paddle_initial_position = {782.5, kWindowHeight - kPaddleHeight};
+    glm::vec2 paddle_initial_position = {container_top_left_corner_.x +
+                                         ((container_top_left_corner_.x - container_bottom_right_corner_.x)/2)
+                                         - (kPaddleWidth/2),
+                                         kWindowHeight - kPaddleHeight};
     Paddle paddle_;
 
     /** Ball Attributes */
     float const kBallRadius = 25.0f;
-    const ci::Color8u kBallColor = ci::Color8u(105, 105, 105);
-    glm::vec2 ball_initial_position_ = {paddle_initial_position.x + (kPaddleWidth / 2), paddle_initial_position.y - kBallRadius};
+    glm::vec2 ball_initial_position_ = {paddle_initial_position.x + (kPaddleWidth / 2),
+                                        paddle_initial_position.y - kBallRadius};
     glm::vec2 ball_initial_velocity_ = {-25.0f, -30.0f};
     Ball ball_;
 
@@ -43,13 +46,18 @@ private:
     float const kBrickLength = 100.0f;
     float const kBrickWidth = 200.0f;
 
+    /** Scoreboard Dimensions */
+    float const kScoreboardTextX = 2250.0f;
+    float const kScoreboardTextY = 425.0f;
+    float const kScoreboardSpacing = 425.0f;
+
     /** Game Attributes */
-    Level current_level_;
     const size_t kNumberOfLevels = 4;
     const size_t kScorePerBrickHit = 10;
+    Level current_level_;
     size_t score_;
     size_t ammo_;
-    int lives_;
+    size_t lives_;
     size_t high_score_;
 
     /** Game Conditions */
@@ -60,8 +68,12 @@ private:
     bool has_game_ended_;
 
 public:
+    /**
+     * Constructs the Brick Breaker Game
+     */
     BrickBreakerApp();
 
+    /** Cinder Functions */
     void draw() override;
 
     void update() override;
@@ -70,10 +82,32 @@ public:
 
     void mouseMove(ci::app::MouseEvent event) override;
 
-    Level GetLevel(int level);
+    /**
+     * Generates respective level with corresponding bricks
+     * @param level size_t representing the level number
+     * @return
+     */
+    Level GenerateLevel(size_t level);
 
+    /**
+     * Displays the game scoreboard
+     */
+    void DisplayScoreboard();
+
+    /**
+     * Displays paddle, ball, and pop up message in default positions
+     */
     void DrawDefaultStage();
 
+    /**
+     * Displays pop up message with 'You Win' text and resets ball/paddle to default positions
+     */
+    void DisplayWinScreen();
+
+    /**
+     * Displays pop up message with 'Game Over' text and resets ball/paddle to default positions
+     */
+    void DisplayGameOverScreen();
 };
 
 }  // namespace visualizer

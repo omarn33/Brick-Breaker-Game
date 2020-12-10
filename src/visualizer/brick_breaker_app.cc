@@ -48,6 +48,11 @@ namespace brickbreaker {
                     glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
 
 
+            // Draw Container
+            ci::gl::color(container_color_);
+            ci::gl::drawStrokedRect(ci::Rectf(container_top_left_corner_,
+                                              container_bottom_right_corner_), kContainerWallStroke);
+
             /*
             // Display Brick Types
             ci::gl::color(ci::Color8u(255, 255, 255));
@@ -133,6 +138,14 @@ namespace brickbreaker {
                     // Add a green particle
                     //simulator_.AddParticle(ci::Color("green"));
                     break;
+            }
+        }
+
+        void BrickBreakerApp::mouseMove(ci::app::MouseEvent event) {
+            if((event.getPos().x - (kPaddleWidth/2) >= container_top_left_corner_.x + (kContainerWallStroke/2)) &&
+                event.getPos().x + (kPaddleWidth/2) <= container_bottom_right_corner_.x - (kContainerWallStroke/2))
+            {
+                paddle_.SetPaddlePosition(glm::vec2 {event.getPos().x - (kPaddleWidth/2), paddle_.GetPaddlePosition().y});
             }
         }
 

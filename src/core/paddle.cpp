@@ -18,11 +18,28 @@ namespace brickbreaker {
     }
 
     void Paddle::SetPaddlePosition(const glm::vec2 &position) {
+        float length = paddle_bottom_right_corner_.x - paddle_top_left_corner_.x;
+
         paddle_top_left_corner_ = position;
+        paddle_bottom_right_corner_.x = paddle_top_left_corner_.x + length;
+
+        /*
+                if(position.x - (length/2) <= container_top_left_corner_.x + (container_stroke_width_/2)) {
+            paddle_top_left_corner_.x = container_top_left_corner_.x + (container_stroke_width_/2);
+            paddle_bottom_right_corner_.x = paddle_top_left_corner_.x + length;
+        }
+        else if(position.x + (length/2) + (container_stroke_width_/2) >= container_bottom_right_corner_.x) {
+            paddle_top_left_corner_.x = container_bottom_right_corner_.x - (container_stroke_width_/2) - length;
+            paddle_bottom_right_corner_.x = paddle_top_left_corner_.x + length;
+        }
+        else {
+         */
     }
 
     void Paddle::MovePaddleRight() {
-        if(paddle_bottom_right_corner_.x + paddle_sensitivity_ <= container_bottom_right_corner_.x - (container_stroke_width_ / 2)) {
+        // container_bottom_right_corner_.x - (container_stroke_width_ / 2)
+        // paddle_sensitivity_
+        if(paddle_bottom_right_corner_.x <= 1775.0f - 35.0f) {
             paddle_top_left_corner_.x += paddle_sensitivity_;
             paddle_bottom_right_corner_.x += paddle_sensitivity_;
         }
@@ -41,6 +58,11 @@ namespace brickbreaker {
         ci::gl::Texture2dRef paddle = ci::gl::Texture::create(ci::loadImage(
                 "C:\\Users\\Omar\\Desktop\\Paddle.png"));
         ci::gl::draw(paddle, ci::Rectf(paddle_top_left_corner_, paddle_bottom_right_corner_));
+
+        /*
+        ci::gl::color(ci::Color8u(0, 0, 0));
+        ci::gl::drawSolidRect(ci::Rectf(paddle_top_left_corner_, paddle_bottom_right_corner_));
+         */
     }
 
 } // namespace brickbreaker

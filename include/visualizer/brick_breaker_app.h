@@ -68,7 +68,7 @@ public:
 
     void keyDown(ci::app::KeyEvent event) override;
 
-    //void mouseDown(ci::app::MouseEvent event) override;
+    void mouseMove(ci::app::MouseEvent event) override;
 
     //void mouseDrag(ci::app::MouseEvent event) override;
 

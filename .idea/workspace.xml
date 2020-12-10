@@ -30,9 +30,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Add background image to asset folder">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Create README.md file">
+      <change beforePath="$PROJECT_DIR$/include/core/ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ball_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ball_test.cpp" afterDir="false" />
     </list>
     <list id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,9 +46,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-Debug-main" />
   </component>
   <component name="ProjectId" id="1jnXI0ruSvL7QGWpXN0USY4EE9O" />
   <component name="ProjectViewState">
@@ -67,6 +64,12 @@
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Check Ball Bounces After Ball-Container Collision" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-test" TEST_METHOD="Check Ball Bounces After Ball-Container Collision" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="brick-breaker-test" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-test" TEST_MODE="SUITE_TEST">
@@ -88,7 +91,13 @@
     <list>
       <item itemvalue="Catch.brick-breaker-test" />
       <item itemvalue="CMake Application.brick-breaker-game" />
+      <item itemvalue="Catch.Check Ball Bounces After Ball-Container Collision" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Catch.Check Ball Bounces After Ball-Container Collision" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -102,7 +111,7 @@
       <workItem from="1604440747746" duration="3498000" />
       <workItem from="1605674600591" duration="15619000" />
       <workItem from="1605839730757" duration="774000" />
-      <workItem from="1606714620378" duration="100642000" />
+      <workItem from="1606714620378" duration="102960000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -370,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607606464651</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Create README.md file">
+      <created>1607608127485</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1607608127485</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +432,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement level class to store bricks for each level" />
     <MESSAGE value="Generate bricks for Level 1" />
     <MESSAGE value="Fix detection errors during ball and brick collisions" />
     <MESSAGE value="Create Paddle class" />
@@ -441,7 +456,8 @@
     <MESSAGE value="Add image files for paddle, bricks, and ball" />
     <MESSAGE value="Add asset folder to contain all images" />
     <MESSAGE value="Add background image to asset folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add background image to asset folder" />
+    <MESSAGE value="Create README.md file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create README.md file" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607598103906">
@@ -452,22 +468,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
-    <state width="1493" height="88" key="GridCell.Tab.0.bottom" timestamp="1607606253549">
+    <state width="1493" height="148" key="GridCell.Tab.0.bottom" timestamp="1607610440923">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607606253549" />
-    <state width="1493" height="88" key="GridCell.Tab.0.center" timestamp="1607606253549">
+    <state width="1493" height="148" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607610440923" />
+    <state width="1493" height="148" key="GridCell.Tab.0.center" timestamp="1607610440923">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607606253549" />
-    <state width="1493" height="88" key="GridCell.Tab.0.left" timestamp="1607606253548">
+    <state width="1493" height="148" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607610440923" />
+    <state width="1493" height="148" key="GridCell.Tab.0.left" timestamp="1607610440922">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607606253548" />
-    <state width="1493" height="88" key="GridCell.Tab.0.right" timestamp="1607606253549">
+    <state width="1493" height="148" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607610440922" />
+    <state width="1493" height="148" key="GridCell.Tab.0.right" timestamp="1607610440923">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607606253549" />
+    <state width="1493" height="148" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607610440923" />
     <state width="1493" height="280" key="GridCell.Tab.1.bottom" timestamp="1607604511269">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -492,10 +508,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606972723013" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607606473714">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607608132992">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607606473714" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607608132992" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1607489866838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

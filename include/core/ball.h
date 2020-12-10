@@ -17,7 +17,6 @@ class Ball {
 private:
     /** Ball Attributes */
     float radius_;
-    ci::Color8u color_;
     glm::vec2 position_;
     glm::vec2 velocity_;
     std::vector<bool> wall_collision_directions_;

@@ -1,5 +1,4 @@
 #include <core/ball.h>
-
 #include <cmath>
 #include <catch2/catch.hpp>
 
@@ -9,7 +8,6 @@ TEST_CASE("Check Ball Bounces After Ball-Container Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
-    ci::Color color = ci::Color("gray");
 
     // Set initial position and velocity vectors
     glm::vec2 position1(50.0, 10.0);
@@ -39,79 +37,270 @@ TEST_CASE("Check Ball Bounces After Ball-Container Collision") {
     glm::vec2 position9(95.0, 95.0);
     glm::vec2 velocity9(1.0, 1.0);
 
+    // Ball created to bounce off upper boundary
+    Ball upper(10.0f, position1, velocity1, top_left, bottom_right, 0.0f);
 
-    // Particle created to bounce off upper boundary
-    Ball upper_particle(10.0f, color, position1, velocity1, top_left, bottom_right);
+    // Ball created to bounce off lower boundary
+    Ball lower(10.0f, position2, velocity2, top_left, bottom_right, 0.0f);
 
-    // Particle created to bounce off lower boundary
-    Ball lower_particle(10.0f, color, position2, velocity2, top_left, bottom_right);
+    // Ball created to bounce off left boundary
+    Ball left(10.0f, position3, velocity3, top_left, bottom_right, 0.0f);
 
-    // Particle created to bounce off left boundary
-    Ball left_particle(10.0f, color, position3, velocity3, top_left, bottom_right);
+    // Ball created to bounce off right boundary
+    Ball right(10.0f, position4, velocity4, top_left, bottom_right, 0.0f);
 
-    // Particle created to bounce off right boundary
-    Ball right_particle(10.0f, color, position4, velocity4, top_left, bottom_right);
+    // Ball created to bounce off upper left corner (+x and +y velocities)
+    Ball top_left_ball(10.0f, position5, velocity5, top_left, bottom_right, 0.0f);
 
-    // Particle created to bounce off upper left corner (+x and +y velocities)
-    Ball top_left_particle(10.0f, color, position5, velocity5, top_left, bottom_right);
+    // Ball created to bounce off upper right corner (+x velocity and -y velocity)
+    Ball top_right(10.0f, position6, velocity6, top_left, bottom_right, 0.0f);
 
-    // Particle created to bounce off upper right corner (+x velocity and -y velocity)
-    Ball top_right_particle(10.0f, color, position6, velocity6, top_left, bottom_right);
-
-    // Particle created to bounce off bottom left corner (-x velocity and +y velocity)
-    Ball bottom_left_particle(10.0f, color, position6, velocity6, top_left, bottom_right);
-
-    // Particle created to bounce off bottom right corner (+x velocity and +y velocity)
-    Ball bottom_right_particle(10.0f, color, position7, velocity7, top_left, bottom_right);
-
-    // Particle created to bounce off corner while being emerged in container
-    Ball emerged_particle(10.0f, color, position8, velocity8, top_left, bottom_right);
-
-    ParticlePhysics physics(top_left, bottom_right);
-
-    SECTION("Test particle bouncing off upper boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(upper_particle, 'y'));
+    SECTION("Test ball bouncing off upper boundary") {
+        REQUIRE(upper.HasCollidedWithWall().at(1));
     }
 
-    SECTION("Test particle bouncing off lower boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(lower_particle, 'y'));
+    SECTION("Test ball bouncing off lower boundary") {
+        REQUIRE(lower.HasCollidedWithFloor());
     }
 
-    SECTION("Test particle bouncing off left boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(left_particle, 'x'));
+    SECTION("Test ball bouncing off left boundary") {
+        REQUIRE(left.HasCollidedWithWall().at(0));
     }
 
-    SECTION("Test particle bounces off right boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(right_particle, 'x'));
+    SECTION("Test ball bounces off right boundary") {
+        REQUIRE(right.HasCollidedWithWall().at(0));
     }
 
-    SECTION("Test particle bouncing off upper left corner") {
-        REQUIRE(physics.HasParticleCollidedWithWall(top_left_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(top_left_particle, 'y'));
+    SECTION("Test ball bouncing off upper left corner") {
+        REQUIRE(top_left_ball.HasCollidedWithWall().at(0));
+        REQUIRE(top_left_ball.HasCollidedWithWall().at(1));
     }
 
-    SECTION("Test particle bouncing off upper right corner") {
-        REQUIRE(physics.HasParticleCollidedWithWall(top_right_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(top_right_particle, 'y'));
-    }
-
-    SECTION("Test particle bouncing off bottom left corner") {
-        REQUIRE(physics.HasParticleCollidedWithWall(bottom_left_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(bottom_left_particle, 'y'));
-    }
-
-    SECTION("Test particle bouncing off bottom right corner") {
-        REQUIRE(physics.HasParticleCollidedWithWall(bottom_right_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(bottom_right_particle, 'y'));
-    }
-
-    SECTION("Test particle bouncing off container while being emerged on boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(emerged_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(emerged_particle, 'y'));
+    SECTION("Test ball bouncing off upper right corner") {
+        REQUIRE(top_right.HasCollidedWithWall().at(0));
+        REQUIRE(top_right.HasCollidedWithWall().at(1));
     }
 }
 
-TEST_CASE("Check Ball Bounces After Ball-Ball Collision") {
+TEST_CASE("Check Conditions Where Balls DO NOT Bounce within Container") {
+    // Set container boundaries
+    glm::vec2 top_left(0.0, 0.0);
+    glm::vec2 bottom_right(100.0, 100.0);
+
+    // Set initial position and velocity vectors
+    glm::vec2 position0(50.0, 50.0);
+    glm::vec2 velocity0(1.0, 1.0);
+
+    glm::vec2 position1(50.0, 10.0);
+    glm::vec2 velocity1(-1.0, 1.0);
+
+    glm::vec2 position2(50.0, 90.0);
+    glm::vec2 velocity2(-1.0, -1.0);
+
+    glm::vec2 position3(10.0, 50.0);
+    glm::vec2 velocity3(1.0, -1.0);
+
+    glm::vec2 position4(90.0, 50.0);
+    glm::vec2 velocity4(-1.0, -1.0);
+
+    glm::vec2 position5(10.0, 10.0);
+    glm::vec2 velocity5(1.0, 1.0);
+
+    glm::vec2 position6(90.0, 10.0);
+    glm::vec2 velocity6(-1.0, 1.0);
+
+    glm::vec2 position7(10.0, 90.0);
+    glm::vec2 velocity7(1.0, -1.0);
+
+    glm::vec2 position8(90.0, 90.0);
+    glm::vec2 velocity8(-1.0, -1.0);
+
+    glm::vec2 position9(90.0, 90.0);
+    glm::vec2 velocity9(0.0, 0.0);
+
+    // Ball created to NOT bounce in the middle of the container
+    Ball middle_ball(10.0f, position0, velocity0, top_left, bottom_right, 0.0f);
+
+    // Ball created to NOT bounce off upper boundary
+    Ball upper_ball(10.0f, position1, velocity1, top_left, bottom_right, 0.0f);
+
+    // Ball created to NOT bounce off lower boundary
+    Ball lower_ball(10.0f, position2, velocity2, top_left, bottom_right, 0.0f);
+
+    // Ball created to NOT bounce off left boundary
+    Ball left_ball(10.0f, position3, velocity3, top_left, bottom_right, 0.0f);
+
+    // Ball created to NOT bounce off right boundary
+    Ball right_ball(10.0f, position4, velocity4, top_left, bottom_right, 0.0f);
+
+    // Ball created to NOT bounce off upper left corner (-x and -y velocities)
+    Ball top_left_ball(10.0f, position5, velocity5, top_left, bottom_right, 0.0f);
+
+    // Ball created to NOT bounce off upper right corner (-x velocity and +y velocity)
+    Ball top_right_ball(10.0f, position6, velocity6, top_left, bottom_right, 0.0f);
+
+    // Ball created to NOT bounce off container with zero velocity
+    Ball stationary_ball(10.0f, position9, velocity9, top_left, bottom_right, 0.0f);
+
+    SECTION("Test Ball does NOT bounce in the middle of the container") {
+        REQUIRE_FALSE(middle_ball.HasCollidedWithWall().at(0));
+        REQUIRE_FALSE(middle_ball.HasCollidedWithWall().at(1));
+    }
+
+    SECTION("Test Ball does NOT bounce off upper boundary with reversed velocity") {
+        REQUIRE_FALSE(upper_ball.HasCollidedWithWall().at(1));
+    }
+
+    SECTION("Test Ball does NOT bounce off lower boundary with reversed velocity") {
+        REQUIRE_FALSE(lower_ball.HasCollidedWithWall().at(1));
+    }
+
+    SECTION("Test Ball does NOT bounce off left boundary with reversed velocity") {
+        REQUIRE_FALSE(left_ball.HasCollidedWithWall().at(0));
+    }
+
+    SECTION("Test Ball does NOT bounce off right boundary with reversed velocity") {
+        REQUIRE_FALSE(right_ball.HasCollidedWithWall().at(0));
+    }
+
+    SECTION("Test Ball does NOT bounce off upper left corner with reversed velocity") {
+        REQUIRE_FALSE(top_left_ball.HasCollidedWithWall().at(0));
+        REQUIRE_FALSE(top_left_ball.HasCollidedWithWall().at(1));
+    }
+
+    SECTION("Test Ball does NOT bounce off upper right corner with reversed velocity") {
+        REQUIRE_FALSE(top_right_ball.HasCollidedWithWall().at(0));
+        REQUIRE_FALSE(top_right_ball.HasCollidedWithWall().at(1));
+    }
+
+    SECTION("Test Ball does NOT bounce off container when stationary") {
+        REQUIRE_FALSE(stationary_ball.HasCollidedWithWall().at(0));
+        REQUIRE_FALSE(stationary_ball.HasCollidedWithWall().at(1));
+    }
+}
+
+TEST_CASE("Check Ball Velocity After Ball-Container Collision") {
+    // Set container boundaries
+    glm::vec2 top_left(0.0, 0.0);
+    glm::vec2 bottom_right(100.0, 100.0);
+
+    // Set initial position and velocity vectors
+    glm::vec2 position1(50.0, 10.0);
+    glm::vec2 velocity1(1.0, -1.0);
+
+    glm::vec2 position2(50.0, 90.0);
+    glm::vec2 velocity2(1.0, 1.0);
+
+    glm::vec2 position3(10.0, 50.0);
+    glm::vec2 velocity3(-1.0, 1.0);
+
+    glm::vec2 position4(90.0, 50.0);
+    glm::vec2 velocity4(1.0, 1.0);
+
+    glm::vec2 position5(10.0, 10.0);
+    glm::vec2 velocity5(-1.0, -1.0);
+
+    glm::vec2 position6(90.0, 10.0);
+    glm::vec2 velocity6(1.0, -1.0);
+
+    glm::vec2 position7(10.0, 90.0);
+    glm::vec2 velocity7(-1.0, 1.0);
+
+    glm::vec2 position8(90.0, 90.0);
+    glm::vec2 velocity8(1.0, 1.0);
+
+    // Ball created to bounce off upper boundary
+    Ball upper(10.0f, position1, velocity1, top_left, bottom_right, 0.0f);
+
+    // Ball created to bounce off lower boundary
+    Ball lower(10.0f, position2, velocity2, top_left, bottom_right, 0.0f);
+
+    // Ball created to bounce off left boundary
+    Ball left(10.0f, position3, velocity3, top_left, bottom_right, 0.0f);
+
+    // Ball created to bounce off right boundary
+    Ball right(10.0f, position4, velocity4, top_left, bottom_right, 0.0f);
+
+    // Ball created to bounce off upper left corner (+x and +y velocities)
+    Ball top_left_ball(10.0f, position5, velocity5, top_left, bottom_right, 0.0f);
+
+    // Ball created to bounce off upper right corner (+x velocity and -y velocity)
+    Ball top_right(10.0f, position6, velocity6, top_left, bottom_right, 0.0f);
+
+    SECTION("Test Ball bouncing off upper boundary") {
+        REQUIRE(upper.HasCollidedWithWall().at(1));
+        upper.CalculateVelocityAfterWallCollision({false, true});
+        REQUIRE(upper.GetVelocity().x == 1.0f);
+        REQUIRE(upper.GetVelocity().y == 1.0f);
+    }
+
+    SECTION("Test Ball colliding with floor") {
+        REQUIRE(lower.HasCollidedWithFloor());
+    }
+
+    SECTION("Test Ball bouncing off left boundary") {
+        REQUIRE(left.HasCollidedWithWall().at(0));
+        left.CalculateVelocityAfterWallCollision({true, false});
+        REQUIRE(left.GetVelocity().x == 1.0f);
+        REQUIRE(left.GetVelocity().y == 1.0f);
+    }
+
+    SECTION("Test Ball bounces off right boundary") {
+        REQUIRE(right.HasCollidedWithWall().at(0));
+        right.CalculateVelocityAfterWallCollision({true, false});
+        REQUIRE(right.GetVelocity().x == -1.0f);
+        REQUIRE(right.GetVelocity().y == 1.0f);
+    }
+
+    SECTION("Test Ball bouncing off upper left corner") {
+        REQUIRE(top_left_ball.HasCollidedWithWall().at(0));
+        REQUIRE(top_left_ball.HasCollidedWithWall().at(1));
+        top_left_ball.CalculateVelocityAfterWallCollision({true, true});
+        REQUIRE(top_left_ball.GetVelocity().x == 1.0f);
+        REQUIRE(top_left_ball.GetVelocity().y == 1.0f);
+    }
+
+    SECTION("Test Ball bouncing off upper right corner") {
+        REQUIRE(top_right.HasCollidedWithWall().at(0));
+        REQUIRE(top_right.HasCollidedWithWall().at(1));
+        top_right.CalculateVelocityAfterWallCollision({true, true});
+        REQUIRE(top_right.GetVelocity().x == -1.0f);
+        REQUIRE(top_right.GetVelocity().y == 1.0f);
+    }
+
+}
+
+TEST_CASE("Check Ball Position After Collision") {
+    // Set container boundaries
+    glm::vec2 top_left(0.0, 0.0);
+    glm::vec2 bottom_right(100.0, 100.0);
+
+    // Set initial position and velocity vectors
+    glm::vec2 position1(50.0, 10.0);
+    glm::vec2 velocity1(1.0, -1.0);
+
+    glm::vec2 position2(20.0, 20.0);
+    glm::vec2 velocity2(0.1, 0.0);
+
+    glm::vec2 position3(21.4, 21.4);
+    glm::vec2 velocity3(-0.1, 0.0);
+
+    // Ball created to bounce off upper boundary
+    Ball wall_ball(10.0f, position1, velocity1, top_left, bottom_right, 0.0f);
+
+    SECTION("Test Ball Position After Container Collision") {
+        REQUIRE(wall_ball.HasCollidedWithWall().at(1));
+        wall_ball.CalculateVelocityAfterWallCollision({false, true});
+        REQUIRE(wall_ball.GetVelocity().x == 1.0f);
+        REQUIRE(wall_ball.GetVelocity().y == 1.0f);
+        wall_ball.CalculatePositionAfterCollision();
+        REQUIRE(wall_ball.GetPosition().x == 51.0f);
+        REQUIRE(wall_ball.GetPosition().y == 11.0f);
+    }
+}
+
+/*
+TEST_CASE("Check Ball Bounces After Ball-Brick Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -148,7 +337,7 @@ TEST_CASE("Check Ball Bounces After Ball-Ball Collision") {
     glm::vec2 velocity9(0.0, -1.0);
 
     // Middle Particle
-    Particle middle_particle(10.0f, 10.0, "white", position0, velocity0);
+    Ball middle_particle(10.0f, 10.0, "white", position0, velocity0);
 
     // Particle created to collide with the middle particle from the top
     Particle upper_particle(10.0f, 10.0, "white", position1, velocity1);
@@ -209,122 +398,10 @@ TEST_CASE("Check Ball Bounces After Ball-Ball Collision") {
         REQUIRE(physics.HasParticleCollidedWithParticle(multi_collision_particle1, multi_collision_particle3));
     }
 }
+*/
 
-TEST_CASE("Check Conditions Where Balls DO NOT Bounce within Container") {
-    // Set container boundaries
-    glm::vec2 top_left(0.0, 0.0);
-    glm::vec2 bottom_right(100.0, 100.0);
-
-    // Set initial position and velocity vectors
-    glm::vec2 position0(50.0, 50.0);
-    glm::vec2 velocity0(1.0, 1.0);
-
-    glm::vec2 position1(50.0, 10.0);
-    glm::vec2 velocity1(-1.0, 1.0);
-
-    glm::vec2 position2(50.0, 90.0);
-    glm::vec2 velocity2(-1.0, -1.0);
-
-    glm::vec2 position3(10.0, 50.0);
-    glm::vec2 velocity3(1.0, -1.0);
-
-    glm::vec2 position4(90.0, 50.0);
-    glm::vec2 velocity4(-1.0, -1.0);
-
-    glm::vec2 position5(10.0, 10.0);
-    glm::vec2 velocity5(1.0, 1.0);
-
-    glm::vec2 position6(90.0, 10.0);
-    glm::vec2 velocity6(-1.0, 1.0);
-
-    glm::vec2 position7(10.0, 90.0);
-    glm::vec2 velocity7(1.0, -1.0);
-
-    glm::vec2 position8(90.0, 90.0);
-    glm::vec2 velocity8(-1.0, -1.0);
-
-    glm::vec2 position9(90.0, 90.0);
-    glm::vec2 velocity9(0.0, 0.0);
-
-    // Particle created to NOT bounce off upper boundary
-    Particle middle_particle(10.0f, 10.0, "white", position0, velocity0);
-
-    Particle upper_particle(10.0f, 10.0, "white", position1, velocity1);
-
-    // Particle created to NOT bounce off lower boundary
-    Particle lower_particle(10.0f, 10.0, "white", position2, velocity2);
-
-    // Particle created to NOT bounce off left boundary
-    Particle left_particle(10.0f, 10.0, "white", position3, velocity3);
-
-    // Particle created to NOT bounce off right boundary
-    Particle right_particle(10.0f, 10.0, "white", position4, velocity4);
-
-    // Particle created to NOT bounce off upper left corner (-x and -y velocities)
-    Particle top_left_particle(10.0f, 10.0, "white", position5, velocity5);
-
-    // Particle created to NOT bounce off upper right corner (-x velocity and +y velocity)
-    Particle top_right_particle(10.0f, 10.0, "white", position6, velocity6);
-
-    // Particle created to NOT bounce off bottom left corner (+x velocity and -y velocity)
-    Particle bottom_left_particle(10.0f, 10.0, "white", position7, velocity7);
-
-    // Particle created to NOT bounce off bottom right corner (-x velocity and -y velocity)
-    Particle bottom_right_particle(10.0f, 10.0, "white", position8, velocity8);
-
-    // Particle created to NOT bounce off container with zero velocity
-    Particle stationary_particle(10.0f, 10.0, "white", position9, velocity9);
-
-    ParticlePhysics physics(top_left, bottom_right);
-
-    SECTION("Test particle does NOT bounce in the middle of the container") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(middle_particle, 'x'));
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(middle_particle, 'y'));
-    }
-
-    SECTION("Test particle does NOT bounce off upper boundary with reversed velocity") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(upper_particle, 'y'));
-    }
-
-    SECTION("Test particle does NOT bounce off lower boundary with reversed velocity") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(lower_particle, 'y'));
-    }
-
-    SECTION("Test particle does NOT bounce off left boundary with reversed velocity") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(left_particle, 'x'));
-    }
-
-    SECTION("Test particle does NOT bounce off right boundary with reversed velocity") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(right_particle, 'x'));
-    }
-
-    SECTION("Test particle does NOT bounce off upper left corner with reversed velocity") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(top_left_particle, 'x'));
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(top_left_particle, 'y'));
-    }
-
-    SECTION("Test particle does NOT bounce off upper right corner with reversed velocity") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(top_right_particle, 'x'));
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(top_right_particle, 'y'));
-    }
-
-    SECTION("Test particle does NOT bounce off bottom left corner with reversed velocity") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(bottom_left_particle, 'x'));
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(bottom_left_particle, 'y'));
-    }
-
-    SECTION("Test particle does NOT bounce off bottom right corner with reversed velocity") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(bottom_right_particle, 'x'));
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(bottom_right_particle, 'y'));
-    }
-
-    SECTION("Test particle does NOT bounce off container when stationary") {
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(stationary_particle, 'x'));
-        REQUIRE_FALSE(physics.HasParticleCollidedWithWall(stationary_particle, 'y'));
-    }
-}
-
-TEST_CASE("Check Conditions Where Balls DO NOT Bounce with Other Balls") {
+/*
+TEST_CASE("Check Conditions Where Balls DO NOT Bounce Off Bricks) {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -409,128 +486,7 @@ TEST_CASE("Check Conditions Where Balls DO NOT Bounce with Other Balls") {
     }
 }
 
-TEST_CASE("Check Ball Velocity After Ball-Container Collision") {
-    // Set container boundaries
-    glm::vec2 top_left(0.0, 0.0);
-    glm::vec2 bottom_right(100.0, 100.0);
-
-    // Set initial position and velocity vectors
-    glm::vec2 position1(50.0, 10.0);
-    glm::vec2 velocity1(1.0, -1.0);
-
-    glm::vec2 position2(50.0, 90.0);
-    glm::vec2 velocity2(1.0, 1.0);
-
-    glm::vec2 position3(10.0, 50.0);
-    glm::vec2 velocity3(-1.0, 1.0);
-
-    glm::vec2 position4(90.0, 50.0);
-    glm::vec2 velocity4(1.0, 1.0);
-
-    glm::vec2 position5(10.0, 10.0);
-    glm::vec2 velocity5(-1.0, -1.0);
-
-    glm::vec2 position6(90.0, 10.0);
-    glm::vec2 velocity6(1.0, -1.0);
-
-    glm::vec2 position7(10.0, 90.0);
-    glm::vec2 velocity7(-1.0, 1.0);
-
-    glm::vec2 position8(90.0, 90.0);
-    glm::vec2 velocity8(1.0, 1.0);
-
-    // Particle created to bounce off upper boundary
-    Particle upper_particle(10.0f, 10.0, "white", position1, velocity1);
-
-    // Particle created to bounce off lower boundary
-    Particle lower_particle(10.0f, 10.0, "white", position2, velocity2);
-
-    // Particle created to bounce off left boundary
-    Particle left_particle(10.0f, 10.0, "white", position3, velocity3);
-
-    // Particle created to bounce off right boundary
-    Particle right_particle(10.0f, 10.0, "white", position4, velocity4);
-
-    // Particle created to bounce off upper left corner (+x and +y velocities)
-    Particle top_left_particle(10.0f, 10.0, "white", position5, velocity5);
-
-    // Particle created to bounce off upper right corner (+x velocity and -y velocity)
-    Particle top_right_particle(10.0f, 10.0, "white", position6, velocity6);
-
-    // Particle created to bounce off bottom left corner (-x velocity and +y velocity)
-    Particle bottom_left_particle(10.0f, 10.0, "white", position7, velocity7);
-
-    // Particle created to bounce off bottom right corner (+x velocity and +y velocity)
-    Particle bottom_right_particle(10.0f, 10.0, "white", position8, velocity8);
-
-    ParticlePhysics physics(top_left, bottom_right);
-
-    SECTION("Test particle bouncing off upper boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(upper_particle, 'y'));
-        physics.CalculateVelocityAfterWallCollision(upper_particle, 'y');
-        REQUIRE(upper_particle.GetVelocity().x == 1.0f);
-        REQUIRE(upper_particle.GetVelocity().y == 1.0f);
-    }
-
-    SECTION("Test particle bouncing off lower boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(lower_particle, 'y'));
-        physics.CalculateVelocityAfterWallCollision(lower_particle, 'y');
-        REQUIRE(lower_particle.GetVelocity().x == 1.0f);
-        REQUIRE(lower_particle.GetVelocity().y == -1.0f);
-    }
-
-    SECTION("Test particle bouncing off left boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(left_particle, 'x'));
-        physics.CalculateVelocityAfterWallCollision(left_particle, 'x');
-        REQUIRE(left_particle.GetVelocity().x == 1.0f);
-        REQUIRE(left_particle.GetVelocity().y == 1.0f);
-    }
-
-    SECTION("Test particle bounces off right boundary") {
-        REQUIRE(physics.HasParticleCollidedWithWall(right_particle, 'x'));
-        physics.CalculateVelocityAfterWallCollision(right_particle, 'x');
-        REQUIRE(right_particle.GetVelocity().x == -1.0f);
-        REQUIRE(right_particle.GetVelocity().y == 1.0f);
-    }
-
-    SECTION("Test particle bouncing off upper left corner") {
-        REQUIRE(physics.HasParticleCollidedWithWall(top_left_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(top_left_particle, 'y'));
-        physics.CalculateVelocityAfterWallCollision(top_left_particle, 'x');
-        physics.CalculateVelocityAfterWallCollision(top_left_particle, 'y');
-        REQUIRE(top_left_particle.GetVelocity().x == 1.0f);
-        REQUIRE(top_left_particle.GetVelocity().y == 1.0f);
-    }
-
-    SECTION("Test particle bouncing off upper right corner") {
-        REQUIRE(physics.HasParticleCollidedWithWall(top_right_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(top_right_particle, 'y'));
-        physics.CalculateVelocityAfterWallCollision(top_right_particle, 'x');
-        physics.CalculateVelocityAfterWallCollision(top_right_particle, 'y');
-        REQUIRE(top_right_particle.GetVelocity().x == -1.0f);
-        REQUIRE(top_right_particle.GetVelocity().y == 1.0f);
-    }
-
-    SECTION("Test particle bouncing off bottom left corner") {
-        REQUIRE(physics.HasParticleCollidedWithWall(bottom_left_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(bottom_left_particle, 'y'));
-        physics.CalculateVelocityAfterWallCollision(bottom_left_particle, 'x');
-        physics.CalculateVelocityAfterWallCollision(bottom_left_particle, 'y');
-        REQUIRE(bottom_left_particle.GetVelocity().x == 1.0f);
-        REQUIRE(bottom_left_particle.GetVelocity().y == -1.0f);
-    }
-
-    SECTION("Test particle bouncing off bottom right corner") {
-        REQUIRE(physics.HasParticleCollidedWithWall(bottom_right_particle, 'x'));
-        REQUIRE(physics.HasParticleCollidedWithWall(bottom_right_particle, 'y'));
-        physics.CalculateVelocityAfterWallCollision(bottom_right_particle, 'x');
-        physics.CalculateVelocityAfterWallCollision(bottom_right_particle, 'y');
-        REQUIRE(bottom_right_particle.GetVelocity().x == -1.0f);
-        REQUIRE(bottom_right_particle.GetVelocity().y == -1.0f);
-    }
-}
-
-TEST_CASE("Check Ball Velocity After Ball-Ball Collision") {
+TEST_CASE("Check Ball Velocity After Ball-Brick Collision") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
     glm::vec2 bottom_right(100.0, 100.0);
@@ -688,63 +644,6 @@ TEST_CASE("Check Ball Velocity After Ball-Ball Collision") {
     }
 }
 
-TEST_CASE("Check Ball Position After Collision") {
-    // Set container boundaries
-    glm::vec2 top_left(0.0, 0.0);
-    glm::vec2 bottom_right(100.0, 100.0);
-
-    // Set initial position and velocity vectors
-    glm::vec2 position1(50.0, 10.0);
-    glm::vec2 velocity1(1.0, -1.0);
-
-    glm::vec2 position2(20.0, 20.0);
-    glm::vec2 velocity2(0.1, 0.0);
-
-    glm::vec2 position3(21.4, 21.4);
-    glm::vec2 velocity3(-0.1, 0.0);
-
-    // Particle created to bounce off upper boundary
-    Particle wall_particle(10.0f, 10.0, "white", position1, velocity1);
-
-    // Particle create to bounce off another particle
-    Particle collision_particle1(10.0f, 10.0, "white", position2, velocity2);
-
-    // Particle create to bounce off another particle
-    Particle collision_particle2(10.0f, 10.0, "white", position3, velocity3);
-
-
-    ParticlePhysics physics(top_left, bottom_right);
-
-    SECTION("Test Particle Position After Container Collision") {
-        REQUIRE(physics.HasParticleCollidedWithWall(wall_particle, 'y'));
-        physics.CalculateVelocityAfterWallCollision(wall_particle, 'y');
-        REQUIRE(wall_particle.GetVelocity().x == 1.0f);
-        REQUIRE(wall_particle.GetVelocity().y == 1.0f);
-        physics.CalculatePositionAfterCollision(wall_particle);
-        REQUIRE(wall_particle.GetPosition().x == 51.0f);
-        REQUIRE(wall_particle.GetPosition().y == 11.0f);
-    }
-
-    SECTION("Test Particle Position After Particle Collision") {
-        REQUIRE(physics.HasParticleCollidedWithParticle(collision_particle1, collision_particle2));
-        physics.CalculateVelocityAfterParticleCollision(collision_particle1, collision_particle2);
-
-        // Had to cast to (double) in order to avoid floating point errors
-        REQUIRE((double) (collision_particle1.GetVelocity().x) == Approx(-0.0).margin(0.01));
-        REQUIRE(collision_particle1.GetVelocity().y == Approx(-0.1f).margin(0.01));
-        REQUIRE((double) (collision_particle2.GetVelocity().x) == Approx(-0.0f).margin(0.01));
-        REQUIRE(collision_particle2.GetVelocity().y == Approx(0.1f).margin(0.01));
-
-        physics.CalculatePositionAfterCollision(collision_particle1);
-        physics.CalculatePositionAfterCollision(collision_particle2);
-
-        REQUIRE(collision_particle1.GetPosition().x == 20.0f);
-        REQUIRE(collision_particle1.GetPosition().y == 19.9f);
-        REQUIRE(collision_particle2.GetPosition().x == 21.4f);
-        REQUIRE(collision_particle2.GetPosition().y == 21.5f);
-    }
-}
-
 TEST_CASE("Test Law of Conservation of Energy") {
     // Set container boundaries
     glm::vec2 top_left(0.0, 0.0);
@@ -836,3 +735,4 @@ TEST_CASE("Test Law of Conservation of Energy") {
         REQUIRE(initial_energy == final_energy);
     }
 }
+ */

@@ -33,7 +33,7 @@ private:
 
 public:
     /**
-     * Constructor that initializes brick attribute
+     * Constructor that initializes brick attributes
      * @param type
      * @param condition
      * @param top_left_corner vec2 representing the coordinate of the top left corner of the brick

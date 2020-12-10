@@ -29,7 +29,6 @@ private:
     /** Paddle Attributes */
     float const kPaddleHeight = 80.0f;
     float const kPaddleWidth = 310.0f;
-    float const kPaddleSensitivity = 100.0f;
     glm::vec2 paddle_initial_position = {782.5, kWindowHeight - kPaddleHeight};
     Paddle paddle_;
 

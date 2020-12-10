@@ -7,7 +7,7 @@ namespace brickbreaker {
         BrickBreakerApp::BrickBreakerApp() : paddle_(paddle_initial_position,
                                                      glm::vec2{paddle_initial_position.x + kPaddleWidth,
                                                                paddle_initial_position.y + kPaddleHeight},
-                                                     kPaddleSensitivity, container_top_left_corner_,
+                                                               container_top_left_corner_,
                                                      container_bottom_right_corner_, kContainerWallStroke),
                                              ball_(kBallRadius, ball_initial_position_,
                                                    ball_initial_velocity_,

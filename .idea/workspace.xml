@@ -30,7 +30,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Implement win message">
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Implement game over message">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/visualizer/brick_breaker_app.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ball.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer/brick_breaker_app.cc" afterDir="false" />
     </list>
     <list id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
@@ -101,7 +104,7 @@
       <workItem from="1604440747746" duration="3498000" />
       <workItem from="1605674600591" duration="15619000" />
       <workItem from="1605839730757" duration="774000" />
-      <workItem from="1606714620378" duration="83832000" />
+      <workItem from="1606714620378" duration="88202000" />
     </task>
     <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
       <created>1604444027086</created>
@@ -278,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607589658439</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Implement game over message">
+      <created>1607590418079</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1607590418079</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +358,8 @@
     <MESSAGE value="Implement introduction screen" />
     <MESSAGE value="Implement game message between levels" />
     <MESSAGE value="Implement win message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement win message" />
+    <MESSAGE value="Implement game over message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement game over message" />
   </component>
   <component name="WindowStateProjectService">
     <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607502470168">
@@ -359,38 +370,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1607590116599">
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom" timestamp="1607594674004">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607590116599" />
-    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1607590116599">
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607594674004" />
+    <state width="1493" height="88" key="GridCell.Tab.0.center" timestamp="1607594674003">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607590116599" />
-    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1607590116599">
+    <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607594674003" />
+    <state width="1493" height="88" key="GridCell.Tab.0.left" timestamp="1607594674003">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607590116599" />
-    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1607590116599">
+    <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607594674003" />
+    <state width="1493" height="88" key="GridCell.Tab.0.right" timestamp="1607594674003">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607590116599" />
-    <state width="1493" height="49" key="GridCell.Tab.1.bottom" timestamp="1607584917170">
+    <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607594674003" />
+    <state width="929" height="280" key="GridCell.Tab.1.bottom" timestamp="1607593494743">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="49" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607584917170" />
-    <state width="1493" height="49" key="GridCell.Tab.1.center" timestamp="1607584917170">
+    <state width="929" height="280" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607593494743" />
+    <state width="929" height="280" key="GridCell.Tab.1.center" timestamp="1607593494743">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="49" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607584917170" />
-    <state width="1493" height="49" key="GridCell.Tab.1.left" timestamp="1607584917170">
+    <state width="929" height="280" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607593494743" />
+    <state width="929" height="280" key="GridCell.Tab.1.left" timestamp="1607593494743">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="49" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607584917170" />
-    <state width="1493" height="49" key="GridCell.Tab.1.right" timestamp="1607584917170">
+    <state width="929" height="280" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607593494743" />
+    <state width="929" height="280" key="GridCell.Tab.1.right" timestamp="1607593494743">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="49" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607584917170" />
+    <state width="929" height="280" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607593494743" />
     <state x="279" y="58" key="SettingsEditor" timestamp="1605681926580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -399,10 +410,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606972723013" />
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607589664597">
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607590424204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607589664597" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607590424204" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1607489866838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

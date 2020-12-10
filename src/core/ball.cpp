@@ -89,29 +89,55 @@ bool Ball::HasCollidedWithFloor() {
 
 const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
     // Determine if the ball collided with the top/bottom of the brick
-    double tolerance = 20.0;
+    double tolerance = 0.0;
+
+    /*
+    std::cout << "Top Collision:" << std::endl;
+    std::cout << "Velocity:" << (velocity_.y > 0) << std::endl;
+    std::cout <<  (position_.y + radius_ <= brick.brick_top_left_corner_.y + tolerance) << std::endl;
+    std::cout << (position_.y - radius_ >= brick.brick_top_left_corner_.y - 2 * radius_)  << std::endl;
+    std::cout << (position_.x + radius_ >= brick.brick_top_left_corner_.x) << std::endl;
+    std::cout << () << std::endl;
+
+
+    std::cout << () << std::endl;
+    std::cout << () << std::endl;
+    std::cout << () << std::endl;
+    std::cout << () << std::endl;
+    */
+
+
 
     if ((velocity_.y > 0) &&
     (position_.y + radius_ <= brick.brick_top_left_corner_.y + tolerance) &&
-    (position_.y - radius_ >= brick.brick_top_left_corner_.y - 2 * radius_) &&
+    (position_.y - radius_ >= brick.brick_top_left_corner_.y - 4 * radius_) &&
     (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
     (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)
     ) {
         brick_collision_directions_.at(1) = true;
-    }
-    else if((velocity_.y < 0) &&
-    (position_.y - radius_ >= brick.brick_bottom_right_corner_.y - tolerance) &&
-    (position_.y + radius_ <= brick.brick_bottom_right_corner_.y + 2 * radius_) &&
-    (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
-    (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)
-    ) {
+    } else if((velocity_.y < 0) &&
+      (position_.y + radius_ <= brick.brick_bottom_right_corner_.y + 4 * radius_) &&
+      (position_.y - radius_ >= brick.brick_bottom_right_corner_.y - tolerance) &&
+      (position_.x + radius_ >= brick.brick_top_left_corner_.x) &&
+      (position_.x - radius_ <= brick.brick_bottom_right_corner_.x)
+            ) {
+        std::cout << "---COLLISION---" << std::endl;
         brick_collision_directions_.at(1) = true;
     }
+
+
+    std::cout << "Bottom Collision:" << std::endl;
+    std::cout << "Velocity:" << (velocity_.y < 0) << std::endl;
+    std::cout <<  ((position_.y - radius_ >= brick.brick_bottom_right_corner_.y - tolerance)) << std::endl;
+    std::cout <<  ((position_.y + radius_ <= brick.brick_bottom_right_corner_.y + 5 * radius_)) << std::endl;
+    std::cout <<  ((position_.x + radius_ >= brick.brick_top_left_corner_.x)) << std::endl;
+    std::cout <<  ((position_.x - radius_ <= brick.brick_bottom_right_corner_.x)) << std::endl;
+
 
     // Determine if the ball collided with the left/right of the brick
     if ((velocity_.x > 0) &&
     (position_.x + radius_ <= brick.brick_top_left_corner_.x + tolerance) &&
-    (position_.x - radius_ >= brick.brick_top_left_corner_.x - 2 * radius_) &&
+    (position_.x - radius_ >= brick.brick_top_left_corner_.x - 4 * radius_) &&
     (position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
     (position_.y - radius_ <= brick.brick_bottom_right_corner_.y)
     ) {
@@ -119,12 +145,13 @@ const std::vector<bool> &Ball::HasCollidedWithBrick(const Brick &brick) {
     }
     else if ((velocity_.x < 0) &&
     (position_.x - radius_ >= brick.brick_bottom_right_corner_.x - tolerance) &&
-    (position_.x + radius_ <= brick.brick_bottom_right_corner_.x + 2 * radius_) &&
+    (position_.x + radius_ <= brick.brick_bottom_right_corner_.x + 4 * radius_) &&
     (position_.y + radius_ >= brick.brick_top_left_corner_.y) &&
     (position_.y - radius_ <= brick.brick_bottom_right_corner_.y)
     ) {
         brick_collision_directions_.at(0) = true;
     }
+
 
     return brick_collision_directions_;
 }

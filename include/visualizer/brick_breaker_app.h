@@ -37,7 +37,7 @@ private:
     Paddle paddle_;
 
     /** Ball Attributes */
-    float const kBallRadius = 22.5f;
+    float const kBallRadius = 25.0f;
     const ci::Color8u kBallColor = ci::Color8u(105, 105, 105);
     glm::vec2 ball_initial_position_ = {paddle_initial_position.x + (kPaddleWidth / 2), paddle_initial_position.y - kBallRadius};
     glm::vec2 ball_initial_velocity_ = {-25.0f, -30.0f};

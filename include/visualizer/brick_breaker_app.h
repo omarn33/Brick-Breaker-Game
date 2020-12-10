@@ -33,14 +33,14 @@ private:
     float const kPaddleHeight = 80.0f;
     float const kPaddleWidth = 310.0f;
     float const kPaddleSensitivity = 100.0f;
-    glm::vec2 paddle_initial_position = {857.5, kWindowHeight - kPaddleHeight};
+    glm::vec2 paddle_initial_position = {782.5, kWindowHeight - kPaddleHeight};
     Paddle paddle_;
 
     /** Ball Attributes */
-    float const kBallRadius = 25.0f;
+    float const kBallRadius = 22.5f;
     const ci::Color8u kBallColor = ci::Color8u(105, 105, 105);
-    glm::vec2 ball_initial_position_ = {1000.0f, 1000.0f};
-    glm::vec2 ball_initial_velocity_ = {-30.0f, -30.0f};
+    glm::vec2 ball_initial_position_ = {paddle_initial_position.x + (kPaddleWidth / 2), paddle_initial_position.y - kBallRadius};
+    glm::vec2 ball_initial_velocity_ = {-25.0f, -30.0f};
     Ball ball_;
 
     /** Brick Attributes */
@@ -49,7 +49,6 @@ private:
 
     /** Game Attributes */
     Level current_level_;
-    bool generate_new_level_;
     const size_t kNumberOfLevels = 1;
     const size_t kScorePerBrickHit = 10;
     size_t score_;
@@ -57,10 +56,12 @@ private:
     int lives_;
     size_t high_score_;
 
-    /** Screen Attributes */
+    /** Game Conditions */
     bool new_game_;
-
-
+    bool resume_game_;
+    bool ball_in_motion_;
+    bool generate_new_level_;
+    bool has_game_ended_;
 
 public:
     BrickBreakerApp();
@@ -76,6 +77,8 @@ public:
     //void mouseDrag(ci::app::MouseEvent event) override;
 
     Level GetLevel(int level);
+
+    void DrawDefaultStage();
 
 };
 

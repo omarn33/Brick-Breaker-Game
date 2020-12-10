@@ -16,6 +16,9 @@ public:
     /** Getter Methods */
     size_t GetLevelNumber();
 
+    /** Setter Methods */
+    void SetLevelNumber(size_t level);
+
     const std::vector<Brick> &Level::GetBricks();
 
     void ErodeBrick(size_t index);

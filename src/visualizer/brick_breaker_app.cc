@@ -20,6 +20,9 @@ namespace brickbreaker {
             high_score_ = 0;
             generate_new_level_ = true;
             new_game_ = true;
+            resume_game_ = false;
+            ball_in_motion_ = false;
+            has_game_ended_ = false;
         }
 
         void BrickBreakerApp::draw() {
@@ -33,13 +36,29 @@ namespace brickbreaker {
 
                 ci::gl::drawStringCentered(
                         "BrickBreaker",
-                        glm::vec2(kWindowWidth / 2, kWindowHeight / 4), ci::Color("white"), ci::Font("Arial", 300.0f));
+                        glm::vec2(kWindowWidth / 2, kWindowHeight / 4), ci::Color("white"), ci::Font("Century", 300.0f));
 
                 ci::gl::drawStringCentered(
                         "Press [S] to Start Game",
                         glm::vec2(kWindowWidth / 2, kWindowHeight / 2), ci::Color("white"), ci::Font("Arial", 150.0f));
             }
+            else if(!resume_game_) {
+                // Stop ball
+                ball_in_motion_ = false;
+
+                // Determine current level
+                if (generate_new_level_) {
+                    current_level_ = GetLevel(current_level_.GetLevelNumber());
+                    generate_new_level_ = false;
+                } else {
+                    current_level_.Draw();
+                }
+
+                DrawDefaultStage();
+            }
             else {
+
+                ci::gl::clear();
 
                 // Draw background
                 ci::gl::color(ci::Color8u(255, 255, 255));
@@ -47,8 +66,7 @@ namespace brickbreaker {
                         ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
                 ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
 
-
-                // Display Scoreboard
+                // Draw Scoreboard
                 ci::gl::drawStringCentered(
                         std::to_string(score_),
                         glm::vec2(2250.0f, 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
@@ -66,13 +84,26 @@ namespace brickbreaker {
                         glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f + 425.0f), ci::Color("Black"),
                         ci::Font("Impact", 200.0f));
 
+                if(!ball_in_motion_) {
+                    ball_.SetVelocity(ball_initial_velocity_);
+                    ball_in_motion_ = true;
+                }
 
+                // Draw level
+                current_level_.Draw();
+
+                // Draw the paddle
+                paddle_.Draw();
+
+                // Draw the ball
+                ball_.Draw();
+
+                /*
                 // Draw Container
                 ci::gl::color(container_color_);
                 ci::gl::drawStrokedRect(ci::Rectf(container_top_left_corner_,
                                                   container_bottom_right_corner_), kContainerWallStroke);
 
-                /*
                 // Display Brick Types
                 ci::gl::color(ci::Color8u(255, 255, 255));
                 ci::gl::Texture2dRef steel_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Steel_Brick.png"));
@@ -88,22 +119,30 @@ namespace brickbreaker {
                  */
 
                 // Draw Paddle
-                paddle_.Draw();
+                //paddle_.Draw();
 
                 // Draw Ball
-                ball_.Draw();
+                //ball_.Draw();
 
                 // Draw Level
-
-                if (generate_new_level_) {
-                    current_level_ = GetLevel(current_level_.GetLevelNumber());
-                    generate_new_level_ = false;
-                }
-                current_level_.Draw();
             }
         }
 
         void BrickBreakerApp::update() {
+            // Determine if the level ended
+            if(current_level_.GetBricks().size() == 0) {
+
+                if(current_level_.GetLevelNumber() == 3) {
+                    has_game_ended_ = true;
+                } else
+                {
+
+                    generate_new_level_ = true;
+                }
+            }
+
+
+
             // Update ball velocity if the ball collided with the wall
             std::vector<bool> wall_collision_directions = ball_.HasCollidedWithWall();
             if (wall_collision_directions.at(0) || wall_collision_directions.at(1)) {
@@ -114,13 +153,14 @@ namespace brickbreaker {
             if(ball_.HasCollidedWithFloor()) {
                 // Decrease lives by 1
                 lives_ -= 1;
+                resume_game_ = false;
             }
 
             // Determine if the ball collided with any bricks
             for (int brick = 0; brick < current_level_.GetBricks().size(); ++brick) {
                 std::vector<bool> brick_collision_directions = ball_.HasCollidedWithBrick(
                         current_level_.GetBricks().at(brick));
-                std::cout << "iteration bricks" << std::endl;
+                //std::cout << "iteration bricks" << std::endl;
 
                 if (brick_collision_directions.at(0) || brick_collision_directions.at(1)) {
                     // Update score
@@ -160,9 +200,9 @@ namespace brickbreaker {
                     new_game_ = false;
                     break;
 
-                case ci::app::KeyEvent::KEY_g:
-                    // Add a green particle
-                    //simulator_.AddParticle(ci::Color("green"));
+                case ci::app::KeyEvent::KEY_SPACE:
+                    // Resume game
+                    resume_game_ = true;
                     break;
             }
         }
@@ -217,6 +257,76 @@ namespace brickbreaker {
 
             Level level_default = Level(1, bricks);
             return level_default;
+        }
+
+
+        void BrickBreakerApp::DrawDefaultStage() {
+            // Set paddle setting to default position
+            //paddle_.SetPaddlePosition(paddle_initial_position);
+
+            // Set ball position to the paddle position
+            ball_.SetPosition(glm::vec2 {paddle_.GetPaddlePosition().x + (kPaddleWidth/2), paddle_.GetPaddlePosition().y - kBallRadius});
+
+            // Draw background
+            ci::gl::color(ci::Color8u(255, 255, 255));
+            ci::gl::Texture2dRef image = ci::gl::Texture::create(
+                    ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
+            ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
+
+            // Draw Scoreboard
+            ci::gl::drawStringCentered(
+                    std::to_string(score_),
+                    glm::vec2(2250.0f, 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+            ci::gl::drawStringCentered(
+                    std::to_string(ammo_),
+                    glm::vec2(2250.0f, 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+            ci::gl::drawStringCentered(
+                    std::to_string(lives_),
+                    glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+            ci::gl::drawStringCentered(
+                    std::to_string(high_score_),
+                    glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f + 425.0f), ci::Color("Black"),
+                    ci::Font("Impact", 200.0f));
+
+            // Draw level
+            current_level_.Draw();
+
+            // Draw the paddle
+            paddle_.Draw();
+
+            // Draw the ball
+            ball_.Draw();
+
+            // Draw pop-up message
+            ci::gl::color(ci::Color8u(160, 160, 160));
+
+            float x_1 = 400.0f;
+            float y_1 = 500.0f;
+            double length = 700.0f;
+            double width = 1100.0f;
+
+            glm::vec2 message_top_corner_ = {x_1, y_1};
+            glm::vec2 message_bottom_corner_ = {x_1 + width, y_1 + length};
+            ci::gl::drawSolidRect(ci::Rectf(message_top_corner_, message_bottom_corner_));
+
+            // Draw message
+            ci::gl::drawStringCentered(
+                    "Level " + std::to_string(current_level_.GetLevelNumber()),
+                    glm::vec2(x_1 + (width/2), y_1 + (length/10)), ci::Color("yellow"), ci::Font("Impact", 250.0f));
+
+            // Draw message
+            ci::gl::drawStringCentered(
+                    "Lives: " + std::to_string(lives_),
+                    glm::vec2(x_1 + (width/2), y_1 + (length/2)), ci::Color("yellow"), ci::Font("Impact", 150.0f));
+
+            // Draw message
+            ci::gl::drawStringCentered(
+                    "Press [Space] to Continue",
+                    glm::vec2(x_1 + (width/2), y_1 + (length * 3/4)), ci::Color("yellow"), ci::Font("Impact", 120.0f));
+
         }
     }
 }

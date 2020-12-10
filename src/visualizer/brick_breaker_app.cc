@@ -236,7 +236,7 @@ namespace brickbreaker {
 
             if(!has_game_ended_) {
                 // Determine if the level ended
-                if (current_level_.GetNumberDestroyableOfBricks() == 0 && resume_game_) {
+                if (current_level_.GetNumberOfDestroyableBricks() == 0 && resume_game_) {
                     // Determine if the player won
                     if (current_level_.GetLevelNumber() == kNumberOfLevels) {
                         has_game_ended_ = true;

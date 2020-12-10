@@ -17,15 +17,22 @@ public:
     /** Getter Methods */
     size_t GetLevelNumber();
 
-    size_t GetNumberDestroyableOfBricks();
+    size_t GetNumberOfDestroyableBricks();
 
     /** Setter Methods */
     void SetLevelNumber(size_t level);
 
-    std::vector<Brick> &Level::GetBricks();
+    const std::vector<Brick> &Level::GetBricks();
 
+    /**
+     * Alters the Brick type in order to illustrate damage after ball collision
+     * @param index int representing the index in which the brick is located in the vector<Brick> bricks_
+     */
     void ErodeBrick(size_t index);
 
+    /**
+     * Draws the Brick in the cinder application
+     */
     void Draw();
 };
 

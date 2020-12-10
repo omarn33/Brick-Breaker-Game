@@ -57,6 +57,9 @@ private:
     int lives_;
     size_t high_score_;
 
+    /** Screen Attributes */
+    bool new_game_;
+
 
 
 public:

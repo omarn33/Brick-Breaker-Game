@@ -19,68 +19,88 @@ namespace brickbreaker {
             lives_ = 3;
             high_score_ = 0;
             generate_new_level_ = true;
-
+            new_game_ = true;
         }
 
         void BrickBreakerApp::draw() {
-            // Draw background
-            ci::gl::color(ci::Color8u(255, 255, 255));
-            ci::gl::Texture2dRef image = ci::gl::Texture::create(
-                    ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
-            ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
 
+            if(new_game_) {
+                // Draw introduction screen
+                ci::Color8u background_color(0, 0, 0);
 
-            // Display Scoreboard
-            ci::gl::drawStringCentered(
-                    std::to_string(score_),
-                    glm::vec2(2250.0f, 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+                // Clear the background color
+                //ci::gl::clear(background_color);
 
-            ci::gl::drawStringCentered(
-                    std::to_string(ammo_),
-                    glm::vec2(2250.0f, 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+                ci::gl::drawStringCentered(
+                        "BrickBreaker",
+                        glm::vec2(kWindowWidth / 2, kWindowHeight / 4), ci::Color("white"), ci::Font("Arial", 300.0f));
 
-            ci::gl::drawStringCentered(
-                    std::to_string(lives_),
-                    glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
-
-            ci::gl::drawStringCentered(
-                    std::to_string(high_score_),
-                    glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
-
-
-            // Draw Container
-            ci::gl::color(container_color_);
-            ci::gl::drawStrokedRect(ci::Rectf(container_top_left_corner_,
-                                              container_bottom_right_corner_), kContainerWallStroke);
-
-            /*
-            // Display Brick Types
-            ci::gl::color(ci::Color8u(255, 255, 255));
-            ci::gl::Texture2dRef steel_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Steel_Brick.png"));
-            ci::gl::draw(steel_brick, ci::Rectf(glm::vec2 {1000.0f, 1000.0f}, glm::vec2 {1200.0f, 1100.0f}));
-
-            ci::gl::color(ci::Color8u(255, 255, 255));
-            ci::gl::Texture2dRef solid_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Solid_Brick.png"));
-            ci::gl::draw(solid_brick, ci::Rectf(glm::vec2 {1500.0f, 1500.0f}, glm::vec2 {1700.0f, 1600.0f}));
-
-            ci::gl::color(ci::Color8u(255, 255, 255));
-            ci::gl::Texture2dRef normal_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Normal_Brick.png"));
-            ci::gl::draw(normal_brick, ci::Rectf(glm::vec2 {900.0f, 900.0f}, glm::vec2 {1100.0f, 1000.0f}));
-             */
-
-            // Draw Paddle
-            paddle_.Draw();
-
-            // Draw Ball
-            ball_.Draw();
-
-            // Draw Level
-
-            if(generate_new_level_) {
-                current_level_ = GetLevel(current_level_.GetLevelNumber());
-                generate_new_level_ = false;
+                ci::gl::drawStringCentered(
+                        "Press [S] to Start Game",
+                        glm::vec2(kWindowWidth / 2, kWindowHeight / 2), ci::Color("white"), ci::Font("Arial", 150.0f));
             }
-            current_level_.Draw();
+            else {
+
+                // Draw background
+                ci::gl::color(ci::Color8u(255, 255, 255));
+                ci::gl::Texture2dRef image = ci::gl::Texture::create(
+                        ci::loadImage("C:\\Users\\Omar\\Desktop\\Background.png"));
+                ci::gl::draw(image, ci::Rectf(glm::vec2{0, 0}, glm::vec2{kWindowWidth, kWindowHeight}));
+
+
+                // Display Scoreboard
+                ci::gl::drawStringCentered(
+                        std::to_string(score_),
+                        glm::vec2(2250.0f, 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                ci::gl::drawStringCentered(
+                        std::to_string(ammo_),
+                        glm::vec2(2250.0f, 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                ci::gl::drawStringCentered(
+                        std::to_string(lives_),
+                        glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f), ci::Color("Black"), ci::Font("Impact", 200.0f));
+
+                ci::gl::drawStringCentered(
+                        std::to_string(high_score_),
+                        glm::vec2(2250.0f, 425.0f + 425.0f + 425.0f + 425.0f), ci::Color("Black"),
+                        ci::Font("Impact", 200.0f));
+
+
+                // Draw Container
+                ci::gl::color(container_color_);
+                ci::gl::drawStrokedRect(ci::Rectf(container_top_left_corner_,
+                                                  container_bottom_right_corner_), kContainerWallStroke);
+
+                /*
+                // Display Brick Types
+                ci::gl::color(ci::Color8u(255, 255, 255));
+                ci::gl::Texture2dRef steel_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Steel_Brick.png"));
+                ci::gl::draw(steel_brick, ci::Rectf(glm::vec2 {1000.0f, 1000.0f}, glm::vec2 {1200.0f, 1100.0f}));
+
+                ci::gl::color(ci::Color8u(255, 255, 255));
+                ci::gl::Texture2dRef solid_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Solid_Brick.png"));
+                ci::gl::draw(solid_brick, ci::Rectf(glm::vec2 {1500.0f, 1500.0f}, glm::vec2 {1700.0f, 1600.0f}));
+
+                ci::gl::color(ci::Color8u(255, 255, 255));
+                ci::gl::Texture2dRef normal_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Normal_Brick.png"));
+                ci::gl::draw(normal_brick, ci::Rectf(glm::vec2 {900.0f, 900.0f}, glm::vec2 {1100.0f, 1000.0f}));
+                 */
+
+                // Draw Paddle
+                paddle_.Draw();
+
+                // Draw Ball
+                ball_.Draw();
+
+                // Draw Level
+
+                if (generate_new_level_) {
+                    current_level_ = GetLevel(current_level_.GetLevelNumber());
+                    generate_new_level_ = false;
+                }
+                current_level_.Draw();
+            }
         }
 
         void BrickBreakerApp::update() {
@@ -135,9 +155,9 @@ namespace brickbreaker {
                     //paddle_.MovePaddleRight();
                     break;
 
-                case ci::app::KeyEvent::KEY_b:
-                    // Add a blue particle
-                    //simulator_.AddParticle(ci::Color("blue"));
+                case ci::app::KeyEvent::KEY_s:
+                    // Start Game
+                    new_game_ = false;
                     break;
 
                 case ci::app::KeyEvent::KEY_g:

@@ -12,7 +12,7 @@ namespace brickbreaker {
                                              ball_(kBallRadius, kBallColor, ball_initial_position_,
                                                    ball_initial_velocity_,
                                                    container_top_left_corner_, container_bottom_right_corner_, kContainerWallStroke),
-                                             current_level_(3, std::vector<Brick>{}) {
+                                             current_level_(1, std::vector<Brick>{}, 0) {
             ci::app::setWindowSize((int) kWindowWidth, (int) kWindowHeight);
             score_ = 0;
             ammo_ = 0;
@@ -229,34 +229,6 @@ namespace brickbreaker {
 
                 // Draw the ball
                 ball_.Draw();
-
-                /*
-                // Draw Container
-                ci::gl::color(container_color_);
-                ci::gl::drawStrokedRect(ci::Rectf(container_top_left_corner_,
-                                                  container_bottom_right_corner_), kContainerWallStroke);
-
-                // Display Brick Types
-                ci::gl::color(ci::Color8u(255, 255, 255));
-                ci::gl::Texture2dRef steel_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Steel_Brick.png"));
-                ci::gl::draw(steel_brick, ci::Rectf(glm::vec2 {1000.0f, 1000.0f}, glm::vec2 {1200.0f, 1100.0f}));
-
-                ci::gl::color(ci::Color8u(255, 255, 255));
-                ci::gl::Texture2dRef solid_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Solid_Brick.png"));
-                ci::gl::draw(solid_brick, ci::Rectf(glm::vec2 {1500.0f, 1500.0f}, glm::vec2 {1700.0f, 1600.0f}));
-
-                ci::gl::color(ci::Color8u(255, 255, 255));
-                ci::gl::Texture2dRef normal_brick = ci::gl::Texture::create(ci::loadImage("C:\\Users\\Omar\\Desktop\\Normal_Brick.png"));
-                ci::gl::draw(normal_brick, ci::Rectf(glm::vec2 {900.0f, 900.0f}, glm::vec2 {1100.0f, 1000.0f}));
-                 */
-
-                // Draw Paddle
-                //paddle_.Draw();
-
-                // Draw Ball
-                //ball_.Draw();
-
-                // Draw Level
             }
         }
 
@@ -264,7 +236,7 @@ namespace brickbreaker {
 
             if(!has_game_ended_) {
                 // Determine if the level ended
-                if (current_level_.GetBricks().size() == 0 && resume_game_) {
+                if (current_level_.GetNumberDestroyableOfBricks() == 0 && resume_game_) {
                     // Determine if the player won
                     if (current_level_.GetLevelNumber() == kNumberOfLevels) {
                         has_game_ended_ = true;
@@ -391,7 +363,7 @@ namespace brickbreaker {
                 bricks.push_back(brick_4);
 
                 // Add bricks to level 1
-                Level level_1 = Level(1, bricks);
+                Level level_1 = Level(1, bricks, 0);
 
                 return level_1;
             }
@@ -444,36 +416,36 @@ namespace brickbreaker {
                 // Section 2
                 float x_8 = 555.0f;
                 float y_8 = 750.0f;
-                Brick brick_8 = Brick(kNormalClay, kMedium, glm::vec2{x_8, y_8},
+                Brick brick_8 = Brick(kCrackedClay, kWeak, glm::vec2{x_8, y_8},
                                       glm::vec2{x_8 + kBrickWidth, y_8 + kBrickLength});
                 bricks.push_back(brick_8);
 
                 float x_9 = x_8 + kBrickWidth + brick_spacing;
                 float y_9 = y_8;
-                Brick brick_9 = Brick(kNormalClay, kMedium, glm::vec2{x_9, y_9},
+                Brick brick_9 = Brick(kCrackedClay, kWeak, glm::vec2{x_9, y_9},
                                       glm::vec2{x_9 + kBrickWidth, y_9 + kBrickLength});
                 bricks.push_back(brick_9);
 
                 float x_10 = x_9 + kBrickWidth + brick_spacing;
                 float y_10 = y_9;
-                Brick brick_10 = Brick(kNormalClay, kMedium, glm::vec2{x_10, y_10},
+                Brick brick_10 = Brick(kCrackedClay, kWeak, glm::vec2{x_10, y_10},
                                       glm::vec2{x_10 + kBrickWidth, y_10 + kBrickLength});
                 bricks.push_back(brick_10);
 
                 float x_11 = x_10 + kBrickWidth + brick_spacing;
                 float y_11 = y_10;
-                Brick brick_11 = Brick(kNormalClay, kMedium, glm::vec2{x_11, y_11},
+                Brick brick_11 = Brick(kCrackedClay, kWeak, glm::vec2{x_11, y_11},
                                        glm::vec2{x_11 + kBrickWidth, y_11 + kBrickLength});
                 bricks.push_back(brick_11);
 
                 float x_12 = x_11 + kBrickWidth + brick_spacing;
                 float y_12 = y_11;
-                Brick brick_12 = Brick(kNormalClay, kMedium, glm::vec2{x_12, y_12},
+                Brick brick_12 = Brick(kCrackedClay, kWeak, glm::vec2{x_12, y_12},
                                        glm::vec2{x_12 + kBrickWidth, y_12 + kBrickLength});
                 bricks.push_back(brick_12);
 
                 // Add bricks to level 2
-                Level level_2 = Level(2, bricks);
+                Level level_2 = Level(2, bricks, 0);
 
                 return level_2;
             } else if(level == 3) {
@@ -586,12 +558,25 @@ namespace brickbreaker {
                 bricks.push_back(brick_17);
 
                 // Add bricks to level 2
-                Level level_3 = Level(3, bricks);
+                Level level_3 = Level(3, bricks, 15);
 
                 return level_3;
+            } else if(level == 4) {
+                // Add bricks for Level 4
+
+                float x_1 = 937.5f;
+                float y_1 = 882.5f;
+                Brick brick_1 = Brick(kCrackedClay, kWeak, glm::vec2{x_1, y_1},
+                                      glm::vec2{x_1 + kBrickWidth, y_1 + kBrickLength});
+                bricks.push_back(brick_1);
+
+                // Add bricks to Level 4
+                Level level_4 = Level(4, bricks, 0);
+
+                return level_4;
             }
 
-            Level level_default = Level(0, bricks);
+            Level level_default = Level(0, bricks, 0);
             return level_default;
         }
 

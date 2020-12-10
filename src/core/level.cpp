@@ -2,17 +2,18 @@
 
 namespace brickbreaker {
 
-Level::Level(size_t level_number, const std::vector<Brick> &bricks) {
+Level::Level(size_t level_number, const std::vector<Brick> &bricks, size_t number_of_steel_bricks) {
     level_number_ = level_number;
     bricks_ = bricks;
+    number_of_steel_bricks_ = number_of_steel_bricks;
 }
 
 size_t Level::GetLevelNumber() {
     return level_number_;
 }
 
-size_t Level::GetNumberOfBricks() {
-    return bricks_.size();
+size_t Level::GetNumberDestroyableOfBricks() {
+    return (bricks_.size() - number_of_steel_bricks_);
 }
 
 void Level::SetLevelNumber(size_t level) {

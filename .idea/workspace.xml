@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+    <generated>
+      <config projectName="final-project" targetName="brick-breaker-test" />
+      <config projectName="final-project" targetName="brick-breaker-game" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -9,9 +30,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/PROPOSAL.md" beforeDir="false" afterPath="$PROJECT_DIR$/PROPOSAL.md" afterDir="false" />
+    <list default="true" id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="Create README.md file">
+      <change beforePath="$PROJECT_DIR$/include/core/ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/core/ball.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ball_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ball_test.cpp" afterDir="false" />
     </list>
+    <list id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +43,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -32,20 +56,465 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="CMake Application.brick-breaker-game">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Check Ball Bounces After Ball-Container Collision" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" temporary="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-test" TEST_METHOD="Check Ball Bounces After Ball-Container Collision" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="brick-breaker-test" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="brick-breaker-game" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="final-project" TARGET_NAME="brick-breaker-game" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="final-project" RUN_TARGET_NAME="brick-breaker-game">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Catch.brick-breaker-test" />
+      <item itemvalue="CMake Application.brick-breaker-game" />
+      <item itemvalue="Catch.Check Ball Bounces After Ball-Container Collision" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Catch.Check Ball Bounces After Ball-Container Collision" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8eb1d516-dbe7-4739-80b7-7c02086f31ef" name="Default Changelist" comment="" />
+      <changelist id="3bc56a4d-d108-4ca7-9654-9dea676fe510" name="Add UI features for drawing brick" comment="" />
       <created>1604440746396</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604440746396</updated>
-      <workItem from="1604440747746" duration="3247000" />
+      <workItem from="1604440747746" duration="3498000" />
+      <workItem from="1605674600591" duration="15619000" />
+      <workItem from="1605839730757" duration="774000" />
+      <workItem from="1606714620378" duration="102960000" />
     </task>
+    <task id="LOCAL-00001" summary="Add Project Proposal for Brick Breaker game">
+      <created>1604444027086</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604444027086</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Create folders for core and visualizer implementation">
+      <created>1605678470136</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605678470136</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add implementation to determine if the ball collided with the wall">
+      <created>1605683428210</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605683428210</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add Brick class">
+      <created>1605685691060</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605685691060</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add implementation to determine if the ball collided with a brick">
+      <created>1605794737847</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605794737847</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add implementation to determine if the ball collided with the paddle">
+      <created>1605794913614</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605794913614</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add tests for ball physics">
+      <created>1605814813507</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605814813507</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add implementation to update ball position after collision">
+      <created>1606890175013</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606890175013</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add UI features for drawing container and scoreboard">
+      <created>1606896142712</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606896142712</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add UI features for drawing ball">
+      <created>1606971613621</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1606971613621</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add UI features for drawing brick">
+      <created>1606972702430</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1606972702430</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add UI features for drawing brick">
+      <created>1606972731063</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1606972731063</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Implement level class to store bricks for each level">
+      <created>1606975286007</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1606975286007</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Generate bricks for Level 1">
+      <created>1606981231566</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606981231566</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix detection errors during ball and brick collisions">
+      <created>1607502246238</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607502246238</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Create Paddle class">
+      <created>1607507122066</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1607507122066</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Implement Paddle maneuvering methods">
+      <created>1607508350296</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1607508350296</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add method calculate ball velocity after paddle collision">
+      <created>1607511088818</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1607511088818</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Display scoreboard on cinder application">
+      <created>1607512270720</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1607512270720</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add implementation to erode bricks after ball-brick collision">
+      <created>1607567633260</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1607567633261</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fix paddle maneuvering using mouseMove method">
+      <created>1607574369577</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1607574369577</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Determine if the ball collided with the floor">
+      <created>1607575098185</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1607575098185</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Implement introduction screen">
+      <created>1607576307514</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1607576307514</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Implement game message between levels">
+      <created>1607582446856</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1607582446856</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Implement win message">
+      <created>1607589658439</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1607589658439</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Implement game over message">
+      <created>1607590418079</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1607590418079</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Create level 2 bricks">
+      <created>1607594834812</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1607594834812</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Create level 3 bricks">
+      <created>1607596985224</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1607596985224</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Create level 4 bricks">
+      <created>1607598015403</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1607598015403</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Add documentation for Ball class">
+      <created>1607599539121</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1607599539121</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Add documentation for Brick class">
+      <created>1607599763802</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1607599763802</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Add documentation for Level class">
+      <created>1607600065511</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1607600065511</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Add documentation for Paddle class">
+      <created>1607600760366</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1607600760366</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Add documentation for BrickBreakerApp class">
+      <created>1607603831322</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1607603831322</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Add image files for paddle, bricks, and ball">
+      <created>1607604028415</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1607604028415</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Add image files for paddle, bricks, and ball">
+      <created>1607604038577</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1607604038577</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Add asset folder to contain all images">
+      <created>1607606304565</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1607606304565</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Add background image to asset folder">
+      <created>1607606464651</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1607606464651</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Create README.md file">
+      <created>1607608127485</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1607608127485</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/week2" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/week2" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Generate bricks for Level 1" />
+    <MESSAGE value="Fix detection errors during ball and brick collisions" />
+    <MESSAGE value="Create Paddle class" />
+    <MESSAGE value="Implement Paddle maneuvering methods" />
+    <MESSAGE value="Add method calculate ball velocity after paddle collision" />
+    <MESSAGE value="Display scoreboard on cinder application" />
+    <MESSAGE value="Add implementation to erode bricks after ball-brick collision" />
+    <MESSAGE value="Fix paddle maneuvering using mouseMove method" />
+    <MESSAGE value="Determine if the ball collided with the floor" />
+    <MESSAGE value="Implement introduction screen" />
+    <MESSAGE value="Implement game message between levels" />
+    <MESSAGE value="Implement win message" />
+    <MESSAGE value="Implement game over message" />
+    <MESSAGE value="Create level 2 bricks" />
+    <MESSAGE value="Create level 3 bricks" />
+    <MESSAGE value="Create level 4 bricks" />
+    <MESSAGE value="Add documentation for Ball class" />
+    <MESSAGE value="Add documentation for Brick class" />
+    <MESSAGE value="Add documentation for Level class" />
+    <MESSAGE value="Add documentation for Paddle class" />
+    <MESSAGE value="Add documentation for BrickBreakerApp class" />
+    <MESSAGE value="Add image files for paddle, bricks, and ball" />
+    <MESSAGE value="Add asset folder to contain all images" />
+    <MESSAGE value="Add background image to asset folder" />
+    <MESSAGE value="Create README.md file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create README.md file" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607598103906">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="500" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1607598103906" />
+    <state x="550" y="168" key="FileChooserDialogImpl" timestamp="1605839903937">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605839903937" />
+    <state width="1493" height="148" key="GridCell.Tab.0.bottom" timestamp="1607610440923">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="148" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607610440923" />
+    <state width="1493" height="148" key="GridCell.Tab.0.center" timestamp="1607610440923">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="148" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607610440923" />
+    <state width="1493" height="148" key="GridCell.Tab.0.left" timestamp="1607610440922">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="148" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607610440922" />
+    <state width="1493" height="148" key="GridCell.Tab.0.right" timestamp="1607610440923">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="148" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607610440923" />
+    <state width="1493" height="280" key="GridCell.Tab.1.bottom" timestamp="1607604511269">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="280" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607604511269" />
+    <state width="1493" height="280" key="GridCell.Tab.1.center" timestamp="1607604511269">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="280" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607604511269" />
+    <state width="1493" height="280" key="GridCell.Tab.1.left" timestamp="1607604511269">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="280" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607604511269" />
+    <state width="1493" height="280" key="GridCell.Tab.1.right" timestamp="1607604511269">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="280" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607604511269" />
+    <state x="279" y="58" key="SettingsEditor" timestamp="1605681926580">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605681926580" />
+    <state x="618" y="326" key="VCS.ChangelistChooser" timestamp="1606972723013">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606972723013" />
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2" timestamp="1607608132992">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="362" y="133" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607608132992" />
+    <state x="426" y="188" key="run.anything.popup" timestamp="1607489866838">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="426" y="188" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1607489866838" />
   </component>
 </project>
